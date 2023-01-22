@@ -4,7 +4,7 @@
     Team 15
 
 <h2>Team Members</h2>
-<br />Korpalo,    Ivan
+Korpalo,    Ivan
 <br />McKinley,   Riley
 <br />Moras,      Alston
 <br />Nguyen,     Brian
