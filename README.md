@@ -4,7 +4,7 @@
     Team 15
 
 <h2>Team Members</h2>
-    Korpalo,    Ivan
-    McKinley,   Riley
-    Moras,      Alston
-    Nguyen,     Brian
+<br />Korpalo,    Ivan
+<br />McKinley,   Riley
+<br />Moras,      Alston
+<br />Nguyen,     Brian
