@@ -16,9 +16,10 @@ public class ClientConnection {
 
         try {
             client = new Socket(InetAddress.getLocalHost(), PORT);
+            System.out.println("Client IP Address: " + client.getLocalAddress());
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
             out = new PrintWriter(client.getOutputStream(), true);
-        } catch(IOException e) {}
+        } catch(IOException e) {System.out.println("FAILED!\n");}
 
     }
 
@@ -27,5 +28,20 @@ public class ClientConnection {
         out.write(order);
         out.flush();
     }
-    
+
+    public void close() {
+        
+        try {
+            out.close();
+            in.close();
+            client.close();
+        } catch(IOException e) {}
+    }
+
+    public static void main(String args[]) {
+
+        ClientConnection cc = new ClientConnection();
+        cc.sendOrder("PIZZA!\n");
+        cc.close();
+    }
 }
