@@ -17,14 +17,13 @@ public class RestaurantServer {
         String order = "";
         
         try {
+            ServerSocket serverSocket = new ServerSocket(PORT);
             while(true) {
-                ServerSocket serverSocket = new ServerSocket(PORT);
-                System.out.println("IP Address: " + InetAddress.getLocalHost());
                 clientSocket = serverSocket.accept();
                 HandleClient handleClient = new HandleClient(clientSocket);
                 handleClient.start();
             }
-        } catch(IOException e) {System.out.println("ERROR!\n");}    
+        } catch(IOException e) {System.out.println("ERROR!\n" + e);}    
     }
 
     public static void main(String args[]) {

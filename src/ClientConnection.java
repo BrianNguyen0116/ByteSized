@@ -7,16 +7,14 @@ import java.net.Socket;
 
 public class ClientConnection {
 
-    final int PORT = 2000;
     Socket client;
     BufferedReader in;
     PrintWriter out;
 
-    public ClientConnection() {
+    public ClientConnection(int port) {
 
         try {
-            client = new Socket(InetAddress.getLocalHost(), PORT);
-            System.out.println("Client IP Address: " + client.getLocalAddress());
+            client = new Socket(InetAddress.getLocalHost(), port);
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
             out = new PrintWriter(client.getOutputStream(), true);
         } catch(IOException e) {System.out.println("FAILED!\n");}
@@ -40,7 +38,7 @@ public class ClientConnection {
 
     public static void main(String args[]) {
 
-        ClientConnection cc = new ClientConnection();
+        ClientConnection cc = new ClientConnection(Integer.parseInt(args[0]));
         cc.sendOrder("PIZZA!\n");
         cc.close();
     }
