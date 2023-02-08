@@ -11,21 +11,37 @@ Participants only need their surname. It gives space and none of us share the sa
 
 DATE : 01/30/2023 
 --
-MEET : 0H30M : Asynchronous Meeting(General Discussion and Task Organization)
-TASK : 3H30M : GitHub Preparation and File Allocation : Nguyen
+MEET : 00H30M : Asynchronous Meeting(General Discussion and Task Organization)
+TASK : 03H30M : GitHub Preparation and File Allocation : Nguyen
 
 
 DATE : 07/30/2023
 --
-MEET : 6H00M : Meeting (Task Assigning and Class and Object Discussion)
-TASK : 2H00M : GUI Set Up (JavaFX) : Nguyen
+MEET : 06H00M : Meeting (Task Assigning and Class and Object Discussion)
+TASK : 02H00M : GUI Set Up (JavaFX) : Nguyen
 
 
 DATE : 08/30/2023
 --
-TASK : 3H00M : GUI Further Development (Class and Content) : Nguyen
+TASK : 03H00M : GUI Further Development (Class and Content) : Nguyen
 
 
+DATE : 02/05/2023
+--
+TASK : Implement restaurant server class : McKinley
+DURATION : 03H00M
+
+
+DATE : 02/06/2023
+--
+TASK : Implement client side for the server : McKinley
+DURATION : 05H00M
+
+
+DATE : 02/08/2023
+--
+TASK : Fix minor details such as variable names and code conciseness
+DURATION : 03H00M
 
 
 [a]Please read the footer. Thanks :D
