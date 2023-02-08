@@ -4,8 +4,8 @@ import java.net.Socket;
 
 public class RestaurantServer {
         
-    final int PORT = 2000;
-    Socket clientSocket;
+    private final int PORT = 2000;
+    private Socket clientSocket;
 
     public void createServer() {
 

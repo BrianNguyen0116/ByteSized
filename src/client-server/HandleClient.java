@@ -3,15 +3,13 @@ import java.net.Socket;
 
 public class HandleClient extends Thread{
 
-    Socket client;
-    PrintWriter out;
-    BufferedReader in;
+    private Socket client;
+    private BufferedReader in;
     
     public HandleClient(Socket socket) {
         
         this.client = socket;
         try {
-            out = new PrintWriter(client.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
         } catch(IOException e) {}
     }
