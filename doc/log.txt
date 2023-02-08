@@ -1,0 +1,31 @@
+﻿# Byte-Sized[a]
+EECS3311 Section M .:. Team 14 .:.
+
+
+:....:
+Delete after final draft:
+Meetings do not need to list the participants. Assume all members are attending, asynchronous or not.
+Participants only need their surname. It gives space and none of us share the same one.
+:....:
+
+
+DATE : 01/30/2023 
+--
+MEET : 0H30M : Asynchronous Meeting(General Discussion and Task Organization)
+TASK : 3H30M : GitHub Preparation and File Allocation : Nguyen
+
+
+DATE : 07/30/2023
+--
+MEET : 6H00M : Meeting (Task Assigning and Class and Object Discussion)
+TASK : 2H00M : GUI Set Up (JavaFX) : Nguyen
+
+
+DATE : 08/30/2023
+--
+TASK : 3H00M : GUI Further Development (Class and Content) : Nguyen
+
+
+
+
+[a]Please read the footer. Thanks :D
