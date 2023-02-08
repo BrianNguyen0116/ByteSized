@@ -39,7 +39,7 @@ public class ClientConnection {
     public static void main(String args[]) {
 
         ClientConnection cc = new ClientConnection(Integer.parseInt(args[0]));
-        cc.sendOrder("PIZZA!\n");
+        //cc.sendOrder("PIZZA!\n");
         cc.close();
     }
 }
