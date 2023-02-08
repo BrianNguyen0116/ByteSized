@@ -18,7 +18,7 @@ public class HandleClient extends Thread{
 
     public void run() {
 
-        String order = "", newLine;
+        String order = null, newLine;
 
         try {
             while((newLine = in.readLine()) != null)

@@ -7,6 +7,7 @@ import java.net.Socket;
 
 public class ClientConnection {
 
+    final int PORT = 2000;
     Socket client;
     BufferedReader in;
     PrintWriter out;
@@ -14,7 +15,7 @@ public class ClientConnection {
     public ClientConnection(int port) {
 
         try {
-            client = new Socket(InetAddress.getLocalHost(), port);
+            client = new Socket(InetAddress.getLocalHost(), 2000);
             in = new BufferedReader(new InputStreamReader(client.getInputStream()));
             out = new PrintWriter(client.getOutputStream(), true);
         } catch(IOException e) {System.out.println("FAILED!\n");}
