@@ -1,32 +1,47 @@
-package gui;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+public class Main {
 
-public class Main extends Application {
-	
-		@Override
-		public void start(Stage primaryStage) throws Exception {
-			Parent root = FXMLLoader.load(getClass().getResource("\scene.fxml"));
-			primaryStage.setTitle("Byte-Sized");
-			
-			// Content
-			
-			
-			// Scene Configuration
-			Scene scene = new Scene(root, 400, 400);
-			
-			
-			// Start-up
-			primaryStage.setScene(scene);
-			primaryStage.show();
+	protected Shell shell;
+
+	/**
+	 * Launch the application.
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		try {
+			Main window = new Main();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+	}
 
-		public static void main(String[] args) {
-			launch(args);
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+		Display display = Display.getDefault();
+		createContents();
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
 		}
+	}
+
+	/**
+	 * Create contents of the window.
+	 */
+	protected void createContents() {
+		shell = new Shell();
+		shell.setSize(498, 355);
+		shell.setText("SWT Application");
+
+	}
 
 }
