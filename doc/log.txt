@@ -31,11 +31,15 @@ DATE : 02/07/2023
 --
 MEET : 06H00M : Meeting (Task Assigning and Class and Object Discussion)
 TASK : 02H00M : GUI Set Up (JavaFX) : Nguyen
+TASK : 02H00M : Pizza Class UML Setup : Mustafa
+TASK : 00H30M : Create JSON dummy data for development purposes : Mustafa
+
 
 
 DATE : 02/08/2023
 --
 TASK : 03H00M : GUI Further Development (Class and Content) : Nguyen
+TASK : 03H00M : Contrust the Pizza class and all customization methods : Mustafa 
 
 
 DATE : 02/08/2023
