@@ -13,6 +13,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 import javax.swing.BoxLayout;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
 
 
 public class Main extends JFrame {
@@ -45,7 +49,7 @@ public class Main extends JFrame {
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 476, 560);
+		setBounds(100, 100, 449, 631);
 	
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,25 +57,41 @@ public class Main extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		/**
+		 * Styling
+		 */
+		
+		
+		
+		/**
+		 * Cart
+		 */
+		
 		JPanel pizza = new JPanel();
-		pizza.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		pizza.setBounds(0, 30, 150, 475);
+		pizza.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		pizza.setBounds(-1, 0, 150, 592);
 		contentPane.add(pizza);
 		pizza.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Pizza");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(10, 11, 130, 14);
+		lblNewLabel.setBounds(10, 7, 130, 14);
 		pizza.add(lblNewLabel);
 		
 		JPanel cart = new JPanel();
-		cart.setBounds(10, 29, 130, 435);
+		cart.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		cart.setBounds(10, 29, 130, 518);
 		pizza.add(cart);
 		cart.setLayout(new BoxLayout(cart, BoxLayout.X_AXIS));
+		JButton btnCheckout = new JButton("Checkout");
+		btnCheckout.setBounds(11, 558, 127, 23);
+		pizza.add(btnCheckout);
+		btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
 		JPanel size = new JPanel();
 		size.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		size.setBounds(148, 30, 286, 54);
+		size.setBounds(148, 0, 283, 54);
 		contentPane.add(size);
 		size.setLayout(null);
 		
@@ -80,32 +100,37 @@ public class Main extends JFrame {
 		 */
 		ButtonGroup rbtnSize = new ButtonGroup();
 		
-		JRadioButton rdbtnS = new JRadioButton("S");
-		rdbtnS.setBounds(10, 24, 54, 23);
+		JRadioButton rdbtnS = new JRadioButton("Small");
+		rdbtnS.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnS.setBounds(10, 24, 69, 23);
 		size.add(rdbtnS);
 		
-		JRadioButton rdbtnM = new JRadioButton("M");
-		rdbtnM.setBounds(66, 24, 73, 23);
+		JRadioButton rdbtnM = new JRadioButton("Medium");
+		rdbtnM.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnM.setBounds(76, 24, 69, 23);
 		size.add(rdbtnM);
 		
-		JRadioButton rdbtnL = new JRadioButton("L");
-		rdbtnL.setBounds(141, 24, 60, 23);
+		JRadioButton rdbtnL = new JRadioButton("Large");
+		rdbtnL.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnL.setBounds(147, 24, 59, 23);
 		size.add(rdbtnL);
 		
-		JRadioButton rdbtnXL = new JRadioButton("XL");
-		rdbtnXL.setBounds(203, 24, 73, 23);
+		JRadioButton rdbtnXL = new JRadioButton("X-Large");
+		rdbtnXL.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnXL.setBounds(207, 24, 69, 23);
 		size.add(rdbtnXL);
 		
 		rbtnSize.add(rdbtnS); rbtnSize.add(rdbtnM); rbtnSize.add(rdbtnL); rbtnSize.add(rdbtnXL);
 		
 		JLabel lblNewLabel_2 = new JLabel("Size");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(10, 7, 266, 14);
 		size.add(lblNewLabel_2);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		JPanel crescent = new JPanel();
 		crescent.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		crescent.setBounds(148, 83, 286, 62);
+		crescent.setBounds(148, 53, 283, 62);
 		contentPane.add(crescent);
 		crescent.setLayout(null);
 		
@@ -115,24 +140,29 @@ public class Main extends JFrame {
 		ButtonGroup rbtnCrescent = new ButtonGroup();
 		
 		JRadioButton rdbtnPan = new JRadioButton("Pan");
-		rdbtnPan.setBounds(227, 30, 53, 23);
+		rdbtnPan.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnPan.setBounds(208, 30, 60, 23);
 		crescent.add(rdbtnPan);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Crescent");
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2_1.setBounds(10, 9, 266, 14);
 		crescent.add(lblNewLabel_2_1);
 		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		JRadioButton rdbtnStuffed = new JRadioButton("Stuffed");
-		rdbtnStuffed.setBounds(10, 30, 69, 23);
+		rdbtnStuffed.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnStuffed.setBounds(10, 30, 64, 23);
 		crescent.add(rdbtnStuffed);
 		
 		JRadioButton rdbtnHomestyle = new JRadioButton("Homestyle");
-		rdbtnHomestyle.setBounds(81, 30, 87, 23);
+		rdbtnHomestyle.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnHomestyle.setBounds(76, 30, 75, 23);
 		crescent.add(rdbtnHomestyle);
 		
 		JRadioButton rdbtnThin = new JRadioButton("Thin");
-		rdbtnThin.setBounds(170, 30, 55, 23);
+		rdbtnThin.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnThin.setBounds(149, 30, 57, 23);
 		crescent.add(rdbtnThin);
 		
 		rbtnCrescent.add(rdbtnPan); rbtnCrescent.add(rdbtnStuffed); rbtnCrescent.add(rdbtnHomestyle); rbtnCrescent.add(rdbtnThin);
@@ -140,7 +170,7 @@ public class Main extends JFrame {
 		JPanel sauces = new JPanel();
 		sauces.setLayout(null);
 		sauces.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		sauces.setBounds(148, 145, 286, 86);
+		sauces.setBounds(149, 115, 282, 90);
 		contentPane.add(sauces);
 		
 		/**
@@ -150,24 +180,29 @@ public class Main extends JFrame {
 		ButtonGroup rdbtnSauce = new ButtonGroup();
 		
 		JRadioButton rdbtnNoSauce = new JRadioButton("No Sauce");
-		rdbtnNoSauce.setBounds(152, 52, 128, 23);
+		rdbtnNoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnNoSauce.setBounds(151, 56, 129, 23);
 		sauces.add(rdbtnNoSauce);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Sauce");
-		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1.setBounds(6, 5, 43, 14);
+		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_2_1_1.setBounds(11, 10, 268, 14);
 		sauces.add(lblNewLabel_2_1_1);
 		
 		JRadioButton rdbtnTomato = new JRadioButton("Tomato Sauce");
-		rdbtnTomato.setBounds(6, 24, 143, 23);
+		rdbtnTomato.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnTomato.setBounds(11, 28, 138, 23);
 		sauces.add(rdbtnTomato);
 		
 		JRadioButton rdbtnAlfredoSauce = new JRadioButton("Alfredo Sauce");
-		rdbtnAlfredoSauce.setBounds(6, 52, 143, 23);
+		rdbtnAlfredoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnAlfredoSauce.setBounds(11, 56, 138, 23);
 		sauces.add(rdbtnAlfredoSauce);
 		
 		JRadioButton rdbtnBbqSauce = new JRadioButton("BBQ Sauce");
-		rdbtnBbqSauce.setBounds(151, 24, 129, 23);
+		rdbtnBbqSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnBbqSauce.setBounds(151, 28, 129, 23);
 		sauces.add(rdbtnBbqSauce);
 		
 		rdbtnSauce.add(rdbtnBbqSauce); rdbtnSauce.add(rdbtnAlfredoSauce); rdbtnSauce.add(rdbtnTomato); rdbtnSauce.add(rdbtnNoSauce);
@@ -175,7 +210,7 @@ public class Main extends JFrame {
 		JPanel toppings = new JPanel();
 		toppings.setLayout(null);
 		toppings.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		toppings.setBounds(148, 230, 286, 244);
+		toppings.setBounds(148, 204, 283, 265);
 		contentPane.add(toppings);
 		
 		/**
@@ -183,78 +218,123 @@ public class Main extends JFrame {
 		 */
 		
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("Topping");
-		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1_1_1.setBounds(12, 11, 43, 14);
+		lblNewLabel_2_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_2_1_1_1.setBounds(12, 11, 264, 14);
 		toppings.add(lblNewLabel_2_1_1_1);
 		
 		JButton btnNewButton = new JButton("Add");
-		btnNewButton.setBounds(194, 40, 63, 23);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton.setBounds(208, 40, 63, 23);
 		toppings.add(btnNewButton);
 		
 		JLabel lblNewLabel_3 = new JLabel("Pepperoni");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3.setBounds(12, 43, 146, 14);
 		toppings.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Bacon");
+		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1.setBounds(12, 67, 146, 14);
 		toppings.add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_3_1_1 = new JLabel("Italian Sausage");
+		lblNewLabel_3_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1.setBounds(12, 92, 146, 14);
 		toppings.add(lblNewLabel_3_1_1);
 		
-		JLabel lblNewLabel_3_1_1_1 = new JLabel("Jalapenos");
+		JLabel lblNewLabel_3_1_1_1 = new JLabel("Jalapeno");
+		lblNewLabel_3_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1_1.setBounds(12, 117, 146, 14);
 		toppings.add(lblNewLabel_3_1_1_1);
 		
 		JLabel lblNewLabel_3_1_1_1_1 = new JLabel("Mushroom");
+		lblNewLabel_3_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1_1_1.setBounds(12, 142, 146, 14);
 		toppings.add(lblNewLabel_3_1_1_1_1);
 		
 		JLabel lblNewLabel_3_1_1_1_1_1 = new JLabel("Pineapple");
+		lblNewLabel_3_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1_1_1_1.setBounds(12, 167, 146, 14);
 		toppings.add(lblNewLabel_3_1_1_1_1_1);
 		
 		JLabel lblNewLabel_3_1_1_1_1_1_1 = new JLabel("Parmesan Cheese");
+		lblNewLabel_3_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1_1_1_1_1.setBounds(12, 192, 146, 14);
 		toppings.add(lblNewLabel_3_1_1_1_1_1_1);
 		
 		JButton btnNewButton_1 = new JButton("Add");
-		btnNewButton_1.setBounds(194, 64, 63, 23);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_1.setBounds(208, 64, 63, 23);
 		toppings.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Add");
-		btnNewButton_1_1.setBounds(194, 89, 63, 23);
+		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_1_1.setBounds(208, 89, 63, 23);
 		toppings.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1.setBounds(194, 114, 63, 23);
+		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_1_1_1.setBounds(208, 114, 63, 23);
 		toppings.add(btnNewButton_1_1_1);
 		
 		JButton btnNewButton_1_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1_1.setBounds(194, 139, 63, 23);
+		btnNewButton_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_1_1_1_1.setBounds(208, 139, 63, 23);
 		toppings.add(btnNewButton_1_1_1_1);
 		
 		JButton btnNewButton_1_1_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1_1_1.setBounds(194, 164, 63, 23);
+		btnNewButton_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_1_1_1_1_1.setBounds(208, 164, 63, 23);
 		toppings.add(btnNewButton_1_1_1_1_1);
 		
 		JButton btnNewButton_1_1_1_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1_1_1_1.setBounds(194, 189, 63, 23);
+		btnNewButton_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_1_1_1_1_1_1.setBounds(208, 189, 63, 23);
 		toppings.add(btnNewButton_1_1_1_1_1_1);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel.setBounds(148, 472, 286, 33);
-		contentPane.add(panel);
+		JLabel lblNewLabel_3_1_1_1_1_1_1_1 = new JLabel("Tomato");
+		lblNewLabel_3_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_3_1_1_1_1_1_1_1.setBounds(12, 217, 146, 14);
+		toppings.add(lblNewLabel_3_1_1_1_1_1_1_1);
 		
-		/**
-		 *  Checkout
-		 */
-		panel.setLayout(null);
-		JButton btnCheckout = new JButton("Checkout");
-		btnCheckout.setBounds(104, 5, 77, 23);
-		panel.add(btnCheckout);
+		JButton btnNewButton_1_1_1_1_1_1_1 = new JButton("Add");
+		btnNewButton_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_1_1_1_1_1_1_1.setBounds(208, 213, 63, 23);
+		toppings.add(btnNewButton_1_1_1_1_1_1_1);
+		
+		JLabel lblNewLabel_3_1_1_1_1_1_1_1_1 = new JLabel("Roasted Garlic");
+		lblNewLabel_3_1_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_3_1_1_1_1_1_1_1_1.setBounds(12, 242, 146, 14);
+		toppings.add(lblNewLabel_3_1_1_1_1_1_1_1_1);
+		
+		JButton btnNewButton_1_1_1_1_1_1_1_1 = new JButton("Add");
+		btnNewButton_1_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_1_1_1_1_1_1_1_1.setBounds(208, 238, 63, 23);
+		toppings.add(btnNewButton_1_1_1_1_1_1_1_1);
+		
+		JPanel sauces_1 = new JPanel();
+		sauces_1.setLayout(null);
+		sauces_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		sauces_1.setBounds(148, 469, 283, 123);
+		contentPane.add(sauces_1);
+		
+		JLabel lblNewLabel_2_1_1_2 = new JLabel("Special Instructions");
+		lblNewLabel_2_1_1_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_2_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblNewLabel_2_1_1_2.setBounds(10, 5, 268, 14);
+		sauces_1.add(lblNewLabel_2_1_1_2);
+		
+		JPanel instructions = new JPanel();
+		instructions.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		instructions.setBounds(10, 22, 263, 90);
+		sauces_1.add(instructions);
+		instructions.setLayout(null);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(1, 1, 260, 87);
+		instructions.add(textArea);
+		textArea.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
