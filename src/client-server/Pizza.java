@@ -4,14 +4,16 @@ public class Pizza {
 	public String size;
 	public String[] toppings;
 	public String crescent;
-	public String[] sauces; 
+	public String[] sauces;
+	public String special_instructions;
 	
 	
-	public Pizza(){
+	public Pizza(String size, String special_instructions, String crescent, String[] toppings, String[] sauces){
 		this.size = size;
 		this.crescent = crescent;
 		this.toppings = toppings;
 		this.sauces = sauces;
+		this.special_instructions = special_instructions;
 	}
 	
 	//GETTERS
@@ -31,6 +33,10 @@ public class Pizza {
 		return this.sauces;
 	}
 	
+	public String getInst() {
+		return this.special_instructions;
+	}
+	
 	// SETTERS
 	public void setSize(String size) {
 		this.size = size;
@@ -46,6 +52,14 @@ public class Pizza {
 	
 	public void setsauces(String[] sauces) {
 		this.sauces = sauces;
+	}
+	
+	public void setInstructions(String instructions) {
+		this.special_instructions = instructions;
+	}
+	
+	public void removeInstructions() {
+		this.special_instructions = "";
 	}
 	
 	public String[] addTopping(String topping) {
