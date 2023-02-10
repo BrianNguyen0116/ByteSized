@@ -321,7 +321,16 @@ public class Main extends JFrame implements ActionListener {
 		btnrPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnrPepperoni.setBounds(197, 38, 71, 23);
 		toppings.add(btnrPepperoni);
-		
+		 
+		toppingLabel(toppings, "Bacon", 63, 50);
+		toppingLabel(toppings, "Italian Sausage", 88, 50);
+		toppingLabel(toppings, "Jalapenos", 113, 50);
+		toppingLabel(toppings, "Mushroom", 138, 50);
+		toppingLabel(toppings, "Pineapple", 163, 50);
+		toppingLabel(toppings, "Mozzarella Cheese", 188, 50);
+		toppingLabel(toppings, "Green Peppers", 213, 50);
+		toppingLabel(toppings, "Olives", 238, 50);
+		/*
 		//Bacon
 		JLabel lblBacon = new JLabel("Bacon");
 		lblBacon.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -494,7 +503,7 @@ public class Main extends JFrame implements ActionListener {
 		lblpriceOlives.setHorizontalAlignment(SwingConstants.CENTER);
 		lblpriceOlives.setBounds(278, 242, 46, 14);
 		toppings.add(lblpriceOlives);
-		
+		*/
 
 		
 		/**
@@ -530,6 +539,25 @@ public class Main extends JFrame implements ActionListener {
 		});
 		
 	}
+	
+	private void toppingLabel(JPanel host, String name, int coord, int price) {
+		JLabel lbl = new JLabel(name);
+		Font text = new Font("Tahoma", Font.PLAIN, 11);
+		lbl.setFont(text);
+		lbl.setBounds(12, coord + 4, 109, 14);
+		host.add(lbl);
+		
+		JButton btnl = new JButton("Add");
+		btnl.setFont(text);
+		btnl.setBounds(121, coord, 71, 23);
+		host.add(btnl);
+		
+		JButton btnr = new JButton("Remove");
+		btnr.setFont(text);
+		btnr.setBounds(197, coord, 71, 23);
+		host.add(btnr);
+
+	 }
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
