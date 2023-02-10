@@ -10,8 +10,4 @@ If you're using an IDE, you are able to run the main class that is src/guiMain/M
 If you're not using an IDE, there is an executable jar file in the front-most directory capable of running the program. It is named ByteSized.jar.
 
 ###### Authors
-Alston Moras
-Riley McKinley
-Ivan Korpalo
-Mustafa Kharnoub
-Brian Nguyen
+Alston Moras, Riley McKinley, Ivan Korpalo, Mustafa Kharnoub, Brian Nguyen
