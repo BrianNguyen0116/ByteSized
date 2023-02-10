@@ -319,7 +319,7 @@ public class Main extends JFrame {
 		btnrPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnrPepperoni.setBounds(197, 38, 71, 23);
 		toppings.add(btnrPepperoni);
-		 
+
 		toppingLabel(toppings, "Bacon", 63, 50);
 		toppingLabel(toppings, "Italian Sausage", 88, 50);
 		toppingLabel(toppings, "Jalapenos", 113, 50);
@@ -329,11 +329,20 @@ public class Main extends JFrame {
 		toppingLabel(toppings, "Green Peppers", 213, 50);
 		toppingLabel(toppings, "Olives", 238, 50);
 
-		// Topping Pricing
-		JLabel lblpricePepperoni = new JLabel("$0.5");
-		lblpricePepperoni.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpricePepperoni.setBounds(278, 43, 46, 14);
-		toppings.add(lblpricePepperoni);
+		Item[] toppingdata = {
+				new Item("Bacon", 50),
+				new Item("Italian Sausage", 50),
+				new Item("Jalapenos", 125),
+				new Item("Mushroom", 75),
+				new Item("Pineapple", 290),
+				new Item("Mozzarella Cheese", 35),
+				new Item("Green Peppers", 90),
+				new Item("Olives", 45)
+		};
+		 
+		for (int i = 0; i < toppingdata.length; i++) {
+			toppingLabel(toppings, toppingdata[i].getName(), 63 + i * 25, toppingdata[i].getPrice());
+		}
 		
 		/**
 		 * Miscellaneous
