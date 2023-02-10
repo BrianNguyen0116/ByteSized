@@ -41,12 +41,8 @@ DATE : 02/08/2023
 TASK : 03H00M : GUI Further Development (Class and Content) : Nguyen
 TASK : 03H00M : Contrust the Pizza class and all customization methods : Mustafa 
 TASK : 00H30M : Fix Pizza Constructor and handle special instructions : Mustafa
+TASK : 03H00M : Fix minor details such as variable names and code conciseness : McKinley
 
-
-DATE : 02/08/2023
+DATE : 02/09/2023
 --
-TASK : Fix minor details such as variable names and code conciseness : McKinley
-DURATION : 03H00M
-
-
-[a]Please read the footer. Thanks :D
+TASK : 09H00M : GUI base swapped from JavaFX to Java Swing. Further Development : Nguyen 
