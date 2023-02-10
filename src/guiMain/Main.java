@@ -29,6 +29,7 @@ public class Main extends JFrame {
 	String cartList, sizeList, crescentList, sauceList, ingredientsList;
 	JLabel lblTotal = new JLabel();
 	JTextArea receipt = new JTextArea();
+	JTextArea textInstructions = new JTextArea();
 	JRadioButton rdbtnS, rdbtnM, rdbtnL, rdbtnXL;
 	JRadioButton rdbtnStuffed, rdbtnPan, rdbtnHomestyle, rdbtnThin;
 	JRadioButton rdbtnTomato, rdbtnBbqSauce, rdbtnAlfredoSauce, rdbtnPestoSauce;
@@ -36,7 +37,7 @@ public class Main extends JFrame {
 	JButton btnrPepperoni, btnrBacon, btnrItalianS, btnrJalapenos, btnrMushroom, btnrPineapple, btnrMozzarella, btnrGreenPeppers, btnrOlives;
 	
 	String[] toppingArray = new String[9];
-	int count = 0, pepUID = 0, bacUID = 0, itaUID = 0, jalUID = 0, musUID = 0, pinUID = 0, mozUID = 0, greUID = 0, oliUID = 0;
+	int count,pepUID,bacUID,itaUID,jalUID,musUID,pinUID,mozUID,greUID,oliUID = 0;
 	
 	private JPanel contentPane;
 
@@ -109,6 +110,15 @@ public class Main extends JFrame {
 		btnCheckout.setBounds(46, 621, 127, 23);
 		pizza.add(btnCheckout);
 		btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		
+		btnCheckout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				JOptionPane.showMessageDialog(cart, "Purchased!");
+				Main frame = new Main();
+				frame.setVisible(true);
+				dispose();
+		}
+	 });
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -339,7 +349,6 @@ public class Main extends JFrame {
 				count--;
 		}
 	 });
-
 		 
 		for (int i = 0; i < toppingdata.length; i++) {
 			toppingLabel(toppings, toppingdata[i].getName(), 63 + i * 25, toppingdata[i].getPrice());
@@ -367,7 +376,6 @@ public class Main extends JFrame {
 		sauces_1.add(instructions);
 		instructions.setLayout(null);
 		
-		JTextArea textInstructions = new JTextArea();
 		textInstructions.setBounds(2, 2, 322, 45);
 		instructions.add(textInstructions);
 		textInstructions.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -451,11 +459,21 @@ public class Main extends JFrame {
 					priceSauce += 3;
 					count++;
 				}
-				
+
 				pizzaOrder.setSauces(sauces);
 				
-				
-				
+				// Readability Improvement
+			    List<String> list = new ArrayList<String>();
+
+			    for(String s : sauces) {
+			       if(s != null && s.length() > 0) {
+			          list.add(s);
+			       }
+			    }
+
+			    sauces = list.toArray(new String[list.size()]);
+			    
+			    
 				// Construct
 				total = priceSize + priceCrust + priceSauce + priceTopping;
 				
