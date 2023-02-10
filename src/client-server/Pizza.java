@@ -2,18 +2,28 @@
 public class Pizza {
 	
 	public String size;
-	public String[] toppings;
-	public String crescent;
-	public String[] sauces;
+	public Item crust;
 	public String special_instructions;
+	public Item[] toppings;
+	public Item[] sauces;
 	
 	
-	public Pizza(String size, String special_instructions, String crescent, String[] toppings, String[] sauces){
+	public Pizza(String size, String special_instructions, String crust, String[] toppings, String[] sauces){
 		this.size = size;
-		this.crescent = crescent;
-		this.toppings = toppings;
-		this.sauces = sauces;
 		this.special_instructions = special_instructions;
+		this.crust = new Item(crust);
+		
+		// Loop through array of input topping strings and create an item for each
+		this.toppings = new Item[toppings.length];
+		for (int i = 0; i < toppings.length; i++) {
+			  this.toppings[i] = new Item(toppings[i]);
+		}
+		
+		// Loop through array of input sauces strings and create an item for each
+		this.sauces = new Item[sauces.length];
+		for (int i = 0; i < sauces.length; i++) {
+			  this.sauces[i] = new Item(sauces[i]);
+		}
 	}
 	
 	//GETTERS
@@ -21,15 +31,15 @@ public class Pizza {
 		return this.size;
 	}
 	
-	public String getCrescent() {
-		return this.crescent;
+	public Item getCrust() {
+		return this.crust;
 	}
 	
-	public String[] getToppings() {
+	public Item[] getToppings() {
 		return this.toppings;
 	}
 	
-	public String[] getSauces() {
+	public Item[] getSauces() {
 		return this.sauces;
 	}
 	
@@ -42,16 +52,22 @@ public class Pizza {
 		this.size = size;
 	}
 	
-	public void setCrescent(String crescent) {
-		this.crescent = crescent;
+	public void setCrust(String crust) {
+		this.crust = new Item(crust);
 	}
 	
 	public void setToppings(String[] toppings) {
-		this.toppings = toppings;
+		this.toppings = new Item[toppings.length];
+		for (int i = 0; i < toppings.length; i++) {
+			  this.toppings[i] = new Item(toppings[i]);
+		}
 	}
 	
-	public void setsauces(String[] sauces) {
-		this.sauces = sauces;
+	public void setSauces(String[] sauces) {
+		this.sauces = new Item[sauces.length];
+		for (int i = 0; i < sauces.length; i++) {
+			  this.sauces[i] = new Item(sauces[i]);
+		}
 	}
 	
 	public void setInstructions(String instructions) {
@@ -61,44 +77,4 @@ public class Pizza {
 	public void removeInstructions() {
 		this.special_instructions = "";
 	}
-	
-	public String[] addTopping(String topping) {
-		toppings[toppings.length] = topping;
-		return toppings;
-	}
-	
-	public String[] addSauce(String sauce) {
-		sauces[sauces.length] = sauce;
-		return sauces;
-	}
-
-    public String[] removeTopping(String[] toppings, int index){
-        String[] newToppingsArr = new String[toppings.length - 1];
-        for (int i = 0, k = 0; i < toppings.length; i++) {
-            if (i == index) {
-                continue;
-            }
-            // if the index is not
-            // the removal element index
-            newToppingsArr[k++] = toppings[i];
-        }
- 
-        // return the resultant array
-        return newToppingsArr;
-    }
-    
-    public String[] removeSauce(String[] sauces, int index){
-        String[] newSaucesArr = new String[sauces.length - 1];
-        for (int i = 0, k = 0; i < sauces.length; i++) {
-            if (i == index) {
-                continue;
-            }
-            // if the index is not
-            // the removal element index
-            newSaucesArr[k++] = sauces[i];
-        }
- 
-        // return the resultant array
-        return newSaucesArr;
-    }
 }
