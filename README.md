@@ -3,6 +3,7 @@ A program to help to aid customers with ordering pizza easily from their local p
 
 [Team's Miro Boad (Architecture)](https://miro.com/app/board/uXjVPvnCMpw=/)  
 [Byte-Sized Planning Document](https://github.com/BrianNguyen0116/EECS3311SM-T15/blob/main/doc/Planning%20Document.pdf)
+[Byte-Sized Wikip Documentation](https://github.com/BrianNguyen0116/EECS3311SM-T15/blob/main/doc/wiki.pdf)
 
 
 ### Instructions:
