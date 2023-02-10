@@ -29,7 +29,8 @@ public class Main extends JFrame implements ActionListener {
 	JButton btnPepperoni, btnBacon, btnItalianS, btnJalapenos, btnMushroom, btnPineapple, btnMozzarella, btnGreenPeppers, btnOlives;
 	JButton btnrPepperoni, btnrBacon, btnrItalianS, btnrJalapenos, btnrMushroom, btnrPineapple, btnrMozzarella, btnrGreenPeppers, btnrOlives;
 
-	int total = 0;
+	int priceSize, priceCrust, priceSauce, priceTopping = 0;
+	int total = priceSize + priceCrust + priceSauce + priceTopping;
 	
 	private JPanel contentPane;
 
@@ -256,7 +257,7 @@ public class Main extends JFrame implements ActionListener {
 		
 		rdbtnNoSauce = new JRadioButton("No Sauce");
 		rdbtnNoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnNoSauce.setBounds(173, 56, 129, 23);
+		rdbtnNoSauce.setBounds(173, 56, 102, 23);
 		sauces.add(rdbtnNoSauce);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Sauce");
@@ -267,17 +268,17 @@ public class Main extends JFrame implements ActionListener {
 		
 		rdbtnTomato = new JRadioButton("Tomato Sauce");
 		rdbtnTomato.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnTomato.setBounds(11, 28, 138, 23);
+		rdbtnTomato.setBounds(11, 28, 102, 23);
 		sauces.add(rdbtnTomato);
 		
 		rdbtnAlfredoSauce = new JRadioButton("Alfredo Sauce");
 		rdbtnAlfredoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnAlfredoSauce.setBounds(11, 56, 138, 23);
+		rdbtnAlfredoSauce.setBounds(11, 56, 104, 23);
 		sauces.add(rdbtnAlfredoSauce);
 		
 		rdbtnBbqSauce = new JRadioButton("BBQ Sauce");
 		rdbtnBbqSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnBbqSauce.setBounds(173, 28, 129, 23);
+		rdbtnBbqSauce.setBounds(173, 28, 102, 23);
 		sauces.add(rdbtnBbqSauce);
 		
 		rdbtnSauce.add(rdbtnBbqSauce); rdbtnSauce.add(rdbtnAlfredoSauce); rdbtnSauce.add(rdbtnTomato); rdbtnSauce.add(rdbtnNoSauce);
@@ -309,6 +310,12 @@ public class Main extends JFrame implements ActionListener {
 		btnPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnPepperoni.setBounds(121, 38, 71, 23);
 		toppings.add(btnPepperoni);
+		
+		btnPepperoni.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				
+		}
+	 });
 		
 		btnrPepperoni = new JButton("Remove");
 		btnrPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -529,16 +536,19 @@ public class Main extends JFrame implements ActionListener {
 		// Size
 		if(rdbtnS.isSelected()) {
 			pizzaOrder.setSize("small");
+			priceSize = 3;
 		}
 		if(rdbtnM.isSelected()) {
 			pizzaOrder.setSize("medium");
+			priceSize = 4;
 		}
 		if(rdbtnL.isSelected()) {
 			pizzaOrder.setSize("large");
+			priceSize = 6;
 		}
 		if(rdbtnXL.isSelected()) {
 			pizzaOrder.setSize("extra large");
+			priceSize = 8;
 		}
-		
 	}
 }
