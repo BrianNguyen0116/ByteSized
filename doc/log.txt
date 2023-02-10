@@ -45,4 +45,6 @@ TASK : 03H00M : Fix minor details such as variable names and code conciseness : 
 
 DATE : 02/09/2023
 --
-TASK : 09H00M : GUI base swapped from JavaFX to Java Swing. Further Development : Nguyen 
+TASK : 09H00M : GUI base swapped from JavaFX to Java Swing. Further Development : Nguyen
+TASK : 03H00M : Add item class and change the pizza class to initiate and store items instead of strings : Mustafa
+TASK : 01H00M : Add the Item UML and indicate the relation between the Pizza class and the Item class : Mustafa
