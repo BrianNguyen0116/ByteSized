@@ -26,7 +26,6 @@ public class Main extends JFrame {
 	RestaurantServer server = new RestaurantServer();
 	
 	Pizza pizzaOrder = new Pizza();
-	String cartList, sizeList, crescentList, sauceList, ingredientsList;
 	JLabel lblTotal = new JLabel();
 	JTextArea receipt = new JTextArea();
 	JTextArea textInstructions = new JTextArea();
@@ -227,21 +226,21 @@ public class Main extends JFrame {
 		
 		rbtnCrescent.add(rdbtnPan); rbtnCrescent.add(rdbtnStuffed); rbtnCrescent.add(rdbtnHomestyle); rbtnCrescent.add(rdbtnThin);
  
- JLabel lblpriceStuffed = new JLabel("$5");
- lblpriceStuffed.setBounds(121, 34, 46, 14);
- crescent.add(lblpriceStuffed);
+		JLabel lblpriceStuffed = new JLabel("$5");
+		lblpriceStuffed.setBounds(121, 34, 46, 14);
+		crescent.add(lblpriceStuffed);
  
- JLabel lblpricePan = new JLabel("$3");
- lblpricePan.setBounds(288, 34, 46, 14);
- crescent.add(lblpricePan);
+		JLabel lblpricePan = new JLabel("$3");
+		lblpricePan.setBounds(288, 34, 46, 14);
+		crescent.add(lblpricePan);
  
- JLabel lblpriceThin = new JLabel("$3");
- lblpriceThin.setBounds(288, 61, 46, 14);
- crescent.add(lblpriceThin);
+		JLabel lblpriceThin = new JLabel("$3");
+		lblpriceThin.setBounds(288, 61, 46, 14);
+		crescent.add(lblpriceThin);
  
- JLabel lblpriceHomestyle = new JLabel("$3");
- lblpriceHomestyle.setBounds(121, 61, 46, 14);
- crescent.add(lblpriceHomestyle);
+		JLabel lblpriceHomestyle = new JLabel("$3");
+		lblpriceHomestyle.setBounds(121, 61, 46, 14);
+		crescent.add(lblpriceHomestyle);
 		
 		JPanel sauces = new JPanel();
 		sauces.setLayout(null);
