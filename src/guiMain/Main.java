@@ -239,9 +239,9 @@ public class Main extends JFrame {
 		 */
 
 		
-		JLabel lblpriceNoSauce = new JLabel("$0");
-		lblpriceNoSauce.setBounds(287, 60, 46, 14);
-		sauces.add(lblpriceNoSauce);
+		JLabel lblpricePrestoSauce = new JLabel("$3");
+		lblpricePrestoSauce.setBounds(287, 60, 46, 14);
+		sauces.add(lblpricePrestoSauce);
 		
 		JLabel lblpriceAlfredo = new JLabel("$3");
 		lblpriceAlfredo.setBounds(121, 60, 46, 14);
@@ -260,11 +260,11 @@ public class Main extends JFrame {
 		rdbtnPestoSauce.setBounds(173, 56, 102, 23);
 		sauces.add(rdbtnPestoSauce);
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("Sauce");
-		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_1_1.setBounds(11, 10, 268, 14);
-		sauces.add(lblNewLabel_2_1_1);
+		JLabel lblSauce = new JLabel("Sauce");
+		lblSauce.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblSauce.setHorizontalAlignment(SwingConstants.LEFT);
+		lblSauce.setBounds(11, 10, 268, 14);
+		sauces.add(lblSauce);
 		
 		rdbtnTomato = new JRadioButton("Tomato Sauce");
 		rdbtnTomato.setFont(new Font("Tahoma", Font.PLAIN, 11));
