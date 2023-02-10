@@ -156,21 +156,21 @@ public class Main extends JFrame implements ActionListener {
 		size.add(lblNewLabel_2);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		
-		JLabel lblPrice1 = new JLabel("$3");
-		lblPrice1.setBounds(121, 28, 46, 14);
-		size.add(lblPrice1);
+		JLabel lblpriceSmall = new JLabel("$3");
+		lblpriceSmall.setBounds(121, 28, 46, 14);
+		size.add(lblpriceSmall);
 		
-		JLabel lblPrice1_1 = new JLabel("$6");
-		lblPrice1_1.setBounds(121, 61, 46, 14);
-		size.add(lblPrice1_1);
+		JLabel lblpriceLarge = new JLabel("$6");
+		lblpriceLarge.setBounds(121, 61, 46, 14);
+		size.add(lblpriceLarge);
 		
-		JLabel lblPrice1_2 = new JLabel("$4");
-		lblPrice1_2.setBounds(288, 28, 46, 14);
-		size.add(lblPrice1_2);
+		JLabel lblpriceMedium = new JLabel("$4");
+		lblpriceMedium.setBounds(288, 28, 46, 14);
+		size.add(lblpriceMedium);
 		
-		JLabel lblPrice1_2_1 = new JLabel("$8");
-		lblPrice1_2_1.setBounds(288, 61, 46, 14);
-		size.add(lblPrice1_2_1);
+		JLabel lblpriceXLarge = new JLabel("$8");
+		lblpriceXLarge.setBounds(288, 61, 46, 14);
+		size.add(lblpriceXLarge);
 		
 		JPanel crescent = new JPanel();
 		crescent.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -211,21 +211,21 @@ public class Main extends JFrame implements ActionListener {
 		
 		rbtnCrescent.add(rdbtnPan); rbtnCrescent.add(rdbtnStuffed); rbtnCrescent.add(rdbtnHomestyle); rbtnCrescent.add(rdbtnThin);
  
- JLabel lblPrice1_2_1_1 = new JLabel("$5");
- lblPrice1_2_1_1.setBounds(121, 34, 46, 14);
- crescent.add(lblPrice1_2_1_1);
+ JLabel lblpriceStuffed = new JLabel("$5");
+ lblpriceStuffed.setBounds(121, 34, 46, 14);
+ crescent.add(lblpriceStuffed);
  
- JLabel lblPrice1_2_1_1_1 = new JLabel("$3");
- lblPrice1_2_1_1_1.setBounds(288, 34, 46, 14);
- crescent.add(lblPrice1_2_1_1_1);
+ JLabel lblpricePan = new JLabel("$3");
+ lblpricePan.setBounds(288, 34, 46, 14);
+ crescent.add(lblpricePan);
  
- JLabel lblPrice1_2_1_1_1_1 = new JLabel("$3");
- lblPrice1_2_1_1_1_1.setBounds(288, 61, 46, 14);
- crescent.add(lblPrice1_2_1_1_1_1);
+ JLabel lblpriceThin = new JLabel("$3");
+ lblpriceThin.setBounds(288, 61, 46, 14);
+ crescent.add(lblpriceThin);
  
- JLabel lblPrice1_2_1_1_1_1_1 = new JLabel("$3");
- lblPrice1_2_1_1_1_1_1.setBounds(121, 61, 46, 14);
- crescent.add(lblPrice1_2_1_1_1_1_1);
+ JLabel lblpriceHomestyle = new JLabel("$3");
+ lblpriceHomestyle.setBounds(121, 61, 46, 14);
+ crescent.add(lblpriceHomestyle);
 		
 		JPanel sauces = new JPanel();
 		sauces.setLayout(null);
@@ -239,21 +239,21 @@ public class Main extends JFrame implements ActionListener {
 		
 		ButtonGroup rdbtnSauce = new ButtonGroup();
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1 = new JLabel("$0");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1.setBounds(287, 60, 46, 14);
-		sauces.add(lblPrice1_2_1_1_1_1_1_1_1_1_1);
+		JLabel lblpriceNoSauce = new JLabel("$0");
+		lblpriceNoSauce.setBounds(287, 60, 46, 14);
+		sauces.add(lblpriceNoSauce);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1 = new JLabel("$3");
-		lblPrice1_2_1_1_1_1_1_1_1.setBounds(121, 60, 46, 14);
-		sauces.add(lblPrice1_2_1_1_1_1_1_1_1);
+		JLabel lblpriceAlfredo = new JLabel("$3");
+		lblpriceAlfredo.setBounds(121, 60, 46, 14);
+		sauces.add(lblpriceAlfredo);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1 = new JLabel("$3");
-		lblPrice1_2_1_1_1_1_1_1_1_1.setBounds(287, 32, 46, 14);
-		sauces.add(lblPrice1_2_1_1_1_1_1_1_1_1);
+		JLabel lblpriceBBQ = new JLabel("$3");
+		lblpriceBBQ.setBounds(287, 32, 46, 14);
+		sauces.add(lblpriceBBQ);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1 = new JLabel("$3");
-		lblPrice1_2_1_1_1_1_1_1.setBounds(121, 32, 46, 14);
-		sauces.add(lblPrice1_2_1_1_1_1_1_1);
+		JLabel lblpriceTomato = new JLabel("$3");
+		lblpriceTomato.setBounds(121, 32, 46, 14);
+		sauces.add(lblpriceTomato);
 		
 		rdbtnNoSauce = new JRadioButton("No Sauce");
 		rdbtnNoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -450,50 +450,50 @@ public class Main extends JFrame implements ActionListener {
 		btnrOlives.setBounds(197, 238, 71, 23);
 		toppings.add(btnrOlives);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1.setBounds(278, 43, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1);
+		JLabel lblpricePepperoni = new JLabel("$0.5");
+		lblpricePepperoni.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpricePepperoni.setBounds(278, 43, 46, 14);
+		toppings.add(lblpricePepperoni);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1.setBounds(278, 67, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1);
+		JLabel lblpriceBacon = new JLabel("$0.5");
+		lblpriceBacon.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpriceBacon.setBounds(278, 67, 46, 14);
+		toppings.add(lblpriceBacon);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_1 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_1.setBounds(278, 92, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_1);
+		JLabel lblpriceItalianSausage = new JLabel("$0.5");
+		lblpriceItalianSausage.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpriceItalianSausage.setBounds(278, 92, 46, 14);
+		toppings.add(lblpriceItalianSausage);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_2 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_2.setBounds(278, 117, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_2);
+		JLabel lblpriceJalapenos = new JLabel("$0.5");
+		lblpriceJalapenos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpriceJalapenos.setBounds(278, 117, 46, 14);
+		toppings.add(lblpriceJalapenos);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_3 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_3.setBounds(278, 142, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_3);
+		JLabel lblpriceMushroom = new JLabel("$0.5");
+		lblpriceMushroom.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpriceMushroom.setBounds(278, 142, 46, 14);
+		toppings.add(lblpriceMushroom);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_4 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_4.setBounds(278, 167, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_4);
+		JLabel lblpricePineapple = new JLabel("$0.5");
+		lblpricePineapple.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpricePineapple.setBounds(278, 167, 46, 14);
+		toppings.add(lblpricePineapple);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_5 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_5.setBounds(278, 192, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_5);
+		JLabel lblpriceMozzarellaCheese = new JLabel("$0.5");
+		lblpriceMozzarellaCheese.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpriceMozzarellaCheese.setBounds(278, 192, 46, 14);
+		toppings.add(lblpriceMozzarellaCheese);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_6 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_6.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_6.setBounds(278, 217, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_6);
+		JLabel lblpriceGreenPeppers = new JLabel("$0.5");
+		lblpriceGreenPeppers.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpriceGreenPeppers.setBounds(278, 217, 46, 14);
+		toppings.add(lblpriceGreenPeppers);
 		
-		JLabel lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_7 = new JLabel("$0.5");
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_7.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_7.setBounds(278, 242, 46, 14);
-		toppings.add(lblPrice1_2_1_1_1_1_1_1_1_1_1_1_1_7);
+		JLabel lblpriceOlives = new JLabel("$0.5");
+		lblpriceOlives.setHorizontalAlignment(SwingConstants.CENTER);
+		lblpriceOlives.setBounds(278, 242, 46, 14);
+		toppings.add(lblpriceOlives);
 		
 
 		
