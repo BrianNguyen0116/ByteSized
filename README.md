@@ -7,4 +7,4 @@ A program to help to aid customers with ordering pizza easily from their local p
 ### Instructions:
 If you're using an IDE, you are able to run the main class that is src/guiMain/Main.java. The dependencies are all covered by the project so there should be no error compiling.
 
-If you're not using an IDE, there is an executable jar file in the front-most directory capable of running the program.
+If you're not using an IDE, there is an executable jar file in the front-most directory capable of running the program. It is named ByteSized.jar.
