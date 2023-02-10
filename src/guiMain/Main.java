@@ -322,14 +322,21 @@ public class Main extends JFrame implements ActionListener {
 		btnrPepperoni.setBounds(197, 38, 71, 23);
 		toppings.add(btnrPepperoni);
 		 
-		toppingLabel(toppings, "Bacon", 63, 50);
-		toppingLabel(toppings, "Italian Sausage", 88, 50);
-		toppingLabel(toppings, "Jalapenos", 113, 50);
-		toppingLabel(toppings, "Mushroom", 138, 50);
-		toppingLabel(toppings, "Pineapple", 163, 50);
-		toppingLabel(toppings, "Mozzarella Cheese", 188, 50);
-		toppingLabel(toppings, "Green Peppers", 213, 50);
-		toppingLabel(toppings, "Olives", 238, 50);
+		Item[] toppingdata = {
+				new Item("Bacon", 50),
+				new Item("Italian Sausage", 50),
+				new Item("Jalapenos", 125),
+				new Item("Mushroom", 75),
+				new Item("Pineapple", 290),
+				new Item("Mozzarella Cheese", 35),
+				new Item("Green Peppers", 90),
+				new Item("Olives", 45)
+		};
+		 
+		for (int i = 0; i < toppingdata.length; i++) {
+			toppingLabel(toppings, toppingdata[i].getName(), 63 + i * 25, toppingdata[i].getPrice());
+		}
+		
 		/*
 		//Bacon
 		JLabel lblBacon = new JLabel("Bacon");
