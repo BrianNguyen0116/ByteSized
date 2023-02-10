@@ -24,6 +24,7 @@ public class Main extends JFrame {
 	RestaurantServer server = new RestaurantServer();
 	
 	private JPanel contentPane;
+	private JLabel lblPineapple;
 
 	/**
 	 * Launch the application.
@@ -81,13 +82,24 @@ public class Main extends JFrame {
 		
 		JPanel cart = new JPanel();
 		cart.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		cart.setBounds(10, 29, 130, 518);
+		cart.setBounds(10, 29, 130, 496);
 		pizza.add(cart);
 		cart.setLayout(new BoxLayout(cart, BoxLayout.X_AXIS));
 		JButton btnCheckout = new JButton("Checkout");
 		btnCheckout.setBounds(11, 558, 127, 23);
 		pizza.add(btnCheckout);
 		btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel.setBounds(10, 525, 130, 23);
+		pizza.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblTotal = new JLabel("Total: ");
+		lblTotal.setBounds(10, 4, 110, 14);
+		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		panel.add(lblTotal);
 		
 		JPanel size = new JPanel();
 		size.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -217,51 +229,51 @@ public class Main extends JFrame {
 		 * Topping Customization
 		 */
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("Topping");
-		lblNewLabel_2_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_1_1_1.setBounds(12, 11, 264, 14);
-		toppings.add(lblNewLabel_2_1_1_1);
+		JLabel lblToppings = new JLabel("Topping");
+		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
+		lblToppings.setBounds(12, 11, 264, 14);
+		toppings.add(lblToppings);
 		
 		JButton btnNewButton = new JButton("Add");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnNewButton.setBounds(208, 40, 63, 23);
 		toppings.add(btnNewButton);
 		
-		JLabel lblNewLabel_3 = new JLabel("Pepperoni");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3.setBounds(12, 43, 146, 14);
-		toppings.add(lblNewLabel_3);
+		JLabel lblPepperoni = new JLabel("Pepperoni");
+		lblPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblPepperoni.setBounds(12, 43, 146, 14);
+		toppings.add(lblPepperoni);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("Bacon");
-		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3_1.setBounds(12, 67, 146, 14);
-		toppings.add(lblNewLabel_3_1);
+		JLabel lblBacon = new JLabel("Bacon");
+		lblBacon.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblBacon.setBounds(12, 67, 146, 14);
+		toppings.add(lblBacon);
 		
-		JLabel lblNewLabel_3_1_1 = new JLabel("Italian Sausage");
-		lblNewLabel_3_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3_1_1.setBounds(12, 92, 146, 14);
-		toppings.add(lblNewLabel_3_1_1);
+		JLabel lblItalianSausage = new JLabel("Italian Sausage");
+		lblItalianSausage.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblItalianSausage.setBounds(12, 92, 146, 14);
+		toppings.add(lblItalianSausage);
 		
-		JLabel lblNewLabel_3_1_1_1 = new JLabel("Jalapeno");
-		lblNewLabel_3_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3_1_1_1.setBounds(12, 117, 146, 14);
-		toppings.add(lblNewLabel_3_1_1_1);
+		JLabel lblJalapenos = new JLabel("Jalapenos");
+		lblJalapenos.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblJalapenos.setBounds(12, 117, 146, 14);
+		toppings.add(lblJalapenos);
 		
-		JLabel lblNewLabel_3_1_1_1_1 = new JLabel("Mushroom");
-		lblNewLabel_3_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3_1_1_1_1.setBounds(12, 142, 146, 14);
-		toppings.add(lblNewLabel_3_1_1_1_1);
+		JLabel lblMushroom = new JLabel("Mushroom");
+		lblMushroom.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblMushroom.setBounds(12, 142, 146, 14);
+		toppings.add(lblMushroom);
 		
-		JLabel lblNewLabel_3_1_1_1_1_1 = new JLabel("Pineapple");
-		lblNewLabel_3_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3_1_1_1_1_1.setBounds(12, 167, 146, 14);
-		toppings.add(lblNewLabel_3_1_1_1_1_1);
+		lblPineapple = new JLabel("Pineapple");
+		lblPineapple.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblPineapple.setBounds(12, 167, 146, 14);
+		toppings.add(lblPineapple);
 		
-		JLabel lblNewLabel_3_1_1_1_1_1_1 = new JLabel("Parmesan Cheese");
-		lblNewLabel_3_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3_1_1_1_1_1_1.setBounds(12, 192, 146, 14);
-		toppings.add(lblNewLabel_3_1_1_1_1_1_1);
+		JLabel lblMozzarellaCheese = new JLabel("Mozzarella Cheese");
+		lblMozzarellaCheese.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblMozzarellaCheese.setBounds(12, 192, 146, 14);
+		toppings.add(lblMozzarellaCheese);
 		
 		JButton btnNewButton_1 = new JButton("Add");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -293,7 +305,7 @@ public class Main extends JFrame {
 		btnNewButton_6.setBounds(208, 189, 63, 23);
 		toppings.add(btnNewButton_6);
 		
-		JLabel lblNewLabel_3_1_1_1_1_1_1_1 = new JLabel("Tomato");
+		JLabel lblNewLabel_3_1_1_1_1_1_1_1 = new JLabel("Green Peppers");
 		lblNewLabel_3_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1_1_1_1_1_1.setBounds(12, 217, 146, 14);
 		toppings.add(lblNewLabel_3_1_1_1_1_1_1_1);
@@ -303,7 +315,7 @@ public class Main extends JFrame {
 		btnNewButton_7.setBounds(208, 213, 63, 23);
 		toppings.add(btnNewButton_7);
 		
-		JLabel lblNewLabel_3_1_1_1_1_1_1_1_1 = new JLabel("Roasted Garlic");
+		JLabel lblNewLabel_3_1_1_1_1_1_1_1_1 = new JLabel("Olives");
 		lblNewLabel_3_1_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1_1_1_1_1_1_1.setBounds(12, 242, 146, 14);
 		toppings.add(lblNewLabel_3_1_1_1_1_1_1_1_1);
