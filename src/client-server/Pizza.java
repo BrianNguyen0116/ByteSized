@@ -2,16 +2,16 @@
 public class Pizza {
 	
 	public String size;
-	public Item[] toppings;
-	public Item crescent;
-	public Item[] sauces;
+	public Item crust;
 	public String special_instructions;
+	public Item[] toppings;
+	public Item[] sauces;
 	
 	
-	public Pizza(String size, String special_instructions, String crescent, String[] toppings, String[] sauces){
+	public Pizza(String size, String special_instructions, String crust, String[] toppings, String[] sauces){
 		this.size = size;
 		this.special_instructions = special_instructions;
-		this.crescent = new Item(crescent);
+		this.crust = new Item(crust);
 		
 		// Loop through array of input topping strings and create an item for each
 		this.toppings = new Item[toppings.length];
@@ -31,8 +31,8 @@ public class Pizza {
 		return this.size;
 	}
 	
-	public Item getCrescent() {
-		return this.crescent;
+	public Item getCrust() {
+		return this.crust;
 	}
 	
 	public Item[] getToppings() {
@@ -52,8 +52,8 @@ public class Pizza {
 		this.size = size;
 	}
 	
-	public void setCrescent(String crescent) {
-		this.crescent = new Item(crescent);
+	public void setCrust(String crust) {
+		this.crust = new Item(crust);
 	}
 	
 	public void setToppings(String[] toppings) {
@@ -63,7 +63,7 @@ public class Pizza {
 		}
 	}
 	
-	public void setsauces(String[] sauces) {
+	public void setSauces(String[] sauces) {
 		this.sauces = new Item[sauces.length];
 		for (int i = 0; i < sauces.length; i++) {
 			  this.sauces[i] = new Item(sauces[i]);
