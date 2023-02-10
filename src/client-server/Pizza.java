@@ -7,8 +7,7 @@ public class Pizza {
 	public Item[] toppings;
 	public Item[] sauces;
 
-	public Pizza() {
-		
+	public Pizza() {	
 	}
 	
 	public Pizza(String size, String special_instructions, String crust, String[] toppings, String[] sauces){

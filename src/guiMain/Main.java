@@ -5,11 +5,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 import javax.swing.BoxLayout;
@@ -17,20 +19,19 @@ import java.awt.Font;
 import javax.swing.JTextArea;
 
 
-public class Main extends JFrame implements ActionListener {
+public class Main extends JFrame {
 	
 	RestaurantServer server = new RestaurantServer();
 	
 	Pizza pizzaOrder = new Pizza();
-	String cartList, size, crescent, sauce, ingredients;
+	String cartList, sizeList, crescentList, sauceList, ingredientsList;
+	JLabel lblTotal = new JLabel();
+	JTextArea receipt = new JTextArea();
 	JRadioButton rdbtnS, rdbtnM, rdbtnL, rdbtnXL;
 	JRadioButton rdbtnStuffed, rdbtnPan, rdbtnHomestyle, rdbtnThin;
-	JRadioButton rdbtnTomato, rdbtnBbqSauce, rdbtnAlfredoSauce, rdbtnNoSauce;
+	JRadioButton rdbtnTomato, rdbtnBbqSauce, rdbtnAlfredoSauce, rdbtnPestoSauce;
 	JButton btnPepperoni, btnBacon, btnItalianS, btnJalapenos, btnMushroom, btnPineapple, btnMozzarella, btnGreenPeppers, btnOlives;
 	JButton btnrPepperoni, btnrBacon, btnrItalianS, btnrJalapenos, btnrMushroom, btnrPineapple, btnrMozzarella, btnrGreenPeppers, btnrOlives;
-
-	int priceSize, priceCrust, priceSauce, priceTopping = 0;
-	int total = priceSize + priceCrust + priceSauce + priceTopping;
 	
 	private JPanel contentPane;
 
@@ -51,14 +52,14 @@ public class Main extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame (JFrame)
 	 */
-	 Main() {
+	 public Main() {
 		setTitle("Byte Sized");
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 508, 694);
+		setBounds(100, 100, 580, 694);
 	
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,11 +68,11 @@ public class Main extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		/**
-		 * Shopping
+		 * JPanel (Content)
 		 */
 		JPanel pizza = new JPanel();
 		pizza.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		pizza.setBounds(-1, 0, 150, 655);
+		pizza.setBounds(-1, 0, 220, 655);
 		contentPane.add(pizza);
 		pizza.setLayout(null);
 		
@@ -83,50 +84,50 @@ public class Main extends JFrame implements ActionListener {
 		
 		JPanel cart = new JPanel();
 		cart.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		cart.setBounds(10, 29, 130, 558);
+		cart.setBounds(10, 29, 200, 558);
 		pizza.add(cart);
 		cart.setLayout(new BoxLayout(cart, BoxLayout.X_AXIS));
+		receipt.setWrapStyleWord(true);
+		receipt.setLineWrap(true);
 		
-		JTextArea receipt = new JTextArea(
-				"Size:\n" + pizzaOrder.getSize() + 
-				"\n\nCrescent:\n" + pizzaOrder.getCrust() + 
-				"\n\nSauce:\n" + pizzaOrder.getSauces() + 
-				"\n\nToppings:\n" + pizzaOrder.getToppings()
-				);
-		
+		receipt.setText("Size:\n" + 
+				"\n\nCrust:\n" + 
+				"\n\nSauce:\n" + 
+				"\n\nToppings:\n" + 
+				"\n\nInstructions"
+				); 
+				
 		receipt.setEditable(false);
 		cart.add(receipt);
 		
 		JButton btnCheckout = new JButton("Checkout");
-		btnCheckout.setBounds(11, 621, 127, 23);
+		btnCheckout.setBounds(46, 621, 127, 23);
 		pizza.add(btnCheckout);
 		btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBounds(10, 587, 130, 23);
+		panel.setBounds(10, 587, 200, 23);
 		pizza.add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblTotal = new JLabel("Total: $" + total);
+		lblTotal.setText("Total: $");
 		lblTotal.setBounds(10, 4, 110, 14);
 		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(lblTotal);
 		
 		JPanel size = new JPanel();
 		size.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		size.setBounds(148, 0, 344, 87);
+		size.setBounds(220, 0, 344, 87);
 		contentPane.add(size);
 		size.setLayout(null);
 		
 		/**
 		 * Size Customization
 		 */
+		
 		ButtonGroup rbtnSize = new ButtonGroup();
 		
-		/**
-		 * Sizing Customization
-		 */
 		JRadioButton rdbtnS = new JRadioButton("Small");
 		rdbtnS.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnS.setBounds(10, 24, 69, 23);
@@ -174,7 +175,7 @@ public class Main extends JFrame implements ActionListener {
 		
 		JPanel crescent = new JPanel();
 		crescent.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		crescent.setBounds(148, 85, 344, 87);
+		crescent.setBounds(220, 85, 344, 87);
 		contentPane.add(crescent);
 		crescent.setLayout(null);
 		
@@ -230,14 +231,13 @@ public class Main extends JFrame implements ActionListener {
 		JPanel sauces = new JPanel();
 		sauces.setLayout(null);
 		sauces.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		sauces.setBounds(149, 172, 343, 87);
+		sauces.setBounds(221, 172, 343, 87);
 		contentPane.add(sauces);
 		
 		/**
 		 * Sauce Customization
 		 */
-		
-		ButtonGroup rdbtnSauce = new ButtonGroup();
+
 		
 		JLabel lblpriceNoSauce = new JLabel("$0");
 		lblpriceNoSauce.setBounds(287, 60, 46, 14);
@@ -255,10 +255,10 @@ public class Main extends JFrame implements ActionListener {
 		lblpriceTomato.setBounds(121, 32, 46, 14);
 		sauces.add(lblpriceTomato);
 		
-		rdbtnNoSauce = new JRadioButton("No Sauce");
-		rdbtnNoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnNoSauce.setBounds(173, 56, 102, 23);
-		sauces.add(rdbtnNoSauce);
+		rdbtnPestoSauce = new JRadioButton("Pesto Sauce");
+		rdbtnPestoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnPestoSauce.setBounds(173, 56, 102, 23);
+		sauces.add(rdbtnPestoSauce);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Sauce");
 		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -281,12 +281,10 @@ public class Main extends JFrame implements ActionListener {
 		rdbtnBbqSauce.setBounds(173, 28, 102, 23);
 		sauces.add(rdbtnBbqSauce);
 		
-		rdbtnSauce.add(rdbtnBbqSauce); rdbtnSauce.add(rdbtnAlfredoSauce); rdbtnSauce.add(rdbtnTomato); rdbtnSauce.add(rdbtnNoSauce);
-		
 		JPanel toppings = new JPanel();
 		toppings.setLayout(null);
 		toppings.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		toppings.setBounds(148, 259, 344, 274);
+		toppings.setBounds(220, 259, 344, 274);
 		contentPane.add(toppings);
 		
 		/**
@@ -310,10 +308,10 @@ public class Main extends JFrame implements ActionListener {
 		btnPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnPepperoni.setBounds(121, 38, 71, 23);
 		toppings.add(btnPepperoni);
-		
+	
 		btnPepperoni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				
+				JOptionPane.showMessageDialog(lblToppings, lblPepperoni);;
 		}
 	 });
 		
@@ -330,181 +328,12 @@ public class Main extends JFrame implements ActionListener {
 		toppingLabel(toppings, "Mozzarella Cheese", 188, 50);
 		toppingLabel(toppings, "Green Peppers", 213, 50);
 		toppingLabel(toppings, "Olives", 238, 50);
-		/*
-		//Bacon
-		JLabel lblBacon = new JLabel("Bacon");
-		lblBacon.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblBacon.setBounds(12, 67, 109, 14);
-		toppings.add(lblBacon);
-		
-		btnBacon = new JButton("Add");
-		btnBacon.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnBacon.setBounds(121, 63, 71, 23);
-		toppings.add(btnBacon);
-		
-		btnrBacon = new JButton("Remove");
-		btnrBacon.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrBacon.setBounds(197, 63, 71, 23);
-		toppings.add(btnrBacon);
-		
-		//Italian Sausage
-		JLabel lblItalianSausage = new JLabel("Italian Sausage");
-		lblItalianSausage.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblItalianSausage.setBounds(12, 92, 109, 14);
-		toppings.add(lblItalianSausage);
-		
-		btnItalianS = new JButton("Add");
-		btnItalianS.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnItalianS.setBounds(121, 88, 71, 23);
-		toppings.add(btnItalianS);
 
-		btnrItalianS = new JButton("Remove");
-		btnrItalianS.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrItalianS.setBounds(197, 88, 71, 23);
-		toppings.add(btnrItalianS);
-		
-		//Jalapenos
-		JLabel lblJalapenos = new JLabel("Jalapenos");
-		lblJalapenos.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblJalapenos.setBounds(12, 117, 109, 14);
-		toppings.add(lblJalapenos);
-		
-		btnJalapenos = new JButton("Add");
-		btnJalapenos.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnJalapenos.setBounds(121, 113, 71, 23);
-		toppings.add(btnJalapenos);
-		
-		btnrJalapenos = new JButton("Remove");
-		btnrJalapenos.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrJalapenos.setBounds(197, 113, 71, 23);
-		toppings.add(btnrJalapenos);
-		
-		//Mushrooms
-		JLabel lblMushroom = new JLabel("Mushroom");
-		lblMushroom.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblMushroom.setBounds(12, 142, 109, 14);
-		toppings.add(lblMushroom);
-		
-		btnrMushroom = new JButton("Remove");
-		btnrMushroom.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrMushroom.setBounds(197, 138, 71, 23);
-		toppings.add(btnrMushroom);
-		
-		btnMushroom = new JButton("Add");
-		btnMushroom.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnMushroom.setBounds(121, 138, 71, 23);
-		toppings.add(btnMushroom);
-		
-		//Pineapple
-		JLabel lblPineapple = new JLabel("Pineapple");
-		lblPineapple.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblPineapple.setBounds(12, 167, 109, 14);
-		toppings.add(lblPineapple);
-		
-		btnPineapple = new JButton("Add");
-		btnPineapple.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnPineapple.setBounds(121, 164, 71, 23);
-		toppings.add(btnPineapple);
-		
-		btnrPineapple = new JButton("Remove");
-		btnrPineapple.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrPineapple.setBounds(197, 164, 71, 23);
-		toppings.add(btnrPineapple);
-		
-		//Mozzarella Cheese
-		JLabel lblMozzarellaCheese = new JLabel("Mozzarella Cheese");
-		lblMozzarellaCheese.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblMozzarellaCheese.setBounds(12, 192, 109, 14);
-		toppings.add(lblMozzarellaCheese);
-		
-		btnMozzarella = new JButton("Add");
-		btnMozzarella.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnMozzarella.setBounds(121, 188, 71, 23);
-		toppings.add(btnMozzarella);
-		
-		btnrMozzarella = new JButton("Remove");
-		btnrMozzarella.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrMozzarella.setBounds(197, 188, 71, 23);
-		toppings.add(btnrMozzarella);
-		
-		//Green Peppers
-		JLabel lblGreenPeppers = new JLabel("Green Peppers");
-		lblGreenPeppers.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblGreenPeppers.setBounds(12, 217, 109, 14);
-		toppings.add(lblGreenPeppers);
-		
-		btnGreenPeppers = new JButton("Add");
-		btnGreenPeppers.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnGreenPeppers.setBounds(121, 214, 71, 23);
-		toppings.add(btnGreenPeppers);
-		
-		btnrGreenPeppers = new JButton("Remove");
-		btnrGreenPeppers.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrGreenPeppers.setBounds(197, 214, 71, 23);
-		toppings.add(btnrGreenPeppers);
-		
-		//Olives
-		JLabel lblOlives = new JLabel("Olives");
-		lblOlives.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblOlives.setBounds(12, 242, 109, 14);
-		toppings.add(lblOlives);
-		
-		btnOlives = new JButton("Add");
-		btnOlives.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnOlives.setBounds(121, 238, 71, 23);
-		toppings.add(btnOlives);
-		
-		btnrOlives = new JButton("Remove");
-		btnrOlives.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrOlives.setBounds(197, 238, 71, 23);
-		toppings.add(btnrOlives);
-		*/
+		// Topping Pricing
 		JLabel lblpricePepperoni = new JLabel("$0.5");
 		lblpricePepperoni.setHorizontalAlignment(SwingConstants.CENTER);
 		lblpricePepperoni.setBounds(278, 43, 46, 14);
 		toppings.add(lblpricePepperoni);
-		/*
-		JLabel lblpriceBacon = new JLabel("$0.5");
-		lblpriceBacon.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpriceBacon.setBounds(278, 67, 46, 14);
-		toppings.add(lblpriceBacon);
-		
-		JLabel lblpriceItalianSausage = new JLabel("$0.5");
-		lblpriceItalianSausage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpriceItalianSausage.setBounds(278, 92, 46, 14);
-		toppings.add(lblpriceItalianSausage);
-		
-		JLabel lblpriceJalapenos = new JLabel("$0.5");
-		lblpriceJalapenos.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpriceJalapenos.setBounds(278, 117, 46, 14);
-		toppings.add(lblpriceJalapenos);
-		
-		JLabel lblpriceMushroom = new JLabel("$0.5");
-		lblpriceMushroom.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpriceMushroom.setBounds(278, 142, 46, 14);
-		toppings.add(lblpriceMushroom);
-		
-		JLabel lblpricePineapple = new JLabel("$0.5");
-		lblpricePineapple.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpricePineapple.setBounds(278, 167, 46, 14);
-		toppings.add(lblpricePineapple);
-		
-		JLabel lblpriceMozzarellaCheese = new JLabel("$0.5");
-		lblpriceMozzarellaCheese.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpriceMozzarellaCheese.setBounds(278, 192, 46, 14);
-		toppings.add(lblpriceMozzarellaCheese);
-		
-		JLabel lblpriceGreenPeppers = new JLabel("$0.5");
-		lblpriceGreenPeppers.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpriceGreenPeppers.setBounds(278, 217, 46, 14);
-		toppings.add(lblpriceGreenPeppers);
-		
-		JLabel lblpriceOlives = new JLabel("$0.5");
-		lblpriceOlives.setHorizontalAlignment(SwingConstants.CENTER);
-		lblpriceOlives.setBounds(278, 242, 46, 14);
-		toppings.add(lblpriceOlives);
-		*/
-
 		
 		/**
 		 * Miscellaneous
@@ -513,33 +342,137 @@ public class Main extends JFrame implements ActionListener {
 		JPanel sauces_1 = new JPanel();
 		sauces_1.setLayout(null);
 		sauces_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		sauces_1.setBounds(148, 532, 344, 123);
+		sauces_1.setBounds(220, 532, 344, 80);
 		contentPane.add(sauces_1);
 		
-		JLabel lblNewLabel_2_1_1_2 = new JLabel("Special Instructions");
-		lblNewLabel_2_1_1_2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1_1_2.setBounds(10, 5, 268, 14);
-		sauces_1.add(lblNewLabel_2_1_1_2);
+		JLabel lblSpecialInstructions = new JLabel("Special Instructions");
+		lblSpecialInstructions.setHorizontalAlignment(SwingConstants.LEFT);
+		lblSpecialInstructions.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblSpecialInstructions.setBounds(10, 5, 268, 14);
+		sauces_1.add(lblSpecialInstructions);
 		
 		JPanel instructions = new JPanel();
 		instructions.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		instructions.setBounds(10, 22, 324, 90);
+		instructions.setBounds(10, 22, 324, 47);
 		sauces_1.add(instructions);
 		instructions.setLayout(null);
 		
 		JTextArea textInstructions = new JTextArea();
-		textInstructions.setBounds(2, 2, 322, 85);
+		textInstructions.setBounds(2, 2, 322, 45);
 		instructions.add(textInstructions);
 		textInstructions.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrPepperoni.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_1.setBounds(220, 612, 344, 43);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBounds(126, 10, 92, 23);
+		panel_1.add(btnSubmit);
+		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		
+		/**
+		 * Cart Function
+		 */
+		
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				int total = 0, priceSize = 0, priceCrust = 0, priceSauce = 0, priceTopping = 0;
+				
+				// Size
+				if(rdbtnS.isSelected()) {
+					pizzaOrder.setSize("small");
+					priceSize = 3;
+				}
+				if(rdbtnM.isSelected()) {
+					pizzaOrder.setSize("medium");
+					priceSize = 4;
+				}
+				if(rdbtnL.isSelected()) {
+					pizzaOrder.setSize("large");
+					priceSize = 6;
+				}
+				if(rdbtnXL.isSelected()) {
+					pizzaOrder.setSize("extra large");
+					priceSize = 8;
+				}
+				
+				// Crescent
+				if(rdbtnStuffed.isSelected()) {
+					pizzaOrder.setCrust("stuffed");
+					priceCrust = 5;
+				}
+				if(rdbtnPan.isSelected()) {
+					pizzaOrder.setCrust("pan");
+					priceCrust = 3;
+				}
+				if(rdbtnHomestyle.isSelected()) {
+					pizzaOrder.setCrust("homestyle");
+					priceCrust = 3;
+				}
+				if(rdbtnThin.isSelected()) {
+					pizzaOrder.setCrust("thin");
+					priceCrust = 3;
+				}
+				
+				// Sauce
+				String[] sauces = new String[4];
+				int count = 0;
+				
+				if(rdbtnTomato.isSelected()) {
+					sauces[count] = "tomato sauce";
+					priceSauce += 3;
+					count++;
+				}
+				if(rdbtnBbqSauce.isSelected()) {
+					sauces[count] = "bbq sauce";
+					priceSauce += 3;
+					count++;
+				}
+				if(rdbtnAlfredoSauce.isSelected()) {
+					sauces[count] = "alfredo sauce";
+					priceSauce += 3;
+					count++;
+				}
+				if(rdbtnPestoSauce.isSelected()) {
+					sauces[count] = "pesto sauce";
+					priceSauce += 3;
+					count++;
+				}
+				
+				pizzaOrder.setSauces(sauces);
+				
+				
+				
+				// Construct
+				total = priceSize + priceCrust + priceSauce + priceTopping;
+				
+				if (pizzaOrder.getCrust() == null) {
+					pizzaOrder.setCrust("none");
+				}
+				
+				if (pizzaOrder.getSauces() == null) {
+					sauces[0] = "none";
+					pizzaOrder.setSauces(sauces);
+				}
+				
+				receipt.setText(
+						"Size:\n" + pizzaOrder.getSize() + 
+						"\n\nCrust:\n" + pizzaOrder.getCrust().getName() + 
+						"\n\nSauce:\n" + Arrays.toString(sauces) + 
+						"\n\nToppings:\n" + pizzaOrder.getToppings() +
+						"\n\nInstructions:\n" + textInstructions.getText()
+						);
+				
+				lblTotal.setText("Total: $" + total);
+			}	
+			
 		});
 		
 	}
-	
+
 	private void toppingLabel(JPanel host, String name, int coord, int price) {
 		JLabel lbl = new JLabel(name);
 		Font text = new Font("Tahoma", Font.PLAIN, 11);
@@ -569,25 +502,5 @@ public class Main extends JFrame implements ActionListener {
 		int cents = amount % 100;
 		return "$"+dollars+"."+String.format("%02d", cents);
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent evt) {
-		// Size
-		if(rdbtnS.isSelected()) {
-			pizzaOrder.setSize("small");
-			priceSize = 3;
-		}
-		if(rdbtnM.isSelected()) {
-			pizzaOrder.setSize("medium");
-			priceSize = 4;
-		}
-		if(rdbtnL.isSelected()) {
-			pizzaOrder.setSize("large");
-			priceSize = 6;
-		}
-		if(rdbtnXL.isSelected()) {
-			pizzaOrder.setSize("extra large");
-			priceSize = 8;
-		}
-	}
 }
+	
