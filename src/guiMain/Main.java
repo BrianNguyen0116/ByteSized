@@ -458,7 +458,7 @@ public class Main extends JFrame implements ActionListener {
 		btnrOlives.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnrOlives.setBounds(197, 238, 71, 23);
 		toppings.add(btnrOlives);
-		
+		*/
 		JLabel lblpricePepperoni = new JLabel("$0.5");
 		lblpricePepperoni.setHorizontalAlignment(SwingConstants.CENTER);
 		lblpricePepperoni.setBounds(278, 43, 46, 14);
@@ -503,7 +503,7 @@ public class Main extends JFrame implements ActionListener {
 		lblpriceOlives.setHorizontalAlignment(SwingConstants.CENTER);
 		lblpriceOlives.setBounds(278, 242, 46, 14);
 		toppings.add(lblpriceOlives);
-		*/
+		
 
 		
 		/**
