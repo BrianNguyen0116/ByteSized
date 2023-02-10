@@ -463,7 +463,7 @@ public class Main extends JFrame implements ActionListener {
 		lblpricePepperoni.setHorizontalAlignment(SwingConstants.CENTER);
 		lblpricePepperoni.setBounds(278, 43, 46, 14);
 		toppings.add(lblpricePepperoni);
-		
+		/*
 		JLabel lblpriceBacon = new JLabel("$0.5");
 		lblpriceBacon.setHorizontalAlignment(SwingConstants.CENTER);
 		lblpriceBacon.setBounds(278, 67, 46, 14);
@@ -503,7 +503,7 @@ public class Main extends JFrame implements ActionListener {
 		lblpriceOlives.setHorizontalAlignment(SwingConstants.CENTER);
 		lblpriceOlives.setBounds(278, 242, 46, 14);
 		toppings.add(lblpriceOlives);
-		
+		*/
 
 		
 		/**
@@ -556,8 +556,19 @@ public class Main extends JFrame implements ActionListener {
 		btnr.setFont(text);
 		btnr.setBounds(197, coord, 71, 23);
 		host.add(btnr);
+		
+		JLabel plbl = new JLabel(intTo$(price));
+		plbl.setHorizontalAlignment(SwingConstants.CENTER);
+		plbl.setBounds(278, coord + 4, 46, 14);
+		host.add(plbl);
 
 	 }
+	
+	private String intTo$(int amount) {//a bit too much of a util for my comfort
+		int dollars = amount / 100;
+		int cents = amount % 100;
+		return "$"+dollars+"."+String.format("%02d", cents);
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
