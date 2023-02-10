@@ -52,3 +52,4 @@ DATE : 02/10/2023
 --
 TASK : 01H00M : Add the Item UML and indicate the relation between the Pizza class and the Item class : Mustafa
 TASK : 02H00M : Add documentation to wiki : Mustafa
+TASK : 02H00M : Main class (GUI) documentation to wiki : Nguyen
