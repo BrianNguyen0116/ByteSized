@@ -11,7 +11,9 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
 import javax.swing.BoxLayout;
@@ -32,6 +34,9 @@ public class Main extends JFrame {
 	JRadioButton rdbtnTomato, rdbtnBbqSauce, rdbtnAlfredoSauce, rdbtnPestoSauce;
 	JButton btnPepperoni, btnBacon, btnItalianS, btnJalapenos, btnMushroom, btnPineapple, btnMozzarella, btnGreenPeppers, btnOlives;
 	JButton btnrPepperoni, btnrBacon, btnrItalianS, btnrJalapenos, btnrMushroom, btnrPineapple, btnrMozzarella, btnrGreenPeppers, btnrOlives;
+	
+	String[] toppingArray = new String[9];
+	int count = 0, pepUID = 0, bacUID = 0, itaUID = 0, jalUID = 0, musUID = 0, pinUID = 0, mozUID = 0, greUID = 0, oliUID = 0;
 	
 	private JPanel contentPane;
 
@@ -290,6 +295,7 @@ public class Main extends JFrame {
 		/**
 		 * Topping Customization
 		 */
+
 		
 		JLabel lblToppings = new JLabel("Topping");
 		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -311,7 +317,9 @@ public class Main extends JFrame {
 	
 		btnPepperoni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				JOptionPane.showMessageDialog(lblToppings, lblPepperoni);;
+				toppingArray[count] = "Pepperoni";
+				pepUID = count;
+				count++;
 		}
 	 });
 		
@@ -319,9 +327,19 @@ public class Main extends JFrame {
 		btnrPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnrPepperoni.setBounds(197, 38, 71, 23);
 		toppings.add(btnrPepperoni);
-		
+
 		
 		Item[] toppingdata = getInventory();
+
+		btnrPepperoni.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				List<String> temp = new ArrayList<String>(Arrays.asList(toppingArray));
+				temp.remove(pepUID);
+				toppingArray = temp.toArray(new String[9]);
+				count--;
+		}
+	 });
+
 		 
 		for (int i = 0; i < toppingdata.length; i++) {
 			toppingLabel(toppings, toppingdata[i].getName(), 63 + i * 25, toppingdata[i].getPrice());
