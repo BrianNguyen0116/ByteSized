@@ -268,50 +268,50 @@ public class Main extends JFrame {
 		btnNewButton_1.setBounds(208, 64, 63, 23);
 		toppings.add(btnNewButton_1);
 		
-		JButton btnNewButton_1_1 = new JButton("Add");
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnNewButton_1_1.setBounds(208, 89, 63, 23);
-		toppings.add(btnNewButton_1_1);
+		JButton btnNewButton_2 = new JButton("Add");
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_2.setBounds(208, 89, 63, 23);
+		toppings.add(btnNewButton_2);
 		
-		JButton btnNewButton_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnNewButton_1_1_1.setBounds(208, 114, 63, 23);
-		toppings.add(btnNewButton_1_1_1);
+		JButton btnNewButton_3 = new JButton("Add");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_3.setBounds(208, 114, 63, 23);
+		toppings.add(btnNewButton_3);
 		
-		JButton btnNewButton_1_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnNewButton_1_1_1_1.setBounds(208, 139, 63, 23);
-		toppings.add(btnNewButton_1_1_1_1);
+		JButton btnNewButton_4 = new JButton("Add");
+		btnNewButton_4.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_4.setBounds(208, 139, 63, 23);
+		toppings.add(btnNewButton_4);
 		
-		JButton btnNewButton_1_1_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnNewButton_1_1_1_1_1.setBounds(208, 164, 63, 23);
-		toppings.add(btnNewButton_1_1_1_1_1);
+		JButton btnNewButton_5 = new JButton("Add");
+		btnNewButton_5.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_5.setBounds(208, 164, 63, 23);
+		toppings.add(btnNewButton_5);
 		
-		JButton btnNewButton_1_1_1_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnNewButton_1_1_1_1_1_1.setBounds(208, 189, 63, 23);
-		toppings.add(btnNewButton_1_1_1_1_1_1);
+		JButton btnNewButton_6 = new JButton("Add");
+		btnNewButton_6.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_6.setBounds(208, 189, 63, 23);
+		toppings.add(btnNewButton_6);
 		
 		JLabel lblNewLabel_3_1_1_1_1_1_1_1 = new JLabel("Tomato");
 		lblNewLabel_3_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1_1_1_1_1_1.setBounds(12, 217, 146, 14);
 		toppings.add(lblNewLabel_3_1_1_1_1_1_1_1);
 		
-		JButton btnNewButton_1_1_1_1_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnNewButton_1_1_1_1_1_1_1.setBounds(208, 213, 63, 23);
-		toppings.add(btnNewButton_1_1_1_1_1_1_1);
+		JButton btnNewButton_7 = new JButton("Add");
+		btnNewButton_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_7.setBounds(208, 213, 63, 23);
+		toppings.add(btnNewButton_7);
 		
 		JLabel lblNewLabel_3_1_1_1_1_1_1_1_1 = new JLabel("Roasted Garlic");
 		lblNewLabel_3_1_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_3_1_1_1_1_1_1_1_1.setBounds(12, 242, 146, 14);
 		toppings.add(lblNewLabel_3_1_1_1_1_1_1_1_1);
 		
-		JButton btnNewButton_1_1_1_1_1_1_1_1 = new JButton("Add");
-		btnNewButton_1_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnNewButton_1_1_1_1_1_1_1_1.setBounds(208, 238, 63, 23);
-		toppings.add(btnNewButton_1_1_1_1_1_1_1_1);
+		JButton btnNewButton_8 = new JButton("Add");
+		btnNewButton_8.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnNewButton_8.setBounds(208, 238, 63, 23);
+		toppings.add(btnNewButton_8);
 		
 		JPanel sauces_1 = new JPanel();
 		sauces_1.setLayout(null);
