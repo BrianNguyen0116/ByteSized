@@ -21,7 +21,7 @@ public class Main extends JFrame implements ActionListener {
 	
 	RestaurantServer server = new RestaurantServer();
 	
-	Pizza pizzaOrder = new Pizza("", "", "", null, null);
+	Pizza pizzaOrder = new Pizza();
 	String cartList, size, crescent, sauce, ingredients;
 	JRadioButton rdbtnS, rdbtnM, rdbtnL, rdbtnXL;
 	JRadioButton rdbtnStuffed, rdbtnPan, rdbtnHomestyle, rdbtnThin;
@@ -526,7 +526,7 @@ public class Main extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-		// SIize
+		// Size
 		if(rdbtnS.isSelected()) {
 			pizzaOrder.setSize("small");
 		}

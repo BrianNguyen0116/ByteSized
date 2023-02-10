@@ -6,7 +6,10 @@ public class Pizza {
 	public String special_instructions;
 	public Item[] toppings;
 	public Item[] sauces;
-	
+
+	public Pizza() {
+		
+	}
 	
 	public Pizza(String size, String special_instructions, String crust, String[] toppings, String[] sauces){
 		this.size = size;
