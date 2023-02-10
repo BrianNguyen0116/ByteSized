@@ -32,4 +32,10 @@ public class Item {
 		return this.price = price;
 	}
 	
+	@Override
+	public String toString() {
+		return name;
+	}
+	
 }
+
