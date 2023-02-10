@@ -1,14 +1,6 @@
 ﻿# Byte-Sized[a]
 EECS3311 Section M .:. Team 14 .:.
 
-
-:....:
-Delete after final draft:
-Meetings do not need to list the participants. Assume all members are attending, asynchronous or not.
-Participants only need their surname. It gives space and none of us share the same one.
-:....:
-
-
 DATE : 01/30/2023 
 --
 MEET : 00H30M : Asynchronous Meeting(General Discussion and Task Organization)
@@ -33,8 +25,6 @@ MEET : 06H00M : Meeting (Task Assigning and Class and Object Discussion)
 TASK : 02H00M : GUI Set Up (JavaFX) : Nguyen
 TASK : 02H00M : Pizza Class UML Setup : Mustafa
 TASK : 00H30M : Create JSON dummy data for development purposes : Mustafa
-
-
 
 DATE : 02/08/2023
 --
