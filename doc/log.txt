@@ -50,6 +50,9 @@ TASK : 03H00M : Add item class and change the pizza class to initiate and store 
 
 DATE : 02/10/2023
 --
+TASK : 00H45M : Worked with Bren to fix path naming error that prevented the program from compiling on anything beside's bren's computer : Ivan
+TASK : 03H00M : Reafactored the GUI code to significantly reduce code-duplication and make it so the list of toppings is no longer hardcoded, for future database : Ivan
+TASK : 03H00M : Made it possible to cancel a topping choice. Made the price calculation factor in the cost of the toppings. The final list of Toppings chosen now prints properly on the receipt : Ivan
 TASK : 01H00M : Add the Item UML and indicate the relation between the Pizza class and the Item class : Mustafa
 TASK : 02H00M : Add documentation to wiki : Mustafa
 TASK : 02H00M : Main class (GUI) documentation to wiki : Nguyen
