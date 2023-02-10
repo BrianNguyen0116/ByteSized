@@ -13,6 +13,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.border.BevelBorder;
@@ -35,8 +36,9 @@ public class Main extends JFrame {
 	JButton btnPepperoni, btnBacon, btnItalianS, btnJalapenos, btnMushroom, btnPineapple, btnMozzarella, btnGreenPeppers, btnOlives;
 	JButton btnrPepperoni, btnrBacon, btnrItalianS, btnrJalapenos, btnrMushroom, btnrPineapple, btnrMozzarella, btnrGreenPeppers, btnrOlives;
 	
-	String[] toppingArray = new String[9];
-	int count,pepUID,bacUID,itaUID,jalUID,musUID,pinUID,mozUID,greUID,oliUID = 0;
+	HashMap<String, Integer> topmap= new HashMap<String, Integer>();
+	
+	int tcount = 0;
 	
 	private JPanel contentPane;
 
@@ -305,52 +307,18 @@ public class Main extends JFrame {
 		 * Topping Customization
 		 */
 
-		
 		JLabel lblToppings = new JLabel("Topping");
 		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setBounds(12, 11, 264, 14);
 		toppings.add(lblToppings);
-		
-		
-		//Pepperoni
-		JLabel lblPepperoni = new JLabel("Pepperoni");
-		lblPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblPepperoni.setBounds(12, 43, 109, 14);
-		toppings.add(lblPepperoni);
-		
-		btnPepperoni = new JButton("Add");
-		btnPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnPepperoni.setBounds(121, 38, 71, 23);
-		toppings.add(btnPepperoni);
 	
-		btnPepperoni.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ae) {
-				toppingArray[count] = "Pepperoni";
-				pepUID = count;
-				count++;
-		}
-	 });
+		HashMap<String, Integer> toppingdata = getInventory();
 		
-		btnrPepperoni = new JButton("Remove");
-		btnrPepperoni.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnrPepperoni.setBounds(197, 38, 71, 23);
-		toppings.add(btnrPepperoni);
-
-		
-		Item[] toppingdata = getInventory();
-
-		btnrPepperoni.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ae) {
-				List<String> temp = new ArrayList<String>(Arrays.asList(toppingArray));
-				temp.remove(pepUID);
-				toppingArray = temp.toArray(new String[9]);
-				count--;
-		}
-	 });
-		 
-		for (int i = 0; i < toppingdata.length; i++) {
-			toppingLabel(toppings, toppingdata[i].getName(), 63 + i * 25, toppingdata[i].getPrice());
+		int index = 0;
+		for (String k : toppingdata.keySet()) {
+			toppingLabel(toppings, k, 38 + index * 25, toppingdata.get(k));
+			index++;
 		}
 		
 		/**
@@ -401,62 +369,62 @@ public class Main extends JFrame {
 				// Size
 				if(rdbtnS.isSelected()) {
 					pizzaOrder.setSize("small");
-					priceSize = 3;
+					priceSize = 300;
 				}
 				if(rdbtnM.isSelected()) {
 					pizzaOrder.setSize("medium");
-					priceSize = 4;
+					priceSize = 400;
 				}
 				if(rdbtnL.isSelected()) {
 					pizzaOrder.setSize("large");
-					priceSize = 6;
+					priceSize = 600;
 				}
 				if(rdbtnXL.isSelected()) {
 					pizzaOrder.setSize("extra large");
-					priceSize = 8;
+					priceSize = 800;
 				}
 				
 				// Crescent
 				if(rdbtnStuffed.isSelected()) {
 					pizzaOrder.setCrust("stuffed");
-					priceCrust = 5;
+					priceCrust = 500;
 				}
 				if(rdbtnPan.isSelected()) {
 					pizzaOrder.setCrust("pan");
-					priceCrust = 3;
+					priceCrust = 300;
 				}
 				if(rdbtnHomestyle.isSelected()) {
 					pizzaOrder.setCrust("homestyle");
-					priceCrust = 3;
+					priceCrust = 300;
 				}
 				if(rdbtnThin.isSelected()) {
 					pizzaOrder.setCrust("thin");
-					priceCrust = 3;
+					priceCrust = 300;
 				}
 				
 				// Sauce
 				String[] sauces = new String[4];
-				int count = 0;
+				int scount = 0;
 				
 				if(rdbtnTomato.isSelected()) {
-					sauces[count] = "tomato sauce";
-					priceSauce += 3;
-					count++;
+					sauces[scount] = "tomato sauce";
+					priceSauce += 300;
+					scount++;
 				}
 				if(rdbtnBbqSauce.isSelected()) {
-					sauces[count] = "bbq sauce";
-					priceSauce += 3;
-					count++;
+					sauces[scount] = "bbq sauce";
+					priceSauce += 300;
+					scount++;
 				}
 				if(rdbtnAlfredoSauce.isSelected()) {
-					sauces[count] = "alfredo sauce";
-					priceSauce += 3;
-					count++;
+					sauces[scount] = "alfredo sauce";
+					priceSauce += 300;
+					scount++;
 				}
 				if(rdbtnPestoSauce.isSelected()) {
-					sauces[count] = "pesto sauce";
-					priceSauce += 3;
-					count++;
+					sauces[scount] = "pesto sauce";
+					priceSauce += 300;
+					scount++;
 				}
 
 				pizzaOrder.setSauces(sauces);
@@ -473,6 +441,18 @@ public class Main extends JFrame {
 			    sauces = list.toArray(new String[list.size()]);
 			    
 			    
+				String[] temp = new String[tcount];
+				int c = 0;
+				for (String i : topmap.keySet()) {
+					for (int z = topmap.get(i); z > 0; z--) {
+						temp[c] = i;
+						priceTopping += toppingdata.get(i);
+						c++;
+					}
+				}
+				
+				pizzaOrder.setToppings(temp);
+				
 				// Construct
 				total = priceSize + priceCrust + priceSauce + priceTopping;
 				
@@ -489,11 +469,11 @@ public class Main extends JFrame {
 						"Size:\n" + pizzaOrder.getSize() + 
 						"\n\nCrust:\n" + pizzaOrder.getCrust().getName() + 
 						"\n\nSauce:\n" + Arrays.toString(sauces) + 
-						"\n\nToppings:\n" + pizzaOrder.getToppings() +
+						"\n\nToppings:\n" + Arrays.toString(pizzaOrder.getToppings()) +
 						"\n\nInstructions:\n" + textInstructions.getText()
 						);
 				
-				lblTotal.setText("Total: $" + total);
+				lblTotal.setText("Total: " + intTo$(total));
 			}	
 			
 		});
@@ -521,6 +501,27 @@ public class Main extends JFrame {
 		plbl.setHorizontalAlignment(SwingConstants.CENTER);
 		plbl.setBounds(278, coord + 4, 46, 14);
 		host.add(plbl);
+		
+		btnl.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				if (topmap.get(name) == null) {
+					topmap.put(name,1);
+				} else {
+					topmap.put(name, topmap.get(name)+1);
+				}
+				tcount++;
+			}
+		});
+		
+		btnr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				if (topmap.get(name) != null && topmap.get(name) > 0) {
+					topmap.put(name, topmap.get(name)-1);
+					tcount--;
+				}
+			}
+		});
+		
 
 	 }
 	
@@ -530,23 +531,26 @@ public class Main extends JFrame {
 		return "$"+dollars+"."+String.format("%02d", cents);
 	}
 	
-	public Item[] getInventory() {
+	public HashMap<String, Integer> getInventory() {
 		/*
 		 * This method will eventually be used to query info from the database
 		 * For now though, it will simply return a hard-coded response
 		 */
-		Item[] result = {
-				new Item("Bacon", 50),
-				new Item("Italian Sausage", 50),
-				new Item("Jalapenos", 125),
-				new Item("Mushroom", 75),
-				new Item("Pineapple", 290),
-				new Item("Mozzarella Cheese", 35),
-				new Item("Green Peppers", 90),
-				new Item("Olives", 45)
-		};
+		
+		
+		HashMap<String, Integer> result = new HashMap<String, Integer>();
+		result.put("Pepperoni", 50);
+		result.put("Bacon", 50);
+		result.put("Italian Sausage", 50);
+		result.put("Jalapenos", 125);
+		result.put("Mushroom", 75);
+		result.put("Pineapple", 290);
+		result.put("Mozzarella Cheese", 35);
+		result.put("Green Peppers", 90);
+		result.put("Olives", 45);
 		
 		return result;
 	}
 }
+	
 	
