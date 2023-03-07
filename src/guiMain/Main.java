@@ -140,53 +140,63 @@ public class Main extends JFrame {
 		 * Size Customization
 		 */
 		
-		ButtonGroup rbtnSize = new ButtonGroup();
-		
-		JRadioButton rdbtnS = new JRadioButton("Small");
-		rdbtnS.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnS.setBounds(10, 24, 69, 23);
-		size.add(rdbtnS);
-	
-		
-		JRadioButton rdbtnM = new JRadioButton("Medium");
-		rdbtnM.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnM.setBounds(173, 24, 69, 23);
-		size.add(rdbtnM);
-		
-		JRadioButton rdbtnL = new JRadioButton("Large");
-		rdbtnL.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnL.setBounds(10, 57, 59, 23);
-		size.add(rdbtnL);
-		
-		JRadioButton rdbtnXL = new JRadioButton("X-Large");
-		rdbtnXL.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnXL.setBounds(173, 57, 69, 23);
-		size.add(rdbtnXL);
-		
-		rbtnSize.add(rdbtnS); rbtnSize.add(rdbtnM); rbtnSize.add(rdbtnL); rbtnSize.add(rdbtnXL);
-		
 		JLabel lblNewLabel_2 = new JLabel("Size");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(10, 7, 266, 14);
 		size.add(lblNewLabel_2);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		
+		ButtonGroup rbtnSize = new ButtonGroup();
+		
+		//------------
 		JLabel lblpriceSmall = new JLabel("$3");
 		lblpriceSmall.setBounds(121, 28, 46, 14);
 		size.add(lblpriceSmall);
 		
+		JRadioButton rdbtnS = new JRadioButton("Small");
+		rdbtnS.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnS.setBounds(10, 24, 69, 23);
+		size.add(rdbtnS);
+		
+		rbtnSize.add(rdbtnS);
+		
+		//
+		JLabel lblpriceMedium = new JLabel("$4");
+		lblpriceMedium.setBounds(288, 28, 46, 14);
+		size.add(lblpriceMedium);	
+		
+		JRadioButton rdbtnM = new JRadioButton("Medium");
+		rdbtnM.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnM.setBounds(173, 24, 69, 23);
+		size.add(rdbtnM);
+		
+		rbtnSize.add(rdbtnM);
+		 
+		//
 		JLabel lblpriceLarge = new JLabel("$6");
 		lblpriceLarge.setBounds(121, 61, 46, 14);
 		size.add(lblpriceLarge);
 		
-		JLabel lblpriceMedium = new JLabel("$4");
-		lblpriceMedium.setBounds(288, 28, 46, 14);
-		size.add(lblpriceMedium);
+		JRadioButton rdbtnL = new JRadioButton("Large");
+		rdbtnL.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnL.setBounds(10, 57, 59, 23);
+		size.add(rdbtnL);
 		
+		rbtnSize.add(rdbtnL);
+		 
+		//
 		JLabel lblpriceXLarge = new JLabel("$8");
 		lblpriceXLarge.setBounds(288, 61, 46, 14);
 		size.add(lblpriceXLarge);
 		
+		JRadioButton rdbtnXL = new JRadioButton("X-Large");
+		rdbtnXL.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnXL.setBounds(173, 57, 69, 23);
+		size.add(rdbtnXL);
+		
+		rbtnSize.add(rdbtnXL);
+		
+		 
 		JPanel crescent = new JPanel();
 		crescent.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		crescent.setBounds(220, 85, 344, 87);
