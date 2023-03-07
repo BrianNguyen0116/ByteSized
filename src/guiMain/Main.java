@@ -33,8 +33,6 @@ public class Main extends JFrame {
 	JRadioButton rdbtnS, rdbtnM, rdbtnL, rdbtnXL;
 	JRadioButton rdbtnStuffed, rdbtnPan, rdbtnHomestyle, rdbtnThin;
 	JRadioButton rdbtnTomato, rdbtnBbqSauce, rdbtnAlfredoSauce, rdbtnPestoSauce;
-	JButton btnPepperoni, btnBacon, btnItalianS, btnJalapenos, btnMushroom, btnPineapple, btnMozzarella, btnGreenPeppers, btnOlives;
-	JButton btnrPepperoni, btnrBacon, btnrItalianS, btnrJalapenos, btnrMushroom, btnrPineapple, btnrMozzarella, btnrGreenPeppers, btnrOlives;
 	
 	HashMap<String, Integer> topmap= new HashMap<String, Integer>();
 	
