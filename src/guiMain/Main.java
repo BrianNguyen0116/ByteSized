@@ -217,40 +217,47 @@ public class Main extends JFrame {
 		rdbtnPan = new JRadioButton("Pan");
 		rdbtnPan.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnPan.setBounds(173, 30, 60, 23);
-		crescent.add(rdbtnPan);
+		crescent.add(rdbtnPan);		
+		
+		JLabel lblpricePan = new JLabel("$3");
+		lblpricePan.setBounds(288, 34, 46, 14);
+		crescent.add(lblpricePan);
+		
+		rbtnCrescent.add(rdbtnPan); 
 		
 		rdbtnStuffed = new JRadioButton("Stuffed");
 		rdbtnStuffed.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnStuffed.setBounds(10, 30, 64, 23);
 		crescent.add(rdbtnStuffed);
 		
+		JLabel lblpriceStuffed = new JLabel("$5");
+		lblpriceStuffed.setBounds(121, 34, 46, 14);
+		crescent.add(lblpriceStuffed);
+		
+		rbtnCrescent.add(rdbtnStuffed);
+		
 		rdbtnHomestyle = new JRadioButton("Homestyle");
 		rdbtnHomestyle.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnHomestyle.setBounds(10, 57, 75, 23);
 		crescent.add(rdbtnHomestyle);
+		
+		JLabel lblpriceHomestyle = new JLabel("$3");
+		lblpriceHomestyle.setBounds(121, 61, 46, 14);
+		crescent.add(lblpriceHomestyle);
+		
+		rbtnCrescent.add(rdbtnHomestyle);
 		
 		rdbtnThin = new JRadioButton("Thin");
 		rdbtnThin.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnThin.setBounds(173, 57, 57, 23);
 		crescent.add(rdbtnThin);
 		
-		rbtnCrescent.add(rdbtnPan); rbtnCrescent.add(rdbtnStuffed); rbtnCrescent.add(rdbtnHomestyle); rbtnCrescent.add(rdbtnThin);
- 
-		JLabel lblpriceStuffed = new JLabel("$5");
-		lblpriceStuffed.setBounds(121, 34, 46, 14);
-		crescent.add(lblpriceStuffed);
- 
-		JLabel lblpricePan = new JLabel("$3");
-		lblpricePan.setBounds(288, 34, 46, 14);
-		crescent.add(lblpricePan);
- 
 		JLabel lblpriceThin = new JLabel("$3");
 		lblpriceThin.setBounds(288, 61, 46, 14);
 		crescent.add(lblpriceThin);
+		
+		rbtnCrescent.add(rdbtnThin);
  
-		JLabel lblpriceHomestyle = new JLabel("$3");
-		lblpriceHomestyle.setBounds(121, 61, 46, 14);
-		crescent.add(lblpriceHomestyle);
 		
 		JPanel sauces = new JPanel();
 		sauces.setLayout(null);
@@ -261,28 +268,6 @@ public class Main extends JFrame {
 		/**
 		 * Sauce Customization
 		 */
-
-		
-		JLabel lblpricePrestoSauce = new JLabel("$3");
-		lblpricePrestoSauce.setBounds(287, 60, 46, 14);
-		sauces.add(lblpricePrestoSauce);
-		
-		JLabel lblpriceAlfredo = new JLabel("$3");
-		lblpriceAlfredo.setBounds(121, 60, 46, 14);
-		sauces.add(lblpriceAlfredo);
-		
-		JLabel lblpriceBBQ = new JLabel("$3");
-		lblpriceBBQ.setBounds(287, 32, 46, 14);
-		sauces.add(lblpriceBBQ);
-		
-		JLabel lblpriceTomato = new JLabel("$3");
-		lblpriceTomato.setBounds(121, 32, 46, 14);
-		sauces.add(lblpriceTomato);
-		
-		rdbtnPestoSauce = new JRadioButton("Pesto Sauce");
-		rdbtnPestoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnPestoSauce.setBounds(173, 56, 102, 23);
-		sauces.add(rdbtnPestoSauce);
 		
 		JLabel lblSauce = new JLabel("Sauce");
 		lblSauce.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -290,20 +275,42 @@ public class Main extends JFrame {
 		lblSauce.setBounds(11, 10, 268, 14);
 		sauces.add(lblSauce);
 		
-		rdbtnTomato = new JRadioButton("Tomato Sauce");
-		rdbtnTomato.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnTomato.setBounds(11, 28, 102, 23);
-		sauces.add(rdbtnTomato);
+		JLabel lblpricePrestoSauce = new JLabel("$3");
+		lblpricePrestoSauce.setBounds(287, 60, 46, 14);
+		sauces.add(lblpricePrestoSauce);
+		
+		rdbtnPestoSauce = new JRadioButton("Pesto Sauce");
+		rdbtnPestoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnPestoSauce.setBounds(173, 56, 102, 23);
+		sauces.add(rdbtnPestoSauce);
+		
+		JLabel lblpriceAlfredo = new JLabel("$3");
+		lblpriceAlfredo.setBounds(121, 60, 46, 14);
+		sauces.add(lblpriceAlfredo);
 		
 		rdbtnAlfredoSauce = new JRadioButton("Alfredo Sauce");
 		rdbtnAlfredoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnAlfredoSauce.setBounds(11, 56, 104, 23);
 		sauces.add(rdbtnAlfredoSauce);
 		
+		JLabel lblpriceBBQ = new JLabel("$3");
+		lblpriceBBQ.setBounds(287, 32, 46, 14);
+		sauces.add(lblpriceBBQ);
+		
 		rdbtnBbqSauce = new JRadioButton("BBQ Sauce");
 		rdbtnBbqSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnBbqSauce.setBounds(173, 28, 102, 23);
 		sauces.add(rdbtnBbqSauce);
+		
+		JLabel lblpriceTomato = new JLabel("$3");
+		lblpriceTomato.setBounds(121, 32, 46, 14);
+		sauces.add(lblpriceTomato);
+		
+		rdbtnTomato = new JRadioButton("Tomato Sauce");
+		rdbtnTomato.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnTomato.setBounds(11, 28, 102, 23);
+		sauces.add(rdbtnTomato);
+		 
 		
 		JPanel toppings = new JPanel();
 		toppings.setLayout(null);
