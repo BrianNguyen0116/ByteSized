@@ -147,6 +147,18 @@ public class Main extends JFrame {
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		ButtonGroup rbtnSize = new ButtonGroup();
+		 
+		/*
+		HashMap<String, Integer> sizeprice = getSizePrices();
+		
+		int sindex = 0;
+		int[] ycoords = {111,278,111,278};
+		int[] xcoords = {28,28,61,61};
+		for (String k : sizeprice.keySet()) {
+			sizeLabel(size, rbtnSize, k, xcoords[sindex], ycoords[sindex], sizeprice.get(k));
+			//(JPanel host, ButtonGroup group, String name, int xcoord, int ycoord, int price)
+			sindex++;
+		}*/
 		
 		//------------
 		JLabel lblpriceSmall = new JLabel("$3");
@@ -330,10 +342,10 @@ public class Main extends JFrame {
 	
 		HashMap<String, Integer> toppingdata = getToppingPrices();
 		
-		int index = 0;
+		int tindex = 0;
 		for (String k : toppingdata.keySet()) {
-			toppingLabel(toppings, k, 38 + index * 25, toppingdata.get(k));
-			index++;
+			toppingLabel(toppings, k, 38 + tindex * 25, toppingdata.get(k));
+			tindex++;
 		}
 		
 		/**
@@ -541,19 +553,18 @@ public class Main extends JFrame {
 	 }
 	
 	//WIP! DO NOT CALL!
-	private JRadioButton sizeLabel(JPanel host, ButtonGroup group, String name, int xcoord, int ycoord, int price) {
+	private void sizeLabel(JPanel host, ButtonGroup group, String name, int xcoord, int ycoord, int price) {
 		JLabel lblprice = new JLabel(intTo$(price));
-		lblprice.setBounds(121, 28, 46, 14);
+		lblprice.setBounds(121 + xcoord, 28 + ycoord, 46, 14);
 		host.add(lblprice);
 		
 		JRadioButton rdbtn = new JRadioButton(name);
 		rdbtn.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtn.setBounds(10, 24, 69, 23);
+		rdbtn.setBounds(10 + xcoord, 24 + ycoord, 69, 23);
 		host.add(rdbtn);
 		
 		group.add(rdbtn);
 		
-		return rdbtn;
 	}
 	
 	private String intTo$(int amount) {//a bit too much of a util for my comfort
