@@ -540,6 +540,22 @@ public class Main extends JFrame {
 
 	 }
 	
+	//WIP! DO NOT CALL!
+	private JRadioButton sizeLabel(JPanel host, ButtonGroup group, String name, int xcoord, int ycoord, int price) {
+		JLabel lblprice = new JLabel(intTo$(price));
+		lblprice.setBounds(121, 28, 46, 14);
+		host.add(lblprice);
+		
+		JRadioButton rdbtn = new JRadioButton(name);
+		rdbtn.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtn.setBounds(10, 24, 69, 23);
+		host.add(rdbtn);
+		
+		group.add(rdbtn);
+		
+		return rdbtn;
+	}
+	
 	private String intTo$(int amount) {//a bit too much of a util for my comfort
 		int dollars = amount / 100;
 		int cents = amount % 100;
