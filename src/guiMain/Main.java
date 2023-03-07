@@ -328,7 +328,7 @@ public class Main extends JFrame {
 		lblToppings.setBounds(12, 11, 264, 14);
 		toppings.add(lblToppings);
 	
-		HashMap<String, Integer> toppingdata = getInventory();
+		HashMap<String, Integer> toppingdata = getToppingPrices();
 		
 		int index = 0;
 		for (String k : toppingdata.keySet()) {
@@ -562,12 +562,11 @@ public class Main extends JFrame {
 		return "$"+dollars+"."+String.format("%02d", cents);
 	}
 	
-	public HashMap<String, Integer> getInventory() {
+	public HashMap<String, Integer> getToppingPrices() {
 		/*
 		 * This method will eventually be used to query info from the database
 		 * For now though, it will simply return a hard-coded response
 		 */
-		
 		
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		result.put("Pepperoni", 50);
@@ -579,6 +578,52 @@ public class Main extends JFrame {
 		result.put("Mozzarella Cheese", 35);
 		result.put("Green Peppers", 90);
 		result.put("Olives", 45);
+		
+		return result;
+	}
+	
+	public HashMap<String, Integer> getDoughPrices() {
+		/*
+		 * This method will eventually be used to query info from the database
+		 * For now though, it will return a hacky hard-coded response
+		 */
+		
+		HashMap<String, Integer> result = new HashMap<String, Integer>();
+		result.put("Stuffed", 500);
+		result.put("Pan", 300);
+		result.put("Homestyle", 300);
+		result.put("Thin", 300);
+		
+		
+		return result;
+	}
+	
+	public HashMap<String, Integer> getSizePrices() {
+		/*
+		 * This method will eventually be used to query info from the database
+		 * For now though, it will return a hacky hard-coded response
+		 */
+		
+		HashMap<String, Integer> result = new HashMap<String, Integer>();
+		result.put("Small", 300);
+		result.put("Medium", 400);
+		result.put("Large", 600);
+		result.put("X-Large", 800);
+		
+		return result;
+	}
+	
+	public HashMap<String, Integer> getSaucePrices() {
+		/*
+		 * This method will eventually be used to query info from the database
+		 * For now though, it will return a hacky hard-coded response
+		 */
+		
+		HashMap<String, Integer> result = new HashMap<String, Integer>();
+		result.put("Tomato Sauce", 300);
+		result.put("BBQ Sauce", 300);
+		result.put("Alfredo Sauce", 300);
+		result.put("Pesto Sauce", 300);
 		
 		return result;
 	}
