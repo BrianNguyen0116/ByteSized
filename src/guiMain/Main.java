@@ -199,17 +199,17 @@ public class Main extends JFrame {
 		 * Crescent Customization
 		 */
 		ButtonGroup rbtnCrescent = new ButtonGroup();
-		
-		rdbtnPan = new JRadioButton("Pan");
-		rdbtnPan.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnPan.setBounds(173, 30, 60, 23);
-		crescent.add(rdbtnPan);
-		
+		 
 		JLabel lblNewLabel_2_1 = new JLabel("Dough");
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2_1.setBounds(10, 9, 266, 14);
 		crescent.add(lblNewLabel_2_1);
 		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		rdbtnPan = new JRadioButton("Pan");
+		rdbtnPan.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		rdbtnPan.setBounds(173, 30, 60, 23);
+		crescent.add(rdbtnPan);
 		
 		rdbtnStuffed = new JRadioButton("Stuffed");
 		rdbtnStuffed.setFont(new Font("Tahoma", Font.PLAIN, 11));
