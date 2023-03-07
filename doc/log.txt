@@ -50,3 +50,7 @@ TASK : 03H00M : Made it possible to cancel a topping choice. Made the price calc
 TASK : 01H00M : Add the Item UML and indicate the relation between the Pizza class and the Item class : Mustafa
 TASK : 02H00M : Add documentation to wiki : Mustafa
 TASK : 02H00M : Main class (GUI) documentation to wiki : Nguyen
+
+DATE : 07/03/2023
+Had a team meeting to catchup, plan future steps, and split tasks
+03:00PM --> 03:23
