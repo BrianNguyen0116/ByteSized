@@ -1,0 +1,19 @@
+{
+    "users": {
+        "1": {
+            "username": "user1",
+            "password": "user1password",
+            "loggedin": "false"
+        },
+        "2": {
+            "username": "user2",
+            "password": "user2password",
+            "loggedin": "false"
+        },
+        "3": {
+            "username": "user3",
+            "password": "user3password",
+            "loggedin": "false"
+        }
+    }
+}

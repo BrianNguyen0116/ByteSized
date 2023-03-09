@@ -11,17 +11,34 @@ public class User {
 		this.loggedin = false;
 	}
 	
+	// Class getters
 	public String getUserName() {
+		return this.username;
+	}
+	
+	public String getPassword() {
 		return this.password;
 	}
 	
 	public boolean isLoggedIn() {
 		return this.loggedin;
 	}
+
+	
+	// Class setters
+	public String setUsername(String username) {
+		this.username = username;
+		return username;
+	}
 	
 	public void setLoggedIn(boolean loggedIn) {
 		this.loggedin = loggedIn;
 	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	
     @Override
     public boolean equals(Object o) {
