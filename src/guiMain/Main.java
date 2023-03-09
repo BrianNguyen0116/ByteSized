@@ -30,7 +30,6 @@ public class Main extends JFrame {
 	JLabel lblTotal = new JLabel();
 	JTextArea receipt = new JTextArea();
 	JTextArea textInstructions = new JTextArea();
-	JRadioButton rdbtnS, rdbtnM, rdbtnL, rdbtnXL;
 	JRadioButton rdbtnStuffed, rdbtnPan, rdbtnHomestyle, rdbtnThin;
 	JRadioButton rdbtnTomato, rdbtnBbqSauce, rdbtnAlfredoSauce, rdbtnPestoSauce;
 	
@@ -148,65 +147,18 @@ public class Main extends JFrame {
 		
 		ButtonGroup rbtnSize = new ButtonGroup();
 		 
-		/*
+		
 		HashMap<String, Integer> sizeprice = getSizePrices();
-		
-		int sindex = 0;
-		int[] ycoords = {111,278,111,278};
-		int[] xcoords = {28,28,61,61};
-		for (String k : sizeprice.keySet()) {
-			sizeLabel(size, rbtnSize, k, xcoords[sindex], ycoords[sindex], sizeprice.get(k));
-			//(JPanel host, ButtonGroup group, String name, int xcoord, int ycoord, int price)
-			sindex++;
-		}*/
-		
-		//------------
-		JLabel lblpriceSmall = new JLabel("$3");
-		lblpriceSmall.setBounds(121, 28, 46, 14);
-		size.add(lblpriceSmall);
-		
-		JRadioButton rdbtnS = new JRadioButton("Small");
-		rdbtnS.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnS.setBounds(10, 24, 69, 23);
-		size.add(rdbtnS);
-		
-		rbtnSize.add(rdbtnS);
-		
-		//
-		JLabel lblpriceMedium = new JLabel("$4");
-		lblpriceMedium.setBounds(288, 28, 46, 14);
-		size.add(lblpriceMedium);	
-		
-		JRadioButton rdbtnM = new JRadioButton("Medium");
-		rdbtnM.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnM.setBounds(173, 24, 69, 23);
-		size.add(rdbtnM);
-		
-		rbtnSize.add(rdbtnM);
-		 
-		//
-		JLabel lblpriceLarge = new JLabel("$6");
-		lblpriceLarge.setBounds(121, 61, 46, 14);
-		size.add(lblpriceLarge);
-		
-		JRadioButton rdbtnL = new JRadioButton("Large");
-		rdbtnL.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnL.setBounds(10, 57, 59, 23);
-		size.add(rdbtnL);
-		
-		rbtnSize.add(rdbtnL);
-		 
-		//
-		JLabel lblpriceXLarge = new JLabel("$8");
-		lblpriceXLarge.setBounds(288, 61, 46, 14);
-		size.add(lblpriceXLarge);
-		
-		JRadioButton rdbtnXL = new JRadioButton("X-Large");
-		rdbtnXL.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnXL.setBounds(173, 57, 69, 23);
-		size.add(rdbtnXL);
-		
-		rbtnSize.add(rdbtnXL);
+		ArrayList<Item> sortedsize = sortedBy(sizeprice, true);
+
+		int width = 2;
+		int maxheight = 2;
+		for (int y = 0, i = 0; i < sortedsize.size() && (y < maxheight); y++) {
+			for (int x = 0; x < width && i < sortedsize.size(); x++) {
+				sizeLabel(size, rbtnSize, sortedsize.get(i).getName(), x *167 , y * 33, sizeprice.get(sortedsize.get(i).getName()));
+				i++;
+			}
+		}
 		
 		 
 		JPanel crescent = new JPanel();
@@ -392,24 +344,16 @@ public class Main extends JFrame {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				int total = 0, priceSize = 0, priceCrust = 0, priceSauce = 0, priceTopping = 0;
+				if (rbtnSize.getSelection() == null ) {
+					btnSubmit.setText("Need Size!");
+					return;
+				}
 				
 				// Size
-				if(rdbtnS.isSelected()) {
-					pizzaOrder.setSize("small");
-					priceSize = 300;
-				}
-				if(rdbtnM.isSelected()) {
-					pizzaOrder.setSize("medium");
-					priceSize = 400;
-				}
-				if(rdbtnL.isSelected()) {
-					pizzaOrder.setSize("large");
-					priceSize = 600;
-				}
-				if(rdbtnXL.isSelected()) {
-					pizzaOrder.setSize("extra large");
-					priceSize = 800;
-				}
+				String finalsize = rbtnSize.getSelection().getActionCommand();
+				pizzaOrder.setSize(finalsize);
+				priceSize = sizeprice.get(finalsize);
+						
 				
 				// Crescent
 				if(rdbtnStuffed.isSelected()) {
@@ -501,6 +445,8 @@ public class Main extends JFrame {
 						);
 				
 				lblTotal.setText("Total: " + intTo$(total));
+				
+				btnSubmit.setText("Submit");
 			}	
 			
 		});
@@ -552,7 +498,6 @@ public class Main extends JFrame {
 
 	 }
 	
-	//WIP! DO NOT CALL!
 	private void sizeLabel(JPanel host, ButtonGroup group, String name, int xcoord, int ycoord, int price) {
 		JLabel lblprice = new JLabel(intTo$(price));
 		lblprice.setBounds(121 + xcoord, 28 + ycoord, 46, 14);
@@ -560,7 +505,8 @@ public class Main extends JFrame {
 		
 		JRadioButton rdbtn = new JRadioButton(name);
 		rdbtn.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtn.setBounds(10 + xcoord, 24 + ycoord, 69, 23);
+		rdbtn.setBounds(10 + xcoord, 24 + ycoord, 102, 23);
+		rdbtn.setActionCommand(name);
 		host.add(rdbtn);
 		
 		group.add(rdbtn);
@@ -635,6 +581,31 @@ public class Main extends JFrame {
 		result.put("BBQ Sauce", 300);
 		result.put("Alfredo Sauce", 300);
 		result.put("Pesto Sauce", 300);
+		
+		return result;
+	}
+	
+	public ArrayList<Item> sortedBy(HashMap<String,Integer> pricemap, Boolean byprice){
+		if (pricemap == null) return null;
+		
+		ArrayList<Item> buffer = new ArrayList<Item>();
+		if (pricemap.size() == 0) return buffer;
+		
+		for (String k : pricemap.keySet()) {
+			buffer.add(new Item(k));
+		}
+		
+		ArrayList<Item> result= new ArrayList<Item>();
+		
+		for (result.add(buffer.remove(0)); buffer.size() > 0;) {
+			Item comparison = buffer.remove(0);
+			int i = 0;
+			for (; i < result.size() ;i++) {
+				if (byprice && pricemap.get(comparison.getName()) < pricemap.get(result.get(i).getName())) break; //sort by price
+				else if (comparison.getName().compareTo(result.get(i).getName()) < 0 ) break; //sort alphabetically
+			}
+			result.add(i, comparison);
+		}
 		
 		return result;
 	}
