@@ -15,11 +15,13 @@ import com.github.cliftonlabs.json_simple.Jsoner;
 public class User {
 	private String username;
 	private String password;
+	private String role;
 	private boolean loggedin;
 	
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password;
+		this.role = "user";
 		this.loggedin = false;
 		
 		
@@ -29,6 +31,7 @@ public class User {
 
 		json.put("username", this.username);
 		json.put("password", this.password);
+		json.put("role", this.role);
 		
 		try {
 			FileWriter file = new FileWriter("output.json");
@@ -48,6 +51,10 @@ public class User {
 	
 	public String getPassword() {
 		return this.password;
+	}
+	
+	public String getRole() {
+		return this.role;
 	}
 	
 	public boolean isLoggedIn() {

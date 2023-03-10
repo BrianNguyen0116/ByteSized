@@ -54,5 +54,12 @@ class UserTest {
 		test_user.setLoggedIn(false);
 		assertEquals(false, test_user.isLoggedIn());
 	}
+	
+	// test that default role of a new account is user. Admin accounts have to be made manually
+	@Test
+	void test8() {
+		User test_user = new User("username1", "password1");
+		assertEquals("user", test_user.getRole());
+	}
 
 }
