@@ -93,6 +93,7 @@ TASK : 01H00M : Save Users to json database : Mustafa
 	|-> New duration : 02H00M : Managing the json parser package and file writing logic took longer than anticipated.
 
 TASK : 01H00M : Create UML for user class and update the wiki to explain the new class and the new unit tests : Mustafa
+TASK : 01H30M : Update the planning document : Mustafa
 
 
 
