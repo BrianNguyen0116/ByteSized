@@ -160,7 +160,7 @@ public class Main extends JFrame {
 					}
 				} 
 				
-				if (exist == 0) {
+				if (exist == 1) {
 					Main frame = new Main();
 					frame.setVisible(true);
 					dispose();
