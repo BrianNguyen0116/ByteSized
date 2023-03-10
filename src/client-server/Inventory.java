@@ -76,4 +76,14 @@ public class Inventory implements Serializable{
 		
 		return result;
 	}*/
+	
+	public HashMap<String, Integer> getpricemap(HashMap<String, Item> choice){
+		HashMap<String, Integer> result = new HashMap<String, Integer>();
+		
+		for (String i:choice.keySet()) {
+			result.put(i, choice.get(i).getPrice());
+		}
+		
+		return result;
+	}
 }

@@ -4,17 +4,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
 
 public class SerializedInventory extends Inventory {
 
     private File file;
     private Inventory inventory;
     private static SerializedInventory instance;
-    
-    public static void main(String[] args) {
+
+    /*public static void main(String[] args) {
         SerializedInventory sinv = SerializedInventory.getInstance();
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").toString());
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
@@ -22,7 +20,7 @@ public class SerializedInventory extends Inventory {
         sinv.getInventory().getItem("Tomato Sauce").setTotal(75);
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
         sinv.saveInventory();
-    }
+    }*/
 
     private SerializedInventory() {
 
