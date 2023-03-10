@@ -30,8 +30,6 @@ public class Main extends JFrame {
 	JLabel lblTotal = new JLabel();
 	JTextArea receipt = new JTextArea();
 	JTextArea textInstructions = new JTextArea();
-	JRadioButton rdbtnStuffed, rdbtnPan, rdbtnHomestyle, rdbtnThin;
-	JRadioButton rdbtnTomato, rdbtnBbqSauce, rdbtnAlfredoSauce, rdbtnPestoSauce;
 	
 	HashMap<String, Integer> topmap= new HashMap<String, Integer>();
 	
@@ -59,6 +57,7 @@ public class Main extends JFrame {
 	 * Create the frame (JFrame)
 	 */
 	 public Main() {
+		
 		setTitle("Byte Sized");
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
@@ -124,10 +123,13 @@ public class Main extends JFrame {
 		pizza.add(panel);
 		panel.setLayout(null);
 		
+		//lblTotal.setText(test);
 		lblTotal.setText("Total: $");
 		lblTotal.setBounds(10, 4, 110, 14);
 		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(lblTotal);
+		
+		
 		
 		JPanel size = new JPanel();
 		size.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -213,42 +215,18 @@ public class Main extends JFrame {
 		lblSauce.setBounds(11, 10, 268, 14);
 		sauces.add(lblSauce);
 		
-		JLabel lblpricePrestoSauce = new JLabel("$3");
-		lblpricePrestoSauce.setBounds(287, 60, 46, 14);
-		sauces.add(lblpricePrestoSauce);
+		int sauceheight = 2;
+		HashMap<String, Integer> sauceprice = getSaucePrices();
+		ArrayList<Item> sortedsauce = sortedBy(sauceprice, true);
+		JRadioButton[] saucebuts = new JRadioButton[width*doughheight];
+
 		
-		rdbtnPestoSauce = new JRadioButton("Pesto Sauce");
-		rdbtnPestoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnPestoSauce.setBounds(173, 56, 102, 23);
-		sauces.add(rdbtnPestoSauce);
-		
-		JLabel lblpriceAlfredo = new JLabel("$3");
-		lblpriceAlfredo.setBounds(121, 60, 46, 14);
-		sauces.add(lblpriceAlfredo);
-		
-		rdbtnAlfredoSauce = new JRadioButton("Alfredo Sauce");
-		rdbtnAlfredoSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnAlfredoSauce.setBounds(11, 56, 104, 23);
-		sauces.add(rdbtnAlfredoSauce);
-		
-		JLabel lblpriceBBQ = new JLabel("$3");
-		lblpriceBBQ.setBounds(287, 32, 46, 14);
-		sauces.add(lblpriceBBQ);
-		
-		rdbtnBbqSauce = new JRadioButton("BBQ Sauce");
-		rdbtnBbqSauce.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnBbqSauce.setBounds(173, 28, 102, 23);
-		sauces.add(rdbtnBbqSauce);
-		
-		JLabel lblpriceTomato = new JLabel("$3");
-		lblpriceTomato.setBounds(121, 32, 46, 14);
-		sauces.add(lblpriceTomato);
-		
-		rdbtnTomato = new JRadioButton("Tomato Sauce");
-		rdbtnTomato.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnTomato.setBounds(11, 28, 102, 23);
-		sauces.add(rdbtnTomato);
-		 
+		for (int y = 0, i = 0; i < sortedsauce.size() && (y < sauceheight); y++) {
+			for (int x = 0; x < width && i < sortedsauce.size(); x++) {
+				saucebuts[i] = radioLabel(sauces, sortedsauce.get(i).getName(), x *167 , y * 33, sauceprice.get(sortedsauce.get(i).getName()));
+				i++;
+			}
+		}
 		
 		JPanel toppings = new JPanel();
 		toppings.setLayout(null);
@@ -341,25 +319,12 @@ public class Main extends JFrame {
 				String[] sauces = new String[4];
 				int scount = 0;
 				
-				if(rdbtnTomato.isSelected()) {
-					sauces[scount] = "tomato sauce";
-					priceSauce += 300;
-					scount++;
-				}
-				if(rdbtnBbqSauce.isSelected()) {
-					sauces[scount] = "bbq sauce";
-					priceSauce += 300;
-					scount++;
-				}
-				if(rdbtnAlfredoSauce.isSelected()) {
-					sauces[scount] = "alfredo sauce";
-					priceSauce += 300;
-					scount++;
-				}
-				if(rdbtnPestoSauce.isSelected()) {
-					sauces[scount] = "pesto sauce";
-					priceSauce += 300;
-					scount++;
+				for (JRadioButton i: saucebuts) {
+					if (i.isSelected()) {
+						sauces[scount] = i.getActionCommand();
+						priceSauce += sauceprice.get(sauces[scount]);
+						scount++;
+					}
 				}
 
 				pizzaOrder.setSauces(sauces);
@@ -375,7 +340,7 @@ public class Main extends JFrame {
 
 			    sauces = list.toArray(new String[list.size()]);
 			    
-			    
+			    //Topping processing
 				String[] temp = new String[tcount];
 				int c = 0;
 				for (String i : topmap.keySet()) {
@@ -411,6 +376,7 @@ public class Main extends JFrame {
 				lblTotal.setText("Total: " + intTo$(total));
 				
 				btnSubmit.setText("Submit");
+				//SerializedInventory.getInstance().getInventory().getItem("Pepperoni").setPrice(690);
 			}	
 			
 		});
@@ -483,12 +449,18 @@ public class Main extends JFrame {
 		return "$"+dollars+"."+String.format("%02d", cents);
 	}
 	
+	
+	
+	
 	public HashMap<String, Integer> getToppingPrices() {
-		/*
-		 * This method will eventually be used to query info from the database
-		 * For now though, it will simply return a hard-coded response
-		 */
 		
+		SerializedInventory database = SerializedInventory.getInstance();
+		HashMap<String, Integer> result= database.getInventory().getpricemap(database.toppings);
+		
+		//HashMap<String, Integer> result = new HashMap<String, Integer>();
+		
+		//HashMap<String, Integer> result = new HashMap<String, Integer>();
+		/*
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		result.put("Pepperoni", 50);
 		result.put("Bacon", 50);
@@ -499,31 +471,28 @@ public class Main extends JFrame {
 		result.put("Mozzarella Cheese", 35);
 		result.put("Green Peppers", 90);
 		result.put("Olives", 45);
+		*/
 		
 		return result;
 	}
 	
 	public HashMap<String, Integer> getDoughPrices() {
-		/*
-		 * This method will eventually be used to query info from the database
-		 * For now though, it will return a hacky hard-coded response
-		 */
 		
+		SerializedInventory database = SerializedInventory.getInstance();
+		HashMap<String, Integer> result= database.getInventory().getpricemap(database.dough);
+		
+		/*
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		result.put("Stuffed", 500);
 		result.put("Pan", 300);
 		result.put("Homestyle", 300);
 		result.put("Thin", 300);
-		
+		*/
 		
 		return result;
 	}
 	
-	public HashMap<String, Integer> getSizePrices() {
-		/*
-		 * This method will eventually be used to query info from the database
-		 * For now though, it will return a hacky hard-coded response
-		 */
+	public HashMap<String, Integer> getSizePrices() {		
 		
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		result.put("Small", 300);
@@ -537,16 +506,17 @@ public class Main extends JFrame {
 	}
 	
 	public HashMap<String, Integer> getSaucePrices() {
-		/*
-		 * This method will eventually be used to query info from the database
-		 * For now though, it will return a hacky hard-coded response
-		 */
 		
+		SerializedInventory database = SerializedInventory.getInstance();
+		HashMap<String, Integer> result= database.getInventory().getpricemap(database.sauces);
+		
+		/*
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		result.put("Tomato Sauce", 300);
 		result.put("BBQ Sauce", 300);
 		result.put("Alfredo Sauce", 300);
 		result.put("Pesto Sauce", 300);
+		*/
 		
 		return result;
 	}
@@ -568,7 +538,7 @@ public class Main extends JFrame {
 			int i = 0;
 			for (; i < result.size() ;i++) {
 				if (byprice && pricemap.get(comparison.getName()) < pricemap.get(result.get(i).getName())) break; //sort by price
-				else if (comparison.getName().compareTo(result.get(i).getName()) < 0 ) break; //sort alphabetically
+				else if (!byprice && comparison.getName().compareTo(result.get(i).getName()) < 0 ) break; //sort alphabetically
 			}
 			result.add(i, comparison);
 		}
