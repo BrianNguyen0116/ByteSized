@@ -4,12 +4,18 @@ public class Item implements Serializable {
 
 	String name;
 	int price;
-	int total = 0;
+	int total;
 	
 	Item(String name, int price, int total){
 		this.name = name;
 		this.price = price;
 		this.total = total;
+	}
+
+	Item(String name) {
+		this.name = name;
+		this.price = 0;
+		this.total = 0;
 	}
 	
 	public String getName() {
