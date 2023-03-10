@@ -19,7 +19,7 @@ public class SerializedInventory extends Inventory {
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").toString());
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
 
-        sinv.getInventory().getItem("Tomato Sauce").setTotal(75);
+        sinv.getInventory().getItem("Tomato Sauce").setTotal(25);
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
         sinv.saveInventory();
     }

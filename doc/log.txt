@@ -51,6 +51,22 @@ TASK : 01H00M : Add the Item UML and indicate the relation between the Pizza cla
 TASK : 02H00M : Add documentation to wiki : Mustafa
 TASK : 02H00M : Main class (GUI) documentation to wiki : Nguyen
 
-DATE : 07/03/2023
+DATE : 03/07/2023
+--
 Had a team meeting to catchup, plan future steps, and split tasks
 03:00PM --> 03:23
+
+DATE : 03/8/2023
+--
+Team meeting to discuss additional details in distributing tasks : Nguyen and McKinley
+17H00M --> 17H30M
+
+DATE : 03/9/2023
+--
+TASK : Implemented new inventory architechture : McKinley
+DURATION : 12H00M
+
+DATE : 03/9/2023
+--
+TASK : Implemented testing for inventory classes : McKinley
+DURATION : --
