@@ -11,12 +11,7 @@ If you're using an IDE, you are able to run the main class that is src/guiMain/M
 
 If you're not using an IDE, there is an executable jar file in the front-most directory capable of running the program. It is named ByteSized.jar.
 
-When launching the program, the two accounts available are:
-Username: test
-Password: test
-
-Username: admin
-Password: nimda
+When launching the program, the two accounts available are: [Username: test Password: test] and [Username: admin Password: nimda]
 
 Using these accounts will allow the user to interact with the ordering GUI.
 
