@@ -153,26 +153,60 @@ public class Main extends JFrame {
 				
 				if (usrFlag == 0 && pasFlag == 0) {
 				// Code needed to cross check with account DB (exist boolean)
-					JsonParser parser = new JsonParser();
-					
-					try {
-						
-					
-					
+					if (textUsername.getText().equals("test") || textPassword.getText().equals("test")) {
 						exist = 1;
 					} else {
-						lblAccountError.setText("The username or password you entered is incorrect.");
-					} 
-				}
-				if (exist == 1) {
-					Ordering frame = new Ordering();
+						lblAccountError.setText("Account already exists.");
+					}
+				} 
+				
+				if (exist == 0) {
+					Main frame = new Main();
 					frame.setVisible(true);
 					dispose();
 				}
 			}	
 		});
+		
 	}
 }
+		
+//		btnLogIn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent evt) {
+//				
+//				int usrFlag = 0, pasFlag = 0, exist = 0;
+//				
+//				if (usrFlag == 0) {textUsername.setBorder(BorderFactory.createLineBorder(Color.gray));}
+//				if (pasFlag == 0) {textPassword.setBorder(BorderFactory.createLineBorder(Color.gray));}
+//				
+//				if (textUsername.getText().equals("") || textUsername.getText().equals("Username Required") || textUsername.getText().equals("Username")) {
+//					textUsername.setBorder(BorderFactory.createLineBorder(Color.red));
+//					usrFlag = 1;
+//				}
+//				
+//				if (textPassword.getText().equals("") || textPassword.getText().equals("Password Required") || textPassword.getText().equals("Password")) {
+//					textPassword.setBorder(BorderFactory.createLineBorder(Color.red));
+//					pasFlag = 1;
+//				}
+//				
+//				if (usrFlag == 0 && pasFlag == 0) {
+//				// Code needed to cross check with account DB (exist boolean)
+//						exist = 1;
+//					} else {
+//						lblAccountError.setText("The username or password you entered is incorrect.");
+//					} 
+//				
+//				if (exist == 1) {
+//					Ordering frame = new Ordering();
+//					frame.setVisible(true);
+//					dispose();
+//				}	
+//		});
+//		}
+//	}
+//}
+
+
 	
 
 
