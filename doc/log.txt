@@ -83,6 +83,7 @@ TASK : 02H00M : Create user signup and login : Mustafa
 
 DATE : 03/10/2023
 --
+TASK : 02H00M : Implemented unit tests for Main (now renamed to Ordering), and the integration test : Ivan
 TASK : 01H05M : Implemented administration access; different from user access : Moras
 TASK : 06H00M : Log in and registration methods : Nguyen
 TASK : 02H00M : Create test cases for Pizza and User classes : Mustafa
@@ -93,6 +94,7 @@ TASK : 01H00M : Save Users to json database : Mustafa
 	|-> New duration : 02H00M : Managing the json parser package and file writing logic took longer than anticipated.
 
 TASK : 01H00M : Create UML for user class and update the wiki to explain the new class and the new unit tests : Mustafa
+TASK : 01H30M : Update the planning document : Mustafa
 
 
 
