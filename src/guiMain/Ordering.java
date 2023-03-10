@@ -55,19 +55,19 @@ public class Ordering extends JFrame {
 		 */
 		JPanel pizza = new JPanel();
 		pizza.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		pizza.setBounds(-1, 0, 220, 655);
+		pizza.setBounds(-1, 43, 220, 612);
 		contentPane.add(pizza);
 		pizza.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Pizza");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBounds(10, 7, 130, 14);
 		pizza.add(lblNewLabel);
 		
 		JPanel cart = new JPanel();
 		cart.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		cart.setBounds(10, 29, 200, 558);
+		cart.setBounds(10, 29, 200, 527);
 		pizza.add(cart);
 		cart.setLayout(new BoxLayout(cart, BoxLayout.X_AXIS));
 		receipt.setWrapStyleWord(true);
@@ -82,6 +82,7 @@ public class Ordering extends JFrame {
 				
 		receipt.setEditable(false);
 		cart.add(receipt);
+		
 		
 		// Checkout
 		JButton btnCheckout = new JButton("Checkout");
@@ -100,7 +101,7 @@ public class Ordering extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBounds(10, 587, 200, 23);
+		panel.setBounds(10, 567, 200, 23);
 		pizza.add(panel);
 		panel.setLayout(null);
 		
@@ -128,10 +129,7 @@ public class Ordering extends JFrame {
 		size.add(lblNewLabel_2);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		
-		RoundText lblinvSize = new RoundText("i");
-		lblinvSize.setHorizontalAlignment(SwingConstants.CENTER);
-		lblinvSize.setBounds(387, 7, 18, 14);
-		size.add(lblinvSize);
+	
 		
 		
 		 
@@ -168,10 +166,7 @@ public class Ordering extends JFrame {
 		crescent.add(lblDough);
 		lblDough.setHorizontalAlignment(SwingConstants.LEFT);
 		
-		RoundText lblinvDough = new RoundText("i");
-		lblinvDough.setHorizontalAlignment(SwingConstants.CENTER);
-		lblinvDough.setBounds(387, 9, 18, 14);
-		crescent.add(lblinvDough);
+		
 		
 		//int width = 2;
 		int doughheight = 2;
@@ -205,10 +200,7 @@ public class Ordering extends JFrame {
 		lblSauce.setBounds(10, 10, 44, 14);
 		sauces.add(lblSauce);
 		
-		JLabel lblinvSauce = new RoundText("i");
-		lblinvSauce.setHorizontalAlignment(SwingConstants.CENTER);
-		lblinvSauce.setBounds(387, 10, 18, 14);
-		sauces.add(lblinvSauce);
+		
 		
 		int sauceheight = 2;
 		HashMap<String, Integer> sauceprice = getSaucePrices();
@@ -238,11 +230,7 @@ public class Ordering extends JFrame {
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setBounds(12, 11, 51, 14);
 		toppings.add(lblToppings);
-		
-		RoundText lblinvTopping = new RoundText("i");
-		lblinvTopping.setHorizontalAlignment(SwingConstants.CENTER);
-		lblinvTopping.setBounds(387, 11, 18, 14);
-		toppings.add(lblinvTopping);
+	
 	
 		HashMap<String, Integer> toppingdata = getToppingPrices();
 		
@@ -301,6 +289,8 @@ public class Ordering extends JFrame {
 			}
 		});
 		
+			
+		
 		/**
 		 * Cart Function
 		 */
@@ -308,6 +298,48 @@ public class Ordering extends JFrame {
 		JButton btnSubmit = new JButton("Submit");
 		panel_1.add(btnSubmit);
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_2.setBounds(-1, 0, 220, 43);
+		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel lblWelcome = new JLabel("Welcome Back");
+		lblWelcome.setBounds(69, 9, 82, 14);
+		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 11));
+		panel_2.add(lblWelcome);
+		
+		JLabel lblcurrUsername = new JLabel(Main.currUsername);
+		lblcurrUsername.setBounds(10, 22, 200, 14);
+		lblcurrUsername.setHorizontalAlignment(SwingConstants.CENTER);
+		lblcurrUsername.setFont(new Font("Tahoma", Font.BOLD, 11));
+		panel_2.add(lblcurrUsername);
+		
+		// Admin 
+
+						if (lblcurrUsername.getText() == "admin") {	
+						RoundText lblinvTopping = new RoundText("i");
+						lblinvTopping.setHorizontalAlignment(SwingConstants.CENTER);
+						lblinvTopping.setBounds(387, 11, 18, 14);
+						toppings.add(lblinvTopping);
+						
+						RoundText lblinvSize = new RoundText("i");
+						lblinvSize.setHorizontalAlignment(SwingConstants.CENTER);
+						lblinvSize.setBounds(387, 7, 18, 14);
+						size.add(lblinvSize);
+						
+						RoundText lblinvDough = new RoundText("i");
+						lblinvDough.setHorizontalAlignment(SwingConstants.CENTER);
+						lblinvDough.setBounds(387, 9, 18, 14);
+						crescent.add(lblinvDough);
+						
+						JLabel lblinvSauce = new RoundText("i");
+						lblinvSauce.setHorizontalAlignment(SwingConstants.CENTER);
+						lblinvSauce.setBounds(387, 10, 18, 14);
+						sauces.add(lblinvSauce);
+						}
 		
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -397,8 +429,10 @@ public class Ordering extends JFrame {
 			
 		});
 		
+		
 	}
 	
+	 
 
 	private void toppingLabel(JPanel host, String name, int coord, int price) {
 		JLabel lbl = new JLabel(name);

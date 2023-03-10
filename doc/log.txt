@@ -84,7 +84,7 @@ TASK : 02H00M : Create user signup and login : Mustafa
 DATE : 03/10/2023
 --
 TASK : 01H05M : Implemented administration access; different from user access : Moras
-TASK : 02H00M : Log in and registration methods : Nguyen
+TASK : 06H00M : Log in and registration methods : Nguyen
 TASK : 02H00M : Create test cases for Pizza and User classes : Mustafa
 	|
 	|-> New duration : 03H00M : The comparison between an item inside a pizza and String needed overwriting. Test cases for sauces and toppinfs (array of Items of a Pizza) took longer than anticipated. More cleanup and proper overwriting needs to be done.

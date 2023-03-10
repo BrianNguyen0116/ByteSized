@@ -33,6 +33,8 @@ public class Main extends JFrame {
 	private JLabel lblPassword;
 	private JLabel lblAccountError;
 	
+	public static String currUsername;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -153,10 +155,14 @@ public class Main extends JFrame {
 				
 				if (usrFlag == 0 && pasFlag == 0) {
 				// Code needed to cross check with account DB (exist boolean)
-					if (textUsername.getText().equals("test") || textPassword.getText().equals("test")) {
+					if (textUsername.getText().equals("test") && textPassword.getText().equals("test")) {
+						currUsername = textUsername.getText();
+						exist = 1;
+					} else if (textUsername.getText().equals("admin") && textPassword.getText().equals("nimda")) {
+						currUsername = textUsername.getText();
 						exist = 1;
 					} else {
-						lblAccountError.setText("Account already exists.");
+						lblAccountError.setText("The username or password you entered is incorrect.");
 					}
 				} 
 				
