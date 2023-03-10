@@ -15,9 +15,9 @@ class IntegrationTest {
 		sinv.getInventory().getItem("Tomato Sauce").setPrice(1000);
 		sinv.getInventory().getItem("Homestyle").setPrice(1);
 		
-		HashMap<String, Integer> toppings = Main.getToppingPrices();
-		HashMap<String, Integer> sauce = Main.getSaucePrices();
-		HashMap<String, Integer> dough = Main.getDoughPrices();
+		HashMap<String, Integer> toppings = Ordering.getToppingPrices();
+		HashMap<String, Integer> sauce = Ordering.getSaucePrices();
+		HashMap<String, Integer> dough = Ordering.getDoughPrices();
 		
 		assertEquals(toppings.get("Pepperoni"),137);
 		assertEquals(sauce.get("Tomato Sauce"), 1000);
@@ -27,9 +27,9 @@ class IntegrationTest {
 		sinv.getInventory().getItem("Tomato Sauce").setPrice(99);
 		sinv.getInventory().getItem("Homestyle").setPrice(100);
 		
-		toppings = Main.getToppingPrices();
-		sauce = Main.getSaucePrices();
-		dough = Main.getDoughPrices();
+		toppings = Ordering.getToppingPrices();
+		sauce = Ordering.getSaucePrices();
+		dough = Ordering.getDoughPrices();
 		
 		assertEquals(toppings.get("Pepperoni"),12);
 		assertEquals(sauce.get("Tomato Sauce"), 99);
@@ -49,9 +49,9 @@ class IntegrationTest {
 		prince.getInventory().getItem("Alfredo").setPrice(37);
 		
 		
-		HashMap<String, Integer> toppings = Main.getToppingPrices();
-		HashMap<String, Integer> sauce = Main.getSaucePrices();
-		HashMap<String, Integer> dough = Main.getDoughPrices();
+		HashMap<String, Integer> toppings = Ordering.getToppingPrices();
+		HashMap<String, Integer> sauce = Ordering.getSaucePrices();
+		HashMap<String, Integer> dough = Ordering.getDoughPrices();
 		
 		assertEquals(toppings.get("Pepperoni"),137);
 		assertEquals(dough.get("Homestyle"), 67);

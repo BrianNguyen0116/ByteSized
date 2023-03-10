@@ -1,4 +1,6 @@
-/Registration$1.class
-/Registration$2.class
-/SerializedInventory.class
-/MainTest.class
+/AdminServletTest.class
+/IntegrationTest.class
+/InventoryTest.class
+/SerializedInventoryTest.class
+/test/
+/OrderingTest.class

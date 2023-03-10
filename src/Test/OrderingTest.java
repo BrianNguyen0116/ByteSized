@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
-class MainTest {
+class OrderingTest {
 
 	@Test
 	void testsortprice() {
@@ -16,7 +16,7 @@ class MainTest {
 		input.put("Large", 600);
 		input.put("X-Large", 800);
 		
-		ArrayList<Item> pricesorted = Main.sortedBy(input, true);
+		ArrayList<Item> pricesorted = Ordering.sortedBy(input, true);
 		ArrayList<Item> pricegoal = new ArrayList<Item>();
 		pricegoal.add(new Item("Small"));
 		pricegoal.add(new Item("Medium"));
@@ -36,7 +36,7 @@ class MainTest {
 		input.put("Large", 600);
 		input.put("X-Large", 800);
 		
-		ArrayList<Item> pricesorted = Main.sortedBy(input, false);
+		ArrayList<Item> pricesorted = Ordering.sortedBy(input, false);
 		ArrayList<Item> pricegoal = new ArrayList<Item>();
 		pricegoal.add(new Item("Large"));
 		pricegoal.add(new Item("Medium"));
