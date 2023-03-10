@@ -443,7 +443,7 @@ public class Main extends JFrame {
 		return rdbtn;
 	}
 	
-	private String intTo$(int amount) {//a bit too much of a util for my comfort
+	public static String intTo$(int amount) {//a bit too much of a util for my comfort
 		int dollars = amount / 100;
 		int cents = amount % 100;
 		return "$"+dollars+"."+String.format("%02d", cents);
@@ -452,7 +452,7 @@ public class Main extends JFrame {
 	
 	
 	
-	public HashMap<String, Integer> getToppingPrices() {
+	public static HashMap<String, Integer> getToppingPrices() {
 		
 		SerializedInventory database = SerializedInventory.getInstance();
 		HashMap<String, Integer> result= database.getInventory().getpricemap("toppings");
@@ -476,7 +476,7 @@ public class Main extends JFrame {
 		return result;
 	}
 	
-	public HashMap<String, Integer> getDoughPrices() {
+	public static HashMap<String, Integer> getDoughPrices() {
 		
 		SerializedInventory database = SerializedInventory.getInstance();
 		HashMap<String, Integer> result= database.getInventory().getpricemap("dough");
@@ -492,7 +492,7 @@ public class Main extends JFrame {
 		return result;
 	}
 	
-	public HashMap<String, Integer> getSizePrices() {		
+	public static HashMap<String, Integer> getSizePrices() {		
 		
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		result.put("Small", 300);
@@ -504,7 +504,7 @@ public class Main extends JFrame {
 		return result;
 	}
 	
-	public HashMap<String, Integer> getSaucePrices() {
+	public static HashMap<String, Integer> getSaucePrices() {
 		
 		SerializedInventory database = SerializedInventory.getInstance();
 		HashMap<String, Integer> result= database.getInventory().getpricemap("sauce");
@@ -521,7 +521,7 @@ public class Main extends JFrame {
 		return result;
 	}
 	
-	public ArrayList<Item> sortedBy(HashMap<String,Integer> pricemap, Boolean byprice){
+	public static ArrayList<Item> sortedBy(HashMap<String,Integer> pricemap, Boolean byprice){
 		if (pricemap == null) return null;
 		
 		ArrayList<Item> buffer = new ArrayList<Item>();
@@ -546,7 +546,7 @@ public class Main extends JFrame {
 		return result;
 	}
 	
-	public ButtonGroup toBtnGroup(JRadioButton[] input) {
+	public static ButtonGroup toBtnGroup(JRadioButton[] input) {
 		ButtonGroup output = new ButtonGroup();
 		
 		for (JRadioButton i:input) {
