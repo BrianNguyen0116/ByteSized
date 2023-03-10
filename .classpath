@@ -2,25 +2,17 @@
 <classpath>
 	<classpathentry kind="src" path="src/client-server"/>
 	<classpathentry kind="src" path="src/guiMain"/>
+	<classpathentry kind="lib" path="lib/json-simple-4.0.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/org.eclipse.swt.win32.win32.x86_64_3.122.0.v20221123-2302.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="D:/YorkU/EECS/3311/EECS3311SM-T15/lib/json-simple-4.0.1.jar">
-=======
-	<classpathentry kind="lib" path="lib/json-simple-4.0.1.jar">
->>>>>>> af8b549227b05d540a615631f6addcced459a3f2
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
