@@ -161,7 +161,7 @@ public class Main extends JFrame {
 				} 
 				
 				if (exist == 1) {
-					Main frame = new Main();
+					Ordering frame = new Ordering();
 					frame.setVisible(true);
 					dispose();
 				}
