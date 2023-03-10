@@ -197,53 +197,6 @@ public class Main extends JFrame {
 		
 		ButtonGroup rbtnCrescent = toBtnGroup(doughs);
 		
-		/**		
-		rdbtnPan = new JRadioButton("Pan");
-		rdbtnPan.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnPan.setBounds(173, 30, 60, 23);
-		crescent.add(rdbtnPan);		
-		
-		JLabel lblpricePan = new JLabel("$3");
-		lblpricePan.setBounds(288, 34, 46, 14);
-		crescent.add(lblpricePan);
-		
-		rbtnCrescent.add(rdbtnPan); 
-		
-		rdbtnStuffed = new JRadioButton("Stuffed");
-		rdbtnStuffed.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnStuffed.setBounds(10, 30, 64, 23);
-		crescent.add(rdbtnStuffed);
-		
-		JLabel lblpriceStuffed = new JLabel("$5");
-		lblpriceStuffed.setBounds(121, 34, 46, 14);
-		crescent.add(lblpriceStuffed);
-		
-		rbtnCrescent.add(rdbtnStuffed);
-		
-		rdbtnHomestyle = new JRadioButton("Homestyle");
-		rdbtnHomestyle.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnHomestyle.setBounds(10, 57, 75, 23);
-		crescent.add(rdbtnHomestyle);
-		
-		JLabel lblpriceHomestyle = new JLabel("$3");
-		lblpriceHomestyle.setBounds(121, 61, 46, 14);
-		crescent.add(lblpriceHomestyle);
-		
-		rbtnCrescent.add(rdbtnHomestyle);
-		
-		rdbtnThin = new JRadioButton("Thin");
-		rdbtnThin.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtnThin.setBounds(173, 57, 57, 23);
-		crescent.add(rdbtnThin);
-		
-		JLabel lblpriceThin = new JLabel("$3");
-		lblpriceThin.setBounds(288, 61, 46, 14);
-		crescent.add(lblpriceThin);
-		
-		rbtnCrescent.add(rdbtnThin);
-		**/
- 
-		
 		JPanel sauces = new JPanel();
 		sauces.setLayout(null);
 		sauces.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
