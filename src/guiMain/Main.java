@@ -145,20 +145,23 @@ public class Main extends JFrame {
 		size.add(lblNewLabel_2);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		
-		ButtonGroup rbtnSize = new ButtonGroup();
-		 
 		
+		 
+		int width = 2;
+		int sizeheight = 2;
 		HashMap<String, Integer> sizeprice = getSizePrices();
 		ArrayList<Item> sortedsize = sortedBy(sizeprice, true);
+		JRadioButton[] sizes = new JRadioButton[width*sizeheight];
 
-		int width = 2;
-		int maxheight = 2;
-		for (int y = 0, i = 0; i < sortedsize.size() && (y < maxheight); y++) {
+		
+		for (int y = 0, i = 0; i < sortedsize.size() && (y < sizeheight); y++) {
 			for (int x = 0; x < width && i < sortedsize.size(); x++) {
-				sizeLabel(size, rbtnSize, sortedsize.get(i).getName(), x *167 , y * 33, sizeprice.get(sortedsize.get(i).getName()));
+				sizes[i] = radioLabel(size, sortedsize.get(i).getName(), x *167 , y * 33, sizeprice.get(sortedsize.get(i).getName()));
 				i++;
 			}
 		}
+		
+		ButtonGroup rbtnSize = toBtnGroup(sizes);
 		
 		 
 		JPanel crescent = new JPanel();
@@ -170,14 +173,31 @@ public class Main extends JFrame {
 		/**
 		 * Crescent Customization
 		 */
-		ButtonGroup rbtnCrescent = new ButtonGroup();
-		 
+		
+		
 		JLabel lblNewLabel_2_1 = new JLabel("Dough");
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2_1.setBounds(10, 9, 266, 14);
 		crescent.add(lblNewLabel_2_1);
 		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.LEFT);
 		
+		//int width = 2;
+		int doughheight = 2;
+		HashMap<String, Integer> doughprice = getDoughPrices();
+		ArrayList<Item> sorteddough = sortedBy(doughprice, true);
+		JRadioButton[] doughs = new JRadioButton[width*doughheight];
+
+		
+		for (int y = 0, i = 0; i < sorteddough.size() && (y < doughheight); y++) {
+			for (int x = 0; x < width && i < sorteddough.size(); x++) {
+				doughs[i] = radioLabel(crescent, sorteddough.get(i).getName(), x *167 , y * 33, doughprice.get(sorteddough.get(i).getName()));
+				i++;
+			}
+		}
+		
+		ButtonGroup rbtnCrescent = toBtnGroup(doughs);
+		
+		/**		
 		rdbtnPan = new JRadioButton("Pan");
 		rdbtnPan.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		rdbtnPan.setBounds(173, 30, 60, 23);
@@ -221,6 +241,7 @@ public class Main extends JFrame {
 		crescent.add(lblpriceThin);
 		
 		rbtnCrescent.add(rdbtnThin);
+		**/
  
 		
 		JPanel sauces = new JPanel();
@@ -348,30 +369,20 @@ public class Main extends JFrame {
 					btnSubmit.setText("Need Size!");
 					return;
 				}
+				if (rbtnCrescent.getSelection() == null ) {
+					btnSubmit.setText("No Dough!");
+					return;
+				}
 				
 				// Size
 				String finalsize = rbtnSize.getSelection().getActionCommand();
 				pizzaOrder.setSize(finalsize);
 				priceSize = sizeprice.get(finalsize);
-						
 				
 				// Crescent
-				if(rdbtnStuffed.isSelected()) {
-					pizzaOrder.setCrust("stuffed");
-					priceCrust = 500;
-				}
-				if(rdbtnPan.isSelected()) {
-					pizzaOrder.setCrust("pan");
-					priceCrust = 300;
-				}
-				if(rdbtnHomestyle.isSelected()) {
-					pizzaOrder.setCrust("homestyle");
-					priceCrust = 300;
-				}
-				if(rdbtnThin.isSelected()) {
-					pizzaOrder.setCrust("thin");
-					priceCrust = 300;
-				}
+				String finalcrust = rbtnCrescent.getSelection().getActionCommand();
+				pizzaOrder.setCrust(finalcrust);
+				priceCrust = doughprice.get(finalcrust);
 				
 				// Sauce
 				String[] sauces = new String[4];
@@ -498,7 +509,7 @@ public class Main extends JFrame {
 
 	 }
 	
-	private void sizeLabel(JPanel host, ButtonGroup group, String name, int xcoord, int ycoord, int price) {
+	private JRadioButton radioLabel(JPanel host, String name, int xcoord, int ycoord, int price) {
 		JLabel lblprice = new JLabel(intTo$(price));
 		lblprice.setBounds(121 + xcoord, 28 + ycoord, 46, 14);
 		host.add(lblprice);
@@ -509,8 +520,8 @@ public class Main extends JFrame {
 		rdbtn.setActionCommand(name);
 		host.add(rdbtn);
 		
-		group.add(rdbtn);
-		
+		//group.add(rdbtn);
+		return rdbtn;
 	}
 	
 	private String intTo$(int amount) {//a bit too much of a util for my comfort
@@ -566,6 +577,8 @@ public class Main extends JFrame {
 		result.put("Medium", 400);
 		result.put("Large", 600);
 		result.put("X-Large", 800);
+		//result.put("chad", 950);
+		
 		
 		return result;
 	}
@@ -609,6 +622,17 @@ public class Main extends JFrame {
 		
 		return result;
 	}
+	
+	public ButtonGroup toBtnGroup(JRadioButton[] input) {
+		ButtonGroup output = new ButtonGroup();
+		
+		for (JRadioButton i:input) {
+			if (i==null)break;
+			output.add(i);
+		}
+		return output;
+	}
 }
+
 	
 	
