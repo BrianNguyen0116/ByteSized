@@ -537,10 +537,8 @@ public class Main extends JFrame {
 			Item comparison = buffer.remove(0);
 			int i = 0;
 			for (; i < result.size() ;i++) {
-				if (byprice && pricemap.get(comparison.getName()) < pricemap.get(result.get(i).getName())) {
-					break; //sort by price
-				}
-				else if (comparison.getName().compareTo(result.get(i).getName()) < 0 ) break; //sort alphabetically
+				if (byprice && pricemap.get(comparison.getName()) < pricemap.get(result.get(i).getName())) break; //sort by price
+				else if (!byprice && comparison.getName().compareTo(result.get(i).getName()) < 0 ) break; //sort alphabetically
 			}
 			result.add(i, comparison);
 		}
