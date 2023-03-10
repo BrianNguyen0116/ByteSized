@@ -52,15 +52,29 @@ class PizzaTest {
 	@Test
 	void test6() {
 		Pizza test_pizza = new Pizza("small", "default instructions", "thin", new String[]{"cheese", "barbeque"}, new String[]{"cheese", "barbeque"});
+		test_pizza.setToppings(new String[] {"mushrooms"});
+		assertEquals(new String("mushrooms"), test_pizza.getToppings()[0].getName());
+	}
+	
+	@Test
+	void test7() {
+		Pizza test_pizza = new Pizza("small", "default instructions", "thin", new String[]{"cheese", "barbeque"}, new String[]{"cheese", "barbeque"});
 		test_pizza.setToppings(new String[] {"mushrooms", "olives"});
-		assertEquals(new String[]{"mushrooms", "olives"}, test_pizza.getToppings());
+		assertEquals(new String("olives"), test_pizza.getToppings()[1].getName());
 	}
 	
 	// test changing sauces
 	@Test
-	void test7() {
+	void test8() {
+		Pizza test_pizza = new Pizza("small", "default instructions", "thin", new String[]{"cheese", "barbeque"}, new String[]{"cheese", "barbeque"});
+		test_pizza.setSauces(new String[] {"barbeque", "tomatoe sauce"});
+		assertEquals(new String("tomatoe sauce"), test_pizza.getSauces()[1].getName());
+	}
+	// test changing sauces
+	@Test
+	void test9() {
 		Pizza test_pizza = new Pizza("small", "default instructions", "thin", new String[]{"cheese", "barbeque"}, new String[]{"cheese", "barbeque"});
 		test_pizza.setSauces(new String[] {"tomatoe sauce"});
-		assertEquals(new String[] {"tomatoe sauce"}, test_pizza.getSauces());
+		assertEquals(new String("tomatoe sauce"), test_pizza.getSauces()[0].getName());
 	}
 }
