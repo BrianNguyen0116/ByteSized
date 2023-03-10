@@ -1,4 +1,16 @@
 import java.util.Objects;
+//import org.json.simple.JSONObject;
+import java.io.FileWriter;
+//import org
+import java.io.IOException;
+
+import com.github.cliftonlabs.json_simple.JsonArray;
+import com.github.cliftonlabs.json_simple.JsonException;
+import com.github.cliftonlabs.json_simple.JsonKey;
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsonable;
+import com.github.cliftonlabs.json_simple.Jsoner;
+
 
 public class User {
 	private String username;
@@ -9,6 +21,24 @@ public class User {
 		this.username = username;
 		this.password = password;
 		this.loggedin = false;
+		
+		
+		// when initiating a user, save it in a json file
+		//Creating a JSONObject object
+		JsonObject json = new JsonObject();
+
+		json.put("username", this.username);
+		json.put("password", this.password);
+		
+		try {
+			FileWriter file = new FileWriter("output.json");
+			file.write(json.toJson());
+			file.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	// Class getters
