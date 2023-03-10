@@ -77,11 +77,19 @@ public class Inventory implements Serializable{
 		return result;
 	}*/
 	
-	public HashMap<String, Integer> getpricemap(HashMap<String, Item> choice){
+	public HashMap<String, Integer> getpricemap(String choice){
+		
+		HashMap<String, Item> target = null;
+		if(choice == "sauce") target = this.sauces;
+		if(choice == "toppings") target = this.toppings;
+		if(choice == "dough") target = this.dough;
+		if(target == null) return null;
+		
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
 		
-		for (String i:choice.keySet()) {
-			result.put(i, choice.get(i).getPrice());
+		for (String i:target.keySet()) {
+			System.out.println(this.getItem("Tomato Sauce").getPrice());
+			result.put(i, target.get(i).getPrice());
 		}
 		
 		return result;

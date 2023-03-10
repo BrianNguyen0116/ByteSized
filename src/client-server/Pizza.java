@@ -41,6 +41,14 @@ public class Pizza {
 		return this.toppings;
 	}
 	
+	public String[] getToppingnames() {
+		String[] result = new String[this.toppings.length];
+		for (int i = 0; i < this.toppings.length; i++) {
+			result[i] = this.toppings[i].getName();
+		}
+		return result;
+	}
+	
 	public Item[] getSauces() {
 		return this.sauces;
 	}

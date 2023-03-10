@@ -1,50 +1,32 @@
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import javax.swing.border.BevelBorder;
 import javax.swing.BorderFactory;
-import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
 
-
-public class Main extends JFrame {
+class Registration extends JFrame {
 	
 	RestaurantServer server = new RestaurantServer();
 	private JPanel contentPane;
-	private JTextField txtLogIn;
+	private JTextField txtRegister;
 	private JTextField textUsername;
 	private JTextField textPassword;
-	private JButton btnLogIn;
-	private JLabel lblRegister;
+	private JButton btnCreate;
+	private JLabel lblReturn;
 	private JLabel lblDetails;
-	private JLabel lblUsername;
-	private JLabel lblPassword;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Main frame = new Main();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
-	public Main() {
+	public Registration() {
 		setTitle("Byte Sized");
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
@@ -61,51 +43,52 @@ public class Main extends JFrame {
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		// Log In
-		txtLogIn = new JTextField();
-		txtLogIn.setBounds(78, 30, 220, 30);
-		txtLogIn.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(txtLogIn);
-		txtLogIn.setEditable(false);
-		txtLogIn.setHighlighter(null);
-		txtLogIn.setText("Log In");
-		txtLogIn.setOpaque(false);
-		txtLogIn.setBorder(BorderFactory.createEmptyBorder());
-		txtLogIn.setFont(new Font("Arial", Font.BOLD, 25));
-		txtLogIn.setColumns(10);
+		// Register
+		txtRegister = new JTextField();
+		txtRegister.setBounds(78, 30, 220, 30);
+		txtRegister.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(txtRegister);
+		txtRegister.setEditable(false);
+		txtRegister.setHighlighter(null);
+		txtRegister.setText("Register");
+		txtRegister.setOpaque(false);
+		txtRegister.setBorder(BorderFactory.createEmptyBorder());
+		txtRegister.setFont(new Font("Arial", Font.BOLD, 25));
+		txtRegister.setColumns(10);
 		
-		// Text Labels and Fields
 		textUsername = new HintText("Username");
 		textUsername.setBounds(193, 116, 153, 20);
 		panel.add(textUsername);
 		textUsername.setColumns(10);
 		
-		lblUsername = new JLabel("Username");
+		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setBounds(38, 119, 62, 14);
 		panel.add(lblUsername);
 		
-		textPassword = new HintText("Password");;
+		textPassword = new HintText("Password");
 		textPassword.setColumns(10);
 		textPassword.setBounds(193, 147, 153, 20);
 		panel.add(textPassword);
 		
-		lblPassword = new JLabel("Password");
+		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setBounds(38, 154, 62, 14);
 		panel.add(lblPassword);
 		
 
 		
-		// Registration
+		// Go Back
 	
-		lblRegister = new JLabel("Create an Account");
-		lblRegister.setBounds(38, 203, 123, 14);
-		panel.add(lblRegister);
+		lblReturn = new JLabel("Go Back");
+		lblReturn.setBounds(38, 203, 123, 14);
+		panel.add(lblReturn);
 		
-		lblRegister.addMouseListener(new MouseAdapter()  
+		lblReturn.addMouseListener(new MouseAdapter()  
 		{  
 		    public void mouseClicked(MouseEvent e)  
 		    {  
-		       Registration frame = new Registration();
+		       // you can open a new frame here as
+		       // i have assumed you have declared "frame" as instance variable
+		       Main frame = new Main();
 		       frame.setVisible(true);
 		       dispose();
 		    }  
@@ -121,14 +104,15 @@ public class Main extends JFrame {
 		
 		// Submit Button
 		
-		btnLogIn = new JButton("Submit");
-		btnLogIn.setBounds(257, 199, 89, 23);
-		panel.add(btnLogIn);
+		btnCreate = new JButton("Submit");
+		btnCreate.setBounds(257, 199, 89, 23);
+		panel.add(btnCreate);
 		
-		btnLogIn.addActionListener(new ActionListener() {
+
+		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				
-				int usrFlag = 0, pasFlag = 0, exist = 0;
+				int usrFlag = 0, pasFlag = 0, exist = 1;
 				
 				if (usrFlag == 0) {textUsername.setBorder(BorderFactory.createLineBorder(Color.gray));}
 				if (pasFlag == 0) {textPassword.setBorder(BorderFactory.createLineBorder(Color.gray));}
@@ -145,21 +129,16 @@ public class Main extends JFrame {
 				
 				if (usrFlag == 0 && pasFlag == 0) {
 				// Code needed to cross check with account DB (exist boolean)
-					exist = 1;
+					exist = 0;
 				} 
 				
-				if (exist == 1) {
-					Ordering frame = new Ordering();
+				if (exist == 0) {
+					Main frame = new Main();
 					frame.setVisible(true);
 					dispose();
 				}
 			}	
 		});
+		
 	}
 }
-
-
-
-
-	
-	
