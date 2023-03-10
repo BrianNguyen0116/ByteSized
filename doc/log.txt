@@ -70,3 +70,8 @@ DATE : 03/9/2023
 --
 TASK : Implemented testing for inventory classes : McKinley
 DURATION : --
+
+DATE : 03/10/2023
+--
+TASK : Implemented administration access; different from user access : Moras
+DURATION : 01H05M

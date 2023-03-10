@@ -455,7 +455,7 @@ public class Main extends JFrame {
 	public HashMap<String, Integer> getToppingPrices() {
 		
 		SerializedInventory database = SerializedInventory.getInstance();
-		HashMap<String, Integer> result= database.getInventory().getpricemap(database.toppings);
+		HashMap<String, Integer> result= database.getInventory().getpricemap("toppings");
 		
 		//HashMap<String, Integer> result = new HashMap<String, Integer>();
 		
@@ -479,7 +479,7 @@ public class Main extends JFrame {
 	public HashMap<String, Integer> getDoughPrices() {
 		
 		SerializedInventory database = SerializedInventory.getInstance();
-		HashMap<String, Integer> result= database.getInventory().getpricemap(database.dough);
+		HashMap<String, Integer> result= database.getInventory().getpricemap("dough");
 		
 		/*
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
@@ -499,7 +499,6 @@ public class Main extends JFrame {
 		result.put("Medium", 400);
 		result.put("Large", 600);
 		result.put("X-Large", 800);
-		//result.put("chad", 950);
 		
 		
 		return result;
@@ -508,7 +507,8 @@ public class Main extends JFrame {
 	public HashMap<String, Integer> getSaucePrices() {
 		
 		SerializedInventory database = SerializedInventory.getInstance();
-		HashMap<String, Integer> result= database.getInventory().getpricemap(database.sauces);
+		HashMap<String, Integer> result= database.getInventory().getpricemap("sauce");
+		//HashMap<String, Integer> result= database.getInventory().getSaucepricemap();
 		
 		/*
 		HashMap<String, Integer> result = new HashMap<String, Integer>();

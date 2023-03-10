@@ -29,7 +29,11 @@ public class SerializedInventory extends Inventory {
 
         if(file.isFile()) {
             inventory = loadInventory();
-            System.out.println("Loaded Inventory!\n");
+            if (inventory != null)System.out.println("Loaded Inventory!\n");
+            else {
+            	inventory = new Inventory();
+            	System.out.println("Created New Inventory!\n");
+            }
         }
         else {
             inventory = new Inventory();
