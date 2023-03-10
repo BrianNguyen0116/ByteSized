@@ -11,16 +11,16 @@ public class SerializedInventory extends Inventory {
     private File file;
     private Inventory inventory;
     private static SerializedInventory instance;
-    
-    public static void main(String[] args) {
+
+    /*public static void main(String[] args) {
         SerializedInventory sinv = SerializedInventory.getInstance();
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").toString());
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
 
-        sinv.getInventory().getItem("Tomato Sauce").setTotal(25);
+        sinv.getInventory().getItem("Tomato Sauce").setTotal(75);
         System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
         sinv.saveInventory();
-    }
+    }*/
 
     private SerializedInventory() {
 
