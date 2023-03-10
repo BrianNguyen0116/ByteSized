@@ -136,12 +136,11 @@ class Registration extends JFrame {
 				
 				if (usrFlag == 0 && pasFlag == 0) {
 				// Code needed to cross check with account DB (exist boolean)
-					if (textUsername.getText().equals("test") || textPassword.getText().equals("test")) {
-						exist = 0;
+					User account = new User(textUsername.getText(), textPassword.getText());
+					exist = 0;
 					} else {
 						lblAccountError.setText("Account already exists.");
-					}
-				} 
+					} 
 				
 				if (exist == 0) {
 					Main frame = new Main();
