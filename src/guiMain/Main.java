@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileReader;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,6 +31,7 @@ public class Main extends JFrame {
 	private JLabel lblDetails;
 	private JLabel lblUsername;
 	private JLabel lblPassword;
+	private JLabel lblAccountError;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -49,7 +51,7 @@ public class Main extends JFrame {
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 449, 347);
+		setBounds(100, 100, 534, 347);
 		getContentPane().setLayout(null);
 		
 		contentPane = new JPanel();
@@ -57,13 +59,13 @@ public class Main extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel.setBounds(27, 10, 378, 287);
+		panel.setBounds(10, 10, 498, 287);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		// Log In
 		txtLogIn = new JTextField();
-		txtLogIn.setBounds(78, 30, 220, 30);
+		txtLogIn.setBounds(139, 30, 220, 30);
 		txtLogIn.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(txtLogIn);
 		txtLogIn.setEditable(false);
@@ -76,7 +78,7 @@ public class Main extends JFrame {
 		
 		// Text Labels and Fields
 		textUsername = new HintText("Username");
-		textUsername.setBounds(193, 116, 153, 20);
+		textUsername.setBounds(193, 116, 293, 20);
 		panel.add(textUsername);
 		textUsername.setColumns(10);
 		
@@ -86,12 +88,18 @@ public class Main extends JFrame {
 		
 		textPassword = new HintText("Password");;
 		textPassword.setColumns(10);
-		textPassword.setBounds(193, 147, 153, 20);
+		textPassword.setBounds(193, 147, 293, 20);
 		panel.add(textPassword);
 		
 		lblPassword = new JLabel("Password");
-		lblPassword.setBounds(38, 154, 62, 14);
+		lblPassword.setBounds(38, 150, 62, 14);
 		panel.add(lblPassword);
+		
+		lblAccountError = new JLabel("");
+		lblAccountError.setForeground(Color.RED);
+		lblAccountError.setBounds(193, 175, 293, 14);
+		lblAccountError.setFont(new Font("Sans Serif", Font.PLAIN, 11));
+		panel.add(lblAccountError);
 		
 
 		
@@ -116,7 +124,7 @@ public class Main extends JFrame {
 		lblDetails = new JLabel("EECS3311 T14 @ 2023");
 		lblDetails.setForeground(Color.GRAY);
 		lblDetails.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDetails.setBounds(121, 260, 136, 14);
+		lblDetails.setBounds(181, 260, 136, 14);
 		panel.add(lblDetails);
 		
 		// Submit Button
@@ -145,9 +153,17 @@ public class Main extends JFrame {
 				
 				if (usrFlag == 0 && pasFlag == 0) {
 				// Code needed to cross check with account DB (exist boolean)
-					exist = 1;
-				} 
-				
+					JsonParser parser = new JsonParser();
+					
+					try {
+						
+					
+					
+						exist = 1;
+					} else {
+						lblAccountError.setText("The username or password you entered is incorrect.");
+					} 
+				}
 				if (exist == 1) {
 					Ordering frame = new Ordering();
 					frame.setVisible(true);
@@ -157,6 +173,7 @@ public class Main extends JFrame {
 		});
 	}
 }
+	
 
 
 

@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
+import java.awt.FlowLayout;
 
 public class Ordering extends JFrame {
 	
@@ -41,7 +42,7 @@ public class Ordering extends JFrame {
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 580, 694);
+		setBounds(100, 100, 651, 694);
 	
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -82,6 +83,7 @@ public class Ordering extends JFrame {
 		receipt.setEditable(false);
 		cart.add(receipt);
 		
+		// Checkout
 		JButton btnCheckout = new JButton("Checkout");
 		btnCheckout.setBounds(46, 621, 127, 23);
 		pizza.add(btnCheckout);
@@ -90,7 +92,7 @@ public class Ordering extends JFrame {
 		btnCheckout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				JOptionPane.showMessageDialog(cart, "Purchased!");
-				Main frame = new Main();
+				Ordering frame = new Ordering();
 				frame.setVisible(true);
 				dispose();
 		}
@@ -112,7 +114,7 @@ public class Ordering extends JFrame {
 		
 		JPanel size = new JPanel();
 		size.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		size.setBounds(220, 0, 344, 87);
+		size.setBounds(220, 0, 415, 87);
 		contentPane.add(size);
 		size.setLayout(null);
 		
@@ -122,9 +124,14 @@ public class Ordering extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("Size");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(10, 7, 266, 14);
+		lblNewLabel_2.setBounds(10, 7, 33, 14);
 		size.add(lblNewLabel_2);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		RoundText lblinvSize = new RoundText("i");
+		lblinvSize.setHorizontalAlignment(SwingConstants.CENTER);
+		lblinvSize.setBounds(387, 7, 18, 14);
+		size.add(lblinvSize);
 		
 		
 		 
@@ -137,7 +144,7 @@ public class Ordering extends JFrame {
 		
 		for (int y = 0, i = 0; i < sortedsize.size() && (y < sizeheight); y++) {
 			for (int x = 0; x < width && i < sortedsize.size(); x++) {
-				sizes[i] = radioLabel(size, sortedsize.get(i).getName(), x *167 , y * 33, sizeprice.get(sortedsize.get(i).getName()));
+				sizes[i] = radioLabel(size, sortedsize.get(i).getName(), x *230 , y * 33, sizeprice.get(sortedsize.get(i).getName()));
 				i++;
 			}
 		}
@@ -147,20 +154,24 @@ public class Ordering extends JFrame {
 		 
 		JPanel crescent = new JPanel();
 		crescent.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		crescent.setBounds(220, 85, 344, 87);
+		crescent.setBounds(220, 85, 415, 87);
 		contentPane.add(crescent);
 		crescent.setLayout(null);
-		
+
+
 		/**
 		 * Crescent Customization
 		 */
+		JLabel lblDough = new JLabel("Dough");
+		lblDough.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDough.setBounds(10, 9, 49, 14);
+		crescent.add(lblDough);
+		lblDough.setHorizontalAlignment(SwingConstants.LEFT);
 		
-		
-		JLabel lblNewLabel_2_1 = new JLabel("Dough");
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2_1.setBounds(10, 9, 266, 14);
-		crescent.add(lblNewLabel_2_1);
-		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.LEFT);
+		RoundText lblinvDough = new RoundText("i");
+		lblinvDough.setHorizontalAlignment(SwingConstants.CENTER);
+		lblinvDough.setBounds(387, 9, 18, 14);
+		crescent.add(lblinvDough);
 		
 		//int width = 2;
 		int doughheight = 2;
@@ -171,7 +182,7 @@ public class Ordering extends JFrame {
 		
 		for (int y = 0, i = 0; i < sorteddough.size() && (y < doughheight); y++) {
 			for (int x = 0; x < width && i < sorteddough.size(); x++) {
-				doughs[i] = radioLabel(crescent, sorteddough.get(i).getName(), x *167 , y * 33, doughprice.get(sorteddough.get(i).getName()));
+				doughs[i] = radioLabel(crescent, sorteddough.get(i).getName(), x *230 , y * 33, doughprice.get(sorteddough.get(i).getName()));
 				i++;
 			}
 		}
@@ -181,7 +192,7 @@ public class Ordering extends JFrame {
 		JPanel sauces = new JPanel();
 		sauces.setLayout(null);
 		sauces.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		sauces.setBounds(221, 172, 343, 87);
+		sauces.setBounds(220, 172, 415, 87);
 		contentPane.add(sauces);
 		
 		/**
@@ -191,8 +202,13 @@ public class Ordering extends JFrame {
 		JLabel lblSauce = new JLabel("Sauce");
 		lblSauce.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblSauce.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSauce.setBounds(11, 10, 268, 14);
+		lblSauce.setBounds(10, 10, 44, 14);
 		sauces.add(lblSauce);
+		
+		JLabel lblinvSauce = new RoundText("i");
+		lblinvSauce.setHorizontalAlignment(SwingConstants.CENTER);
+		lblinvSauce.setBounds(387, 10, 18, 14);
+		sauces.add(lblinvSauce);
 		
 		int sauceheight = 2;
 		HashMap<String, Integer> sauceprice = getSaucePrices();
@@ -202,7 +218,7 @@ public class Ordering extends JFrame {
 		
 		for (int y = 0, i = 0; i < sortedsauce.size() && (y < sauceheight); y++) {
 			for (int x = 0; x < width && i < sortedsauce.size(); x++) {
-				saucebuts[i] = radioLabel(sauces, sortedsauce.get(i).getName(), x *167 , y * 33, sauceprice.get(sortedsauce.get(i).getName()));
+				saucebuts[i] = radioLabel(sauces, sortedsauce.get(i).getName(), x *230 , y * 33, sauceprice.get(sortedsauce.get(i).getName()));
 				i++;
 			}
 		}
@@ -210,7 +226,7 @@ public class Ordering extends JFrame {
 		JPanel toppings = new JPanel();
 		toppings.setLayout(null);
 		toppings.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		toppings.setBounds(220, 259, 344, 274);
+		toppings.setBounds(220, 259, 415, 274);
 		contentPane.add(toppings);
 		
 		/**
@@ -220,8 +236,13 @@ public class Ordering extends JFrame {
 		JLabel lblToppings = new JLabel("Topping");
 		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
-		lblToppings.setBounds(12, 11, 264, 14);
+		lblToppings.setBounds(12, 11, 51, 14);
 		toppings.add(lblToppings);
+		
+		RoundText lblinvTopping = new RoundText("i");
+		lblinvTopping.setHorizontalAlignment(SwingConstants.CENTER);
+		lblinvTopping.setBounds(387, 11, 18, 14);
+		toppings.add(lblinvTopping);
 	
 		HashMap<String, Integer> toppingdata = getToppingPrices();
 		
@@ -238,7 +259,7 @@ public class Ordering extends JFrame {
 		JPanel sauces_1 = new JPanel();
 		sauces_1.setLayout(null);
 		sauces_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		sauces_1.setBounds(220, 532, 344, 80);
+		sauces_1.setBounds(220, 532, 415, 80);
 		contentPane.add(sauces_1);
 		
 		JLabel lblSpecialInstructions = new JLabel("Special Instructions");
@@ -249,25 +270,24 @@ public class Ordering extends JFrame {
 		
 		JPanel instructions = new JPanel();
 		instructions.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		instructions.setBounds(10, 22, 324, 47);
+		instructions.setBounds(10, 22, 395, 47);
 		sauces_1.add(instructions);
 		instructions.setLayout(null);
 		
-		textInstructions.setBounds(2, 2, 322, 45);
+		textInstructions.setBounds(2, 2, 391, 45);
 		instructions.add(textInstructions);
 		textInstructions.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel_1.setBounds(220, 612, 344, 43);
+		panel_1.setBounds(220, 612, 415, 43);
 		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 
 		
 		JButton btnClear = new JButton("Clear");
 		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnClear.setBounds(196, 11, 92, 23);
 		panel_1.add(btnClear);
 		
 		btnClear.addActionListener((ActionListener) new ActionListener() {
@@ -286,7 +306,6 @@ public class Ordering extends JFrame {
 		 */
 		
 		JButton btnSubmit = new JButton("Submit");
-		btnSubmit.setBounds(54, 11, 92, 23);
 		panel_1.add(btnSubmit);
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
@@ -379,6 +398,7 @@ public class Ordering extends JFrame {
 		});
 		
 	}
+	
 
 	private void toppingLabel(JPanel host, String name, int coord, int price) {
 		JLabel lbl = new JLabel(name);
@@ -399,7 +419,7 @@ public class Ordering extends JFrame {
 		
 		JLabel plbl = new JLabel(intTo$(price));
 		plbl.setHorizontalAlignment(SwingConstants.CENTER);
-		plbl.setBounds(278, coord + 4, 46, 14);
+		plbl.setBounds(288, coord + 4, 46, 14);
 		host.add(plbl);
 		
 		btnl.addActionListener(new ActionListener() {

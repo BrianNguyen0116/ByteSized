@@ -25,13 +25,14 @@ class Registration extends JFrame {
 	private JButton btnCreate;
 	private JLabel lblReturn;
 	private JLabel lblDetails;
+	private JLabel lblAccountError;
 	
 	public Registration() {
 		setTitle("Byte Sized");
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 449, 347);
+		setBounds(100, 100, 534, 347);
 		getContentPane().setLayout(null);
 		
 		contentPane = new JPanel();
@@ -39,13 +40,13 @@ class Registration extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel.setBounds(27, 10, 378, 287);
+		panel.setBounds(10, 10, 498, 287);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		// Register
 		txtRegister = new JTextField();
-		txtRegister.setBounds(78, 30, 220, 30);
+		txtRegister.setBounds(139, 30, 220, 30);
 		txtRegister.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(txtRegister);
 		txtRegister.setEditable(false);
@@ -56,8 +57,9 @@ class Registration extends JFrame {
 		txtRegister.setFont(new Font("Arial", Font.BOLD, 25));
 		txtRegister.setColumns(10);
 		
+		// Text Labels and Fields 
 		textUsername = new HintText("Username");
-		textUsername.setBounds(193, 116, 153, 20);
+		textUsername.setBounds(193, 116, 293, 20);
 		panel.add(textUsername);
 		textUsername.setColumns(10);
 		
@@ -67,13 +69,18 @@ class Registration extends JFrame {
 		
 		textPassword = new HintText("Password");
 		textPassword.setColumns(10);
-		textPassword.setBounds(193, 147, 153, 20);
+		textPassword.setBounds(193, 147, 293, 20);
 		panel.add(textPassword);
 		
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setBounds(38, 154, 62, 14);
 		panel.add(lblPassword);
 		
+		lblAccountError = new JLabel("");
+		lblAccountError.setForeground(Color.RED);
+		lblAccountError.setBounds(193, 175, 293, 14);
+		lblAccountError.setFont(new Font("Sans Serif", Font.PLAIN, 11));
+		panel.add(lblAccountError);
 
 		
 		// Go Back
@@ -99,7 +106,7 @@ class Registration extends JFrame {
 		lblDetails = new JLabel("EECS3311 T14 @ 2023");
 		lblDetails.setForeground(Color.GRAY);
 		lblDetails.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDetails.setBounds(121, 260, 136, 14);
+		lblDetails.setBounds(181, 260, 136, 14);
 		panel.add(lblDetails);
 		
 		// Submit Button
@@ -129,7 +136,11 @@ class Registration extends JFrame {
 				
 				if (usrFlag == 0 && pasFlag == 0) {
 				// Code needed to cross check with account DB (exist boolean)
-					exist = 0;
+					if (textUsername.getText().equals("test") || textPassword.getText().equals("test")) {
+						exist = 0;
+					} else {
+						lblAccountError.setText("Account already exists.");
+					}
 				} 
 				
 				if (exist == 0) {
