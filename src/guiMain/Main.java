@@ -9,7 +9,9 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,6 +19,11 @@ import javax.swing.border.BevelBorder;
 import javax.swing.BorderFactory;
 import java.awt.Font;
 import javax.swing.JTextField;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 
 public class Main extends JFrame {
@@ -34,6 +41,9 @@ public class Main extends JFrame {
 	private JLabel lblAccountError;
 	
 	public static void main(String[] args) {
+		
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -136,6 +146,7 @@ public class Main extends JFrame {
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				
+			
 				int usrFlag = 0, pasFlag = 0, exist = 0;
 				
 				if (usrFlag == 0) {textUsername.setBorder(BorderFactory.createLineBorder(Color.gray));}
@@ -152,18 +163,10 @@ public class Main extends JFrame {
 				}
 				
 				if (usrFlag == 0 && pasFlag == 0) {
-				// Code needed to cross check with account DB (exist boolean)
-					JsonParser parser = new JsonParser();
-					
-					try {
-						
-					
-					
-						exist = 1;
-					} else {
+					exist = 1;
+				} else {
 						lblAccountError.setText("The username or password you entered is incorrect.");
 					} 
-				}
 				if (exist == 1) {
 					Ordering frame = new Ordering();
 					frame.setVisible(true);
@@ -171,6 +174,7 @@ public class Main extends JFrame {
 				}
 			}	
 		});
+		
 	}
 }
 	

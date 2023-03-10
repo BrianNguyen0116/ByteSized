@@ -1,7 +1,6 @@
 public class inventoryDisplay {
 
-	public inventoryDisplay() {
-		
+	public inventoryDisplay(final String s) {
+
+		}
 	}
-	
-}
