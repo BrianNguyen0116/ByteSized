@@ -59,7 +59,7 @@ TASK : 02H00M : Vision and Story Document Update (New Stories) : Nguyen
 
 DATE : 03/07/2023
 --
-MEET : 00H23M : Had a team meeting to catchup, plan future steps, and split tasks
+MEET : 00H23M : Had a team meeting to catchup, plan future steps, and split tasks : TEAM
 
 
 DATE : 03/8/2023
@@ -72,9 +72,12 @@ DATE : 03/9/2023
 TASK : 12H00M : Implemented new inventory architechture : McKinley
 TASK : DURATION : Implemented testing for inventory classes : McKinley
 TASK : 14H00M : GUI overhaul (Log in and registration display) : Nguyen
+TASK : 02H00M : Create user signup and login : Mustafa
 
 
 DATE : 03/10/2023
 --
 TASK : 01H05M : Implemented administration access; different from user access : Moras
 TASK : 02H00M : Log in and registration methods : Nguyen
+TASK : 02H00M : Create test cases for Pizza and User classes
+TASK : 01H00M : Save Users to json database : Mustafa
