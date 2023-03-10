@@ -11,7 +11,7 @@ import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsonable;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
-
+// commit from Mustafa? 
 public class User {
 	private String username;
 	private String password;

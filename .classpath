@@ -12,7 +12,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="D:/YorkU/EECS/3311/EECS3311SM-T15/lib/json-simple-4.0.1.jar">
+=======
+	<classpathentry kind="lib" path="lib/json-simple-4.0.1.jar">
+>>>>>>> af8b549227b05d540a615631f6addcced459a3f2
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
