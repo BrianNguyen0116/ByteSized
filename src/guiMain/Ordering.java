@@ -2,8 +2,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -211,14 +209,6 @@ public class Ordering extends JFrame {
 		lblinvSauce.setHorizontalAlignment(SwingConstants.CENTER);
 		lblinvSauce.setBounds(387, 10, 18, 14);
 		sauces.add(lblinvSauce);
-		
-		lblinvSauce.addMouseListener(new MouseAdapter()  
-		{  
-		    public void mouseClicked(MouseEvent e)  
-		    {  
-
-		    }  
-		});
 		
 		int sauceheight = 2;
 		HashMap<String, Integer> sauceprice = getSaucePrices();
