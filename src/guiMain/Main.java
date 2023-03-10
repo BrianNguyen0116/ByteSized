@@ -369,7 +369,7 @@ public class Main extends JFrame {
 						"Size:\n" + pizzaOrder.getSize() + 
 						"\n\nCrust:\n" + pizzaOrder.getCrust().getName() + 
 						"\n\nSauce:\n" + Arrays.toString(sauces) + 
-						"\n\nToppings:\n" + Arrays.toString(pizzaOrder.getToppings()) +
+						"\n\nToppings:\n" + Arrays.toString(pizzaOrder.getToppingnames()) +
 						"\n\nInstructions:\n" + textInstructions.getText()
 						);
 				
