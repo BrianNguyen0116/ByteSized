@@ -54,8 +54,9 @@ public class Pizza {
 		this.size = size;
 	}
 	
-	public void setCrust(String crust) {
+	public Item setCrust(String crust) {
 		this.crust = new Item(crust);
+		return this.crust;
 	}
 	
 	public void setToppings(String[] toppings) {

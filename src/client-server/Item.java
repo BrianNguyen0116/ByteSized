@@ -47,4 +47,11 @@ public class Item implements Serializable {
 		String ret = name + ": " + price + "\n";
 		return ret;
 	}
+	
+	// TODO: override equals and fix object comparison in tests
+//	@Override 
+//	public boolean equals(Object o) {
+//	
+//	}
+	
 }
