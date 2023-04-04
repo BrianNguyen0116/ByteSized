@@ -157,20 +157,32 @@ public class Main extends JFrame {
 				// Code needed to cross check with account DB (exist boolean)
 					if (textUsername.getText().equals("test") && textPassword.getText().equals("test")) {
 						currUsername = textUsername.getText();
-						exist = 1;
+						//exist = 1;
+						
+						///*
+						Ordering frame = new Ordering();
+						frame.setVisible(true);
+						dispose();						
+						//*/
 					} else if (textUsername.getText().equals("admin") && textPassword.getText().equals("nimda")) {
 						currUsername = textUsername.getText();
-						exist = 1;
+						//exist = 1;
+						///*
+						inventoryDisplay frame = new inventoryDisplay("hello");
+						frame.setVisible(true);
+						dispose();
+						//*/
 					} else {
 						lblAccountError.setText("The username or password you entered is incorrect.");
 					}
 				} 
 				
+				/*
 				if (exist == 1) {
 					Ordering frame = new Ordering();
 					frame.setVisible(true);
 					dispose();
-				}
+				}*/
 			}	
 		});
 		
