@@ -283,6 +283,7 @@ public class Ordering extends JFrame {
 				rbtnSize.clearSelection();
 				rbtnCrescent.clearSelection();
 				topmap.clear();
+				tcount = 0;
 				for (JRadioButton i: saucebuts) {
 					i.setSelected(false);
 				}
