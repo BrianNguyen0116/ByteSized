@@ -29,6 +29,10 @@ public class inventoryDisplay extends JFrame{
 
 	public inventoryDisplay(String s) {
 		
+		/**
+		 * Basic Page initialization
+		 */
+		
 		setTitle("Admin");
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
@@ -40,29 +44,158 @@ public class inventoryDisplay extends JFrame{
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		/**
+		 * Initializing contents panel which will host the displayed database info
+		 */
+		
+		JPanel contents = new JPanel();
+		contents.setLayout(null);
+		contents.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		contents.setBounds(25, 125, 450, 450);
+		contentPane.add(contents);
+		
+		/**
+		 * Initializing tabs panel which will host buttons to access different categories of database entries
+		 */
+		
+		JPanel tabs = new JPanel();
+		tabs.setLayout(null);
+		tabs.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		tabs.setBounds(25, 25, 651, 27);
+		contentPane.add(tabs);
+		
+		/**
+		 * Populating tabs panel with buttons.
+		 * 
+		 * All except the Toppings button is commented out for clarity. Every other button 
+		 * follows the same basic format of this one
+		 * 
+		 * Code is functional if uncommented, though other buttons currently only erase the
+		 * contents panel
+		 * 
+		 * This section is basically done though, it's simply necessary to add
+		 * an implementation for all the drawX(host) functions. Then we can 
+		 * uncomment it
+		 */
+
+		
+		
+		Font text = new Font("Tahoma", Font.PLAIN, 11);
+		/*
+		JButton accounttab = new JButton("Accounts");
+		accounttab.setFont(text);
+		accounttab.setBounds(0, 2, 80, 23);
+		tabs.add(accounttab);
+		
+		accounttab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				contents.removeAll();
+				drawAccounts(contents);
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});
+		
+		JButton ordertab = new JButton("Orders");
+		ordertab.setFont(text);
+		ordertab.setBounds(85, 2, 80, 23);
+		tabs.add(ordertab);
+		
+		ordertab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				contents.removeAll();
+				drawOrders(contents);
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});*/
+		
+		JButton toppingtab = new JButton("Toppings");
+		toppingtab.setFont(text);
+		toppingtab.setBounds(170, 2, 80, 23);
+		tabs.add(toppingtab);
+		
+		toppingtab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				contents.removeAll();
+				drawToppings(contents);
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});
+		
+		/*
+		JButton sizetab = new JButton("Sizes");
+		sizetab.setFont(text);
+		sizetab.setBounds(255, 2, 80, 23);
+		tabs.add(sizetab);
+		
+		sizetab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				contents.removeAll();
+				drawSizes(contents);
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});
+		
+		
+		JButton saucetab = new JButton("Sauces");
+		saucetab.setFont(text);
+		saucetab.setBounds(340, 2, 80, 23);
+		tabs.add(saucetab);
+		
+		saucetab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				contents.removeAll();
+				drawSizes(contents);
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});
+		
+		JButton itemtab = new JButton("Shop Items");
+		itemtab.setFont(text);
+		itemtab.setBounds(425, 2, 100, 23);
+		tabs.add(itemtab);
+		
+		itemtab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				contents.removeAll();
+				drawShopItems(contents);
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});
+		*/
 	
-		drawToppings();
-		drawSizes();
-		drawSauces();
 		
 	}
 	
-	
-	private void drawSizes() {
+	private void drawAccounts(JPanel host) {
 		//awaiting implementation
 	}
 	
-	private void drawSauces() {
+	private void drawOrders(JPanel host) {
 		//awaiting implementation
 	}
 	
-	private void drawToppings() {
-		JPanel toppings = new JPanel();
-		toppings.setLayout(null);
-		toppings.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		toppings.setBounds(25, 125, 415, 274);
-		contentPane.add(toppings);
-		
+	private void drawSizes(JPanel host) {
+		//awaiting implementation
+	}
+	
+	private void drawSauces(JPanel host) {
+		//awaiting implementation
+	}
+	
+	private void drawShopItems(JPanel host) {
+		//awaiting implementation
+	}
+	
+	
+	private void drawToppings(JPanel host) {
+				
 		/**
 		 * Topping Customization
 		 */
@@ -71,16 +204,18 @@ public class inventoryDisplay extends JFrame{
 		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setBounds(12, 11, 51, 14);
-		toppings.add(lblToppings);
+		host.add(lblToppings);
 	
 	
 		HashMap<String, Integer> toppingdata = Ordering.getToppingPrices();
 		
+		//dynamically creates buttons for each entry 1 at a time
 		int tindex = 0;
 		for (String k : toppingdata.keySet()) {
-			toppingLabel(toppings, k, 38 + tindex * 25, toppingdata.get(k));
+			toppingLabel(host, k, 38 + tindex * 25, toppingdata.get(k));
 			tindex++;
 		}
+		
 		
 	}
 	
