@@ -13,7 +13,7 @@ import org.junit.rules.TemporaryFolder;
 class SerializedInfoTest {
 
 	@Test
-	void testSerializableInfoSave() {
+	void test_save_and_load() {
 		SerializedInfo sinfo = SerializedInfo.getInstance();
 		
 		sinfo.getInfo().setAddress("123 Hello Street");
