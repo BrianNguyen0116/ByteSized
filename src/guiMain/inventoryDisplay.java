@@ -314,14 +314,14 @@ public class inventoryDisplay extends JFrame{
 		//dynamically creates buttons for each entry 1 at a time
 		int tindex = 0;
 		for (String k : type.keySet()) {
-			toppingLabel(table, type.get(k), 38 + tindex * 25);
+			makeLabel(table, type.get(k), 38 + tindex * 25);
 			tindex++;
 		}
 		
 		
 	}
 	
-	private void toppingLabel(JPanel host, Item item, int coord) {
+	private void makeLabel(JPanel host, Item item, int coord) {
 		String name = item.getName();
 		int price = item.getPrice();
 		int amount = item.getTotal();
