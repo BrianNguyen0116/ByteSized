@@ -92,6 +92,11 @@ public class Ordering extends JFrame {
 		
 		btnCheckout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
+				if (pizzaOrder.getSize() == null) {
+					btnCheckout.setText("Submit Pizza First!");
+					return;
+				}
+				
 				JOptionPane.showMessageDialog(cart, "Purchased!");
 				Ordering frame = new Ordering();
 				frame.setVisible(true);
