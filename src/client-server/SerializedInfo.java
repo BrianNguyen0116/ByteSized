@@ -18,8 +18,8 @@ public class SerializedInfo extends Info {
         //sinfo.getInfo().setAddress("4800 Keele Street");
         //sinfo.getInfo().setPhoneNumber("416-555-7777");
         //sinfo.saveInfo();
-        System.out.println(SerializedInfo.getInstance().getInfo().getAddress());
-        System.out.println(SerializedInfo.getInstance().getInfo().getPhoneNumber());
+        //System.out.println(SerializedInfo.getInstance().getInfo().getAddress());
+        //System.out.println(SerializedInfo.getInstance().getInfo().getPhoneNumber());
     }
 
     private SerializedInfo() {

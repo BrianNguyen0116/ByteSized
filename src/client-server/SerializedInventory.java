@@ -14,13 +14,13 @@ public class SerializedInventory extends Inventory {
 
 
     public static void main(String[] args) {
-        SerializedInventory sinv = SerializedInventory.getInstance();
-        System.out.println(sinv.getInventory().getItem("Tomato Sauce").toString());
-        System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
+        //SerializedInventory sinv = SerializedInventory.getInstance();
+        //System.out.println(sinv.getInventory().getItem("Tomato Sauce").toString());
+        //System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
 
         //sinv.getInventory().getItem("Tomato Sauce").setTotal(48);
-        System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
-        sinv.saveInventory();
+        //System.out.println(sinv.getInventory().getItem("Tomato Sauce").getTotal());
+        //sinv.saveInventory();
     }
 
     private SerializedInventory() {
