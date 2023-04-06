@@ -2,6 +2,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -54,7 +55,7 @@ public class inventoryDisplay extends JFrame{
 		JPanel contents = new JPanel();
 		contents.setLayout(null);
 		contents.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		contents.setBounds(25, 125, 580, 450);
+		contents.setBounds(25, 53, 580, 450);
 		contentPane.add(contents);
 		
 		/**
@@ -197,40 +198,129 @@ public class inventoryDisplay extends JFrame{
 	
 	
 	private void drawToppings(JPanel host) {
+		
+		Font text = new Font("Tahoma", Font.PLAIN, 11);
 				
 		/**
 		 * Topping Customization
 		 */
+		JPanel entry = new JPanel();
+		entry.setLayout(null);
+		entry.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		entry.setBounds(0, 0, 580, 40);
+		host.add(entry);
+		
+		JLabel lblName = new JLabel("Name:");
+		lblName.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblName.setHorizontalAlignment(SwingConstants.LEFT);
+		lblName.setBounds(12, 12, 51, 14);
+		entry.add(lblName);
+		
+		JTextArea inputname = new JTextArea();
+		inputname.setBounds(60, 12, 109, 15);
+		entry.add(inputname);
+		inputname.setFont(text);
+		
+		JButton add = new JButton("Add Entry");
+		add.setFont(text);
+		add.setBounds(180, 8, 100, 23);
+		entry.add(add);
+		
+		JButton delete = new JButton("Delete Entry");
+		delete.setFont(text);
+		delete.setBounds(284, 8, 100, 23);
+		entry.add(delete);
+		
+		JLabel lblError = new JLabel("");
+		lblError.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblError.setHorizontalAlignment(SwingConstants.LEFT);
+		lblError.setBounds(400, 12, 200, 14);
+		entry.add(lblError);
+		
+		add.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				String newname = inputname.getText();
+				if (newname.equals("")) {
+					lblError.setText("Error: No name entered");
+					return;
+				}
+				
+				try {
+					SerializedInventory.getInstance().getItem(newname);
+					lblError.setText("Error: Item already exists");
+					return;
+				}
+				catch(IllegalArgumentException e){
+					SerializedInventory.getInstance().getInventory().toppings.put(newname, new Item (newname));
+					SerializedInventory.getInstance().saveInventory() ;
+				}
+				
+				host.removeAll();
+				drawToppings(host);
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});
+		
+		delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				String newname = inputname.getText();
+				if (newname.equals("")) {
+					lblError.setText("Error: No name entered");
+					return;
+				}
+				
+				if (SerializedInventory.getInstance().getInventory().toppings.remove(newname) == null) {
+					lblError.setText("Error: Item doesn't exist");
+					return;
+				}
+				SerializedInventory.getInstance().saveInventory();
+				
+				host.removeAll();
+				drawToppings(host);
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});
+		
+		
+		
+		JPanel table = new JPanel();
+		table.setLayout(null);
+		table.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		table.setBounds(0, 40, 580, 410);
+		host.add(table);
+		
 
 		JLabel lblToppings = new JLabel("Topping");
 		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setBounds(12, 11, 51, 14);
-		host.add(lblToppings);
+		table.add(lblToppings);
 		
 		JLabel lblAmount = new JLabel("Amount");
 		lblAmount.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblAmount.setHorizontalAlignment(SwingConstants.LEFT);
 		lblAmount.setBounds(130, 11, 51, 14);
-		host.add(lblAmount);
+		table.add(lblAmount);
 		
 		JLabel lblPrice = new JLabel("Price");
 		lblPrice.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblPrice.setHorizontalAlignment(SwingConstants.LEFT);
 		lblPrice.setBounds(190, 11, 51, 14);
-		host.add(lblPrice);
+		table.add(lblPrice);
 		
 		JLabel lblChangeP = new JLabel("Change Amount");
 		lblChangeP.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblChangeP.setHorizontalAlignment(SwingConstants.LEFT);
 		lblChangeP.setBounds(290, 11, 100, 14);
-		host.add(lblChangeP);
+		table.add(lblChangeP);
 		
 		JLabel lblChangeA = new JLabel("Change Price");
 		lblChangeA.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblChangeA.setHorizontalAlignment(SwingConstants.LEFT);
 		lblChangeA.setBounds(440, 11, 90, 14);
-		host.add(lblChangeA);
+		table.add(lblChangeA);
 	
 	
 		HashMap<String, Item> toppingdata = getToppings();
@@ -238,7 +328,7 @@ public class inventoryDisplay extends JFrame{
 		//dynamically creates buttons for each entry 1 at a time
 		int tindex = 0;
 		for (String k : toppingdata.keySet()) {
-			toppingLabel(host, toppingdata.get(k), 38 + tindex * 25);
+			toppingLabel(table, toppingdata.get(k), 38 + tindex * 25);
 			tindex++;
 		}
 		
