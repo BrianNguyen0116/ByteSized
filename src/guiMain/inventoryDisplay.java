@@ -71,19 +71,8 @@ public class inventoryDisplay extends JFrame{
 		/**
 		 * Populating tabs panel with buttons.
 		 * 
-		 * All except the Toppings button is commented out for clarity. Every other button 
-		 * follows the same basic format of this one
-		 * 
-		 * Code is functional if uncommented, though other buttons currently only erase the
-		 * contents panel
-		 * 
-		 * This section is basically done though, it's simply necessary to add
-		 * an implementation for all the drawX(host) functions. Then we can 
-		 * uncomment it
 		 */
 
-		
-		
 		Font text = new Font("Tahoma", Font.PLAIN, 11);
 		
 		JButton accounttab = new JButton("Accounts");
