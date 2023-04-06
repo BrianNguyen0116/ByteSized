@@ -67,7 +67,7 @@ public class Ordering extends JFrame {
 		
 		JPanel cart = new JPanel();
 		cart.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		cart.setBounds(10, 29, 200, 527);
+		cart.setBounds(10, 29, 200, 510);
 		pizza.add(cart);
 		cart.setLayout(new BoxLayout(cart, BoxLayout.X_AXIS));
 		receipt.setWrapStyleWord(true);
@@ -86,7 +86,7 @@ public class Ordering extends JFrame {
 		
 		// Checkout
 		JButton btnCheckout = new JButton("Checkout");
-		btnCheckout.setBounds(46, 621, 127, 23);
+		btnCheckout.setBounds(46, 578, 127, 23);
 		pizza.add(btnCheckout);
 		btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
@@ -101,7 +101,7 @@ public class Ordering extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBounds(10, 567, 200, 23);
+		panel.setBounds(10, 546, 200, 23);
 		pizza.add(panel);
 		panel.setLayout(null);
 		
