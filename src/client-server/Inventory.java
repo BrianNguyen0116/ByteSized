@@ -19,16 +19,7 @@ public class Inventory implements Serializable{
 	}
 
 	private void populateToppings() {
-		/*toppings.add(new Item("Pepperoni", 50));
-		toppings.add(new Item("Bacon", 50));
-		toppings.add(new Item("Italian Sausage", 50));
-		toppings.add(new Item("Jalapenos", 125));
-		toppings.add(new Item("Mushroom", 75));
-		toppings.add(new Item("Pineapple", 290));
-		toppings.add(new Item("Mozzarella Cheese", 35));
-		toppings.add(new Item("Green Peppers", 90));
-		toppings.add(new Item("Olives", 45));*/
-
+		
 		toppings.put("Pepperoni", new Item("Pepperoni", 50, 100));
 		toppings.put("Bacon", new Item("Bacon", 50, 100));
 		toppings.put("Italian Sausage", new Item("Italian Sausage", 50, 100));
@@ -75,19 +66,6 @@ public class Inventory implements Serializable{
 	public void putOrder(Pizza order) {
 		orders.add(0, order);
 	}
-	
-	
-	
-	/*public HashMap<String, Integer> getSizePrices() {
-		
-		HashMap<String, Integer> result = new HashMap<String, Integer>();
-		result.put("Small", 300);
-		result.put("Medium", 400);
-		result.put("Large", 600);
-		result.put("X-Large", 800);
-		
-		return result;
-	}*/
 	
 	public HashMap<String, Integer> getpricemap(String choice){
 		

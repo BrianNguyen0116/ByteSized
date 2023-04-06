@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SerializedInfo",
+            "request": "launch",
+            "mainClass": "SerializedInfo",
+            "projectName": "ByteSized"
+        },
+        {
+            "type": "java",
             "name": "SerializedInventory",
             "request": "launch",
             "mainClass": "SerializedInventory",
