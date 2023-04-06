@@ -97,6 +97,9 @@ public class Ordering extends JFrame {
 					return;
 				}
 				
+				SerializedInventory.getInstance().getInventory().putOrder(pizzaOrder);
+				SerializedInventory.getInstance().saveInventory();
+				
 				JOptionPane.showMessageDialog(cart, "Purchased!");
 				Ordering frame = new Ordering();
 				frame.setVisible(true);

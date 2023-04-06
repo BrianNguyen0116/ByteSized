@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -97,7 +98,7 @@ public class inventoryDisplay extends JFrame{
 		ordertab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawOrders(contents, null);
+				drawOrders(contents, SerializedInventory.getInstance().getInventory().getOrders(), "Order");
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -155,7 +156,7 @@ public class inventoryDisplay extends JFrame{
 		itemtab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawShopItems(contents, null);
+				drawItems(contents, SerializedInventory.getInstance().getInventory().drinks , "Shop Items");
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -166,10 +167,6 @@ public class inventoryDisplay extends JFrame{
 	}
 	
 	private void drawAccounts(JPanel host, Inventory type) {
-		//awaiting implementation
-	}
-	
-	private void drawOrders(JPanel host, Inventory type) {
 		//awaiting implementation
 	}
 	
@@ -273,7 +270,7 @@ public class inventoryDisplay extends JFrame{
 		JLabel lblToppings = new JLabel(typename);
 		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
-		lblToppings.setBounds(12, 11, 51, 14);
+		lblToppings.setBounds(12, 11, 90, 14);
 		table.add(lblToppings);
 		
 		JLabel lblAmount = new JLabel("Amount");
@@ -464,6 +461,209 @@ public class inventoryDisplay extends JFrame{
 			}
 		});*/
 	}
+	
+	private void drawOrders(JPanel host, ArrayList<Pizza> type, String typename) {
+		//awaiting implementation
+		
+		
+		
+		JPanel table = new JPanel();
+		table.setLayout(null);
+		table.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		table.setBounds(0, 40, 580, 410);
+		host.add(table);
+		
+		JLabel lblToppings = new JLabel(typename);
+		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
+		lblToppings.setBounds(12, 11, 51, 14);
+		table.add(lblToppings);
+		
+		JLabel lblAmount = new JLabel("Status");
+		lblAmount.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblAmount.setHorizontalAlignment(SwingConstants.LEFT);
+		lblAmount.setBounds(120, 11, 51, 14);
+		table.add(lblAmount);
+		
+		JLabel lblPrice = new JLabel("Price");
+		lblPrice.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblPrice.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPrice.setBounds(190, 11, 51, 14);
+		table.add(lblPrice);
+		
+		/*
+		JLabel lblChangeP = new JLabel("Change Amount");
+		lblChangeP.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblChangeP.setHorizontalAlignment(SwingConstants.LEFT);
+		lblChangeP.setBounds(290, 11, 100, 14);
+		table.add(lblChangeP);
+		
+		JLabel lblChangeA = new JLabel("Change Price");
+		lblChangeA.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblChangeA.setHorizontalAlignment(SwingConstants.LEFT);
+		lblChangeA.setBounds(440, 11, 90, 14);
+		table.add(lblChangeA);
+		*/
+		
+		//dynamically creates buttons for each entry 1 at a time
+			//int tindex = 0;
+			
+			//orderLabel(table, type.get(0), 38 + tindex * 25);
+			
+			for (int i = 0; i < type.size(); i++) {
+				orderLabel(host, table, type.get(i),38 + i * 25, i );
+			}
+			
+			/*
+			for (Pizza k : type) {
+				orderLabel(table, k, 38 + tindex * 25);
+				tindex++;
+			}
+			*/
+	}
+	
+	private void orderLabel(JPanel superhost, JPanel host, Pizza order, int coord, int index) {
+		Inventory database = SerializedInventory.getInstance().getInventory();
+		String name = order.getSize() +" "+ order.getCrust().getName();
+		int price = 0;
+		//String status = order.status;
+		
+		String size = order.getSize();
+		
+		//Price calculation should be fixed in refactoring. Ie, prices should be determined upon ordering
+		if (size.equals("Small")) price += 300;
+		if (size.equals("Medium")) price += 400;
+		if (size.equals("Large")) price += 600;
+		if (size.equals("X-Large")) price += 800;
+		
+		price += database.getItem(order.getCrust().getName()).getPrice();
+		
+		System.out.println(order.getSauces()[0].getName());
+		System.out.println(database.getItem( "Tomato Sauce" ));
+		System.out.println(database.getItem( order.getSauces()[0].getName() ));
+		System.out.println(database.getItem( order.getSauces()[0].getName() ).getPrice() );
+		
+		
+		for (Item i : order.getSauces()) {
+			System.out.println(i);
+			if (i.getName() == null) continue; //need to find the root cause of null sauces
+			price += database.getItem( i.getName() ).getPrice();
+			//price += i.getPrice();
+		}
+		
+		for (Item i : order.getToppings()) {
+			System.out.println(i);
+			price += database.getItem(i.getName()).getPrice();
+			//price += i.getPrice();
+		}
+				
+		Insets margin = new Insets(1, 1, 1, 1);
+		
+		Font text = new Font("Tahoma", Font.PLAIN, 11);
+		
+		JButton prep = new JButton("Prepping");
+		prep.setFont(text);
+		prep.setBounds(240, coord, 60, 23);
+		prep.setMargin(margin);
+		host.add(prep);
+		
+		JButton transit = new JButton("In-transit");
+		transit.setFont(text);
+		transit.setBounds(305, coord, 60, 23);
+		transit.setMargin(margin);
+		host.add(transit);
+		
+		JButton deliver = new JButton("Delivered");
+		deliver.setFont(text);
+		deliver.setBounds(370, coord, 60, 23);
+		deliver.setMargin(margin);
+		host.add(deliver);
+		
+		
+		//buttons price
+		
+		
+		JButton view = new JButton("View");
+		view.setFont(text);
+		view.setBounds(450, coord, 45, 23);
+		view.setMargin(margin);
+		host.add(view);
+		
+		JButton erase = new JButton("Delete");
+		erase.setFont(text);
+		erase.setBounds(500, coord, 45, 23);
+		erase.setMargin(margin);
+		host.add(erase);
+		
+		
+		/*
+		
+		JButton loonie = new JButton("$1.00");
+		loonie.setFont(text);
+		loonie.setBounds(515, coord, 45, 23);
+		loonie.setMargin(margin);
+		host.add(loonie);
+		*/
+		
+		
+		
+		JLabel lbl = new JLabel(name);
+		
+		lbl.setFont(text);
+		lbl.setBounds(17, coord + 4, 109, 14);
+		host.add(lbl);
+		
+		JLabel slbl = new JLabel(order.status);
+		slbl.setHorizontalAlignment(SwingConstants.CENTER);
+		slbl.setBounds(100, coord + 4, 80, 16);
+		host.add(slbl);
+		
+		
+		JLabel plbl = new JLabel(Ordering.intTo$(price));
+		plbl.setHorizontalAlignment(SwingConstants.CENTER);
+		plbl.setBounds(180, coord + 4, 46, 16);
+		host.add(plbl);
+		
+		prep.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				order.status = prep.getText();
+				slbl.setText(order.status);
+				SerializedInventory.getInstance().saveInventory();
+			}
+		});
+		
+		transit.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				order.status = transit.getText();
+				slbl.setText(order.status);
+				SerializedInventory.getInstance().saveInventory();
+			}
+		});
+		
+		deliver.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				order.status = deliver.getText();
+				slbl.setText(order.status);
+				SerializedInventory.getInstance().saveInventory();
+			}
+		});
+		
+		erase.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				//increase or decrease price in database.
+				SerializedInventory.getInstance().getInventory().getOrders().remove(index);
+				SerializedInventory.getInstance().saveInventory();
+				
+				//refresh screen
+				superhost.removeAll();
+				drawOrders(superhost, SerializedInventory.getInstance().getInventory().getOrders(), "Order");
+				setBounds(100, 100, 651, 693); //changing size twice redraws the table
+				setBounds(100, 100, 651, 694);
+			}
+		});
+		
+	}
+	
 	
 	private void changePrice(Item item, int amount, JLabel label) {
 		if (item == null) return;

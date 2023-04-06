@@ -7,7 +7,9 @@ public class Inventory implements Serializable{
     HashMap<String, Item> toppings = new HashMap<>();
 	HashMap<String, Item> dough = new HashMap<>();
 	HashMap<String, Item> sauces = new HashMap<>();
+	
 	ArrayList<Pizza> orders = new ArrayList<Pizza>();
+	HashMap<String, Item> drinks = new HashMap<>();
 
 	HashMap<String, ArrayList<Item>> toppingInv = new HashMap<>();
 
@@ -15,6 +17,7 @@ public class Inventory implements Serializable{
 		populateToppings();
 		populateDough();
 		populateSauces();
+		populateDrinks();
 
 	}
 
@@ -46,6 +49,13 @@ public class Inventory implements Serializable{
 		sauces.put("Alfredo", new Item("Alfredo Sauce", 300, 100));
 		sauces.put("Pesto Sauce", new Item("Pesto Sauce", 300, 100));
 	}
+	
+	private void populateDrinks() {
+		drinks.put("Pepsi", new Item("Pepsi", 500, 100));
+		drinks.put("Ginger ale", new Item("Ginger ale", 300, 100));
+		drinks.put("Tea", new Item("Tea", 300, 100));
+	}
+
 
 	public Item getItem(String item) {
 
