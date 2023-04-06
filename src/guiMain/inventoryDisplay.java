@@ -20,6 +20,8 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 
 import java.awt.Font;
+import java.awt.Insets;
+
 import javax.swing.JTextField;
 
 
@@ -52,7 +54,7 @@ public class inventoryDisplay extends JFrame{
 		JPanel contents = new JPanel();
 		contents.setLayout(null);
 		contents.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		contents.setBounds(25, 125, 450, 450);
+		contents.setBounds(25, 125, 580, 450);
 		contentPane.add(contents);
 		
 		/**
@@ -82,7 +84,7 @@ public class inventoryDisplay extends JFrame{
 		
 		
 		Font text = new Font("Tahoma", Font.PLAIN, 11);
-		/*
+		
 		JButton accounttab = new JButton("Accounts");
 		accounttab.setFont(text);
 		accounttab.setBounds(0, 2, 80, 23);
@@ -109,7 +111,7 @@ public class inventoryDisplay extends JFrame{
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
-		});*/
+		});
 		
 		JButton toppingtab = new JButton("Toppings");
 		toppingtab.setFont(text);
@@ -125,7 +127,7 @@ public class inventoryDisplay extends JFrame{
 			}
 		});
 		
-		/*
+		
 		JButton sizetab = new JButton("Sizes");
 		sizetab.setFont(text);
 		sizetab.setBounds(255, 2, 80, 23);
@@ -168,7 +170,7 @@ public class inventoryDisplay extends JFrame{
 				setBounds(100, 100, 651, 694);
 			}
 		});
-		*/
+		
 	
 		
 	}
@@ -205,55 +207,243 @@ public class inventoryDisplay extends JFrame{
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setBounds(12, 11, 51, 14);
 		host.add(lblToppings);
+		
+		JLabel lblAmount = new JLabel("Amount");
+		lblAmount.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblAmount.setHorizontalAlignment(SwingConstants.LEFT);
+		lblAmount.setBounds(130, 11, 51, 14);
+		host.add(lblAmount);
+		
+		JLabel lblPrice = new JLabel("Price");
+		lblPrice.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblPrice.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPrice.setBounds(190, 11, 51, 14);
+		host.add(lblPrice);
+		
+		JLabel lblChangeP = new JLabel("Change Amount");
+		lblChangeP.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblChangeP.setHorizontalAlignment(SwingConstants.LEFT);
+		lblChangeP.setBounds(290, 11, 100, 14);
+		host.add(lblChangeP);
+		
+		JLabel lblChangeA = new JLabel("Change Price");
+		lblChangeA.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblChangeA.setHorizontalAlignment(SwingConstants.LEFT);
+		lblChangeA.setBounds(440, 11, 90, 14);
+		host.add(lblChangeA);
 	
 	
-		HashMap<String, Integer> toppingdata = Ordering.getToppingPrices();
+		HashMap<String, Item> toppingdata = getToppings();
 		
 		//dynamically creates buttons for each entry 1 at a time
 		int tindex = 0;
 		for (String k : toppingdata.keySet()) {
-			toppingLabel(host, k, 38 + tindex * 25, toppingdata.get(k));
+			toppingLabel(host, toppingdata.get(k), 38 + tindex * 25);
 			tindex++;
 		}
 		
 		
 	}
 	
-	private void toppingLabel(JPanel host, String name, int coord, int price) {
-		JLabel lbl = new JLabel(name);
+	private void toppingLabel(JPanel host, Item item, int coord) {
+		String name = item.getName();
+		int price = item.getPrice();
+		int amount = item.getTotal();
+		
+		Insets margin = new Insets(1, 1, 1, 1);
+		
+		
 		Font text = new Font("Tahoma", Font.PLAIN, 11);
+		
+		
+		JLabel lbl = new JLabel(name);
+		
 		lbl.setFont(text);
-		lbl.setBounds(12, coord + 4, 109, 14);
+		lbl.setBounds(17, coord + 4, 109, 14);
 		host.add(lbl);
 		
-		JButton btnl = new JButton("Add");
-		btnl.setFont(text);
-		btnl.setBounds(121, coord, 71, 23);
-		host.add(btnl);
+		/*
+		JButton increase = new JButton("Add");
+		increase.setFont(text);
+		increase.setBounds(230, coord, 71, 23);
+		host.add(increase);
+		*/
 		
-		JButton btnr = new JButton("Remove");
-		btnr.setFont(text);
-		btnr.setBounds(197, coord, 71, 23);
-		host.add(btnr);
+		JButton plus = new JButton("+");
+		plus.setFont(text);
+		plus.setBounds(240, coord, 20, 23);
+		plus.setMargin(margin);
+		host.add(plus);
+		
+		//buttons quantity
+		
+		JButton one = new JButton("1");
+		one.setFont(text);
+		one.setBounds(280, coord, 35, 23);
+		one.setMargin(margin);
+		host.add(one);
+		
+		JButton ten = new JButton("10");
+		ten.setFont(text);
+		ten.setBounds(320, coord, 35, 23);
+		ten.setMargin(margin);
+		host.add(ten);
+		
+		JButton hundred = new JButton("100");
+		hundred.setFont(text);
+		hundred.setBounds(360, coord, 35, 23);
+		hundred.setMargin(margin);
+		host.add(hundred);
+		
+		
+		//buttons price
+		
+		JButton cent = new JButton("$0.01");
+		cent.setFont(text);
+		cent.setBounds(415, coord, 45, 23);
+		cent.setMargin(margin);
+		host.add(cent);
+		
+		JButton dime = new JButton("$0.10");
+		dime.setFont(text);
+		dime.setBounds(465, coord, 45, 23);
+		dime.setMargin(margin);
+		host.add(dime);
+		
+		JButton loonie = new JButton("$1.00");
+		loonie.setFont(text);
+		loonie.setBounds(515, coord, 45, 23);
+		loonie.setMargin(margin);
+		host.add(loonie);
+		
+		/*
+		JButton decrease = new JButton("Remove");
+		decrease.setFont(text);
+		decrease.setBounds(306, coord, 71, 23);
+		host.add(decrease);
+		*/
+		
+		
+		
+		
+		
+		
+		JLabel albl = new JLabel("("+amount+")");
+		albl.setHorizontalAlignment(SwingConstants.CENTER);
+		albl.setBounds(128, coord + 4, 46, 14);
+		host.add(albl);
+		
 		
 		JLabel plbl = new JLabel(Ordering.intTo$(price));
 		plbl.setHorizontalAlignment(SwingConstants.CENTER);
-		plbl.setBounds(288, coord + 4, 46, 14);
+		plbl.setBounds(180, coord + 4, 46, 14);
 		host.add(plbl);
 		
-		btnl.addActionListener(new ActionListener() {
+		plus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				//Add +1 quantity to database. Awaiting implementation.
-				//Right now it just resizes the window as a demonstration of dynamic sizing
-				setBounds(100, 100, 300, 300);
+				if (plus.getText().equals("+")) plus.setText("-");
+				else plus.setText("+");
 			}
 		});
 		
-		btnr.addActionListener(new ActionListener() {
+		one.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				//Remove +1 quantity from database. Awaiting implementation
+				//increase or decrease price in database. Awaiting implementation.
+				int change = plus.getText().equals("-") ? -1 : 1;
+				changeQuantity(item, change, albl);		
+				
+				
 			}
 		});
+		
+		ten.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				//increase or decrease price in database. Awaiting implementation.
+				int change = plus.getText().equals("-") ? -10 : 10;
+				changeQuantity(item, change, albl);		
+				
+				
+			}
+		});
+		
+		hundred.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				//increase or decrease price in database. Awaiting implementation.
+				int change = plus.getText().equals("-") ? -100 : 100;
+				changeQuantity(item, change, albl);		
+				
+				
+			}
+		});
+		
+		
+		cent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				//increase or decrease price in database.
+				int change = plus.getText().equals("-") ? -1 : 1;
+				changePrice(item, change, plbl);		
+				
+				
+			}
+		});
+		
+		dime.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				//increase or decrease price in database.
+				int change = plus.getText().equals("-") ? -10 : 10;
+				changePrice(item, change, plbl);		
+				
+				
+			}
+		});
+		
+		loonie.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				//increase or decrease price in database.
+				int change = plus.getText().equals("-") ? -100 : 100;
+				changePrice(item, change, plbl);		
+				
+				
+			}
+		});
+		
+		/*
+		decrease.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				//Remove -0.10 price from database. Awaiting implementation
+				changePrice(item, -10, plbl);		
+			}
+		});*/
+	}
+	
+	private void changePrice(Item item, int amount, JLabel label) {
+		if (item == null) return;
+		
+		int oldprice = item.getPrice();
+		int newprice = oldprice + amount < 0 ? 0 : oldprice + amount;
+		
+		item.setPrice(newprice);
+		label.setText(Ordering.intTo$(newprice));
+		SerializedInventory.getInstance().saveInventory();
+	}
+	
+	private void changeQuantity(Item item, int amount, JLabel label) {
+		if (item == null) return;
+		
+		int oldtotal = item.getTotal();
+		int newtotal = oldtotal + amount < 0 ? 0 : oldtotal + amount;
+		
+		item.setTotal(newtotal);
+		label.setText("("+newtotal+")");
+		SerializedInventory.getInstance().saveInventory();
+	}
+	
+	public static HashMap<String, Item> getToppings() {
+		
+		SerializedInventory database = SerializedInventory.getInstance();
+		HashMap<String, Item> result = database.getInventory().toppings;
+		
+		return result;
 	}
 	
 }
