@@ -7,6 +7,8 @@ public class Pizza implements Serializable{
 	public String special_instructions;
 	public Item[] toppings;
 	public Item[] sauces;
+	
+	public String status = "Prepping";
 
 	public Pizza() {	
 	}
