@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Pizza {
+public class Pizza implements Serializable{
 	
 	public String size;
 	public Item crust;
