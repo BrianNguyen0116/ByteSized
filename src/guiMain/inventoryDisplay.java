@@ -94,7 +94,7 @@ public class inventoryDisplay extends JFrame{
 		accounttab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawAccounts(contents);
+				drawAccounts(contents, null);
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -108,7 +108,7 @@ public class inventoryDisplay extends JFrame{
 		ordertab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawOrders(contents);
+				drawOrders(contents, null);
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -122,22 +122,22 @@ public class inventoryDisplay extends JFrame{
 		toppingtab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawToppings(contents);
+				drawItems(contents, SerializedInventory.getInstance().getInventory().toppings , "Topping");
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
 		});
 		
 		
-		JButton sizetab = new JButton("Sizes");
-		sizetab.setFont(text);
-		sizetab.setBounds(255, 2, 80, 23);
-		tabs.add(sizetab);
+		JButton doughtab = new JButton("Doughs");
+		doughtab.setFont(text);
+		doughtab.setBounds(255, 2, 80, 23);
+		tabs.add(doughtab);
 		
-		sizetab.addActionListener(new ActionListener() {
+		doughtab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawSizes(contents);
+				drawItems(contents, SerializedInventory.getInstance().getInventory().dough , "Dough");
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -152,7 +152,7 @@ public class inventoryDisplay extends JFrame{
 		saucetab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawSizes(contents);
+				drawItems(contents, SerializedInventory.getInstance().getInventory().sauces , "Sauce");
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -166,7 +166,7 @@ public class inventoryDisplay extends JFrame{
 		itemtab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawShopItems(contents);
+				drawShopItems(contents, null);
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -176,34 +176,23 @@ public class inventoryDisplay extends JFrame{
 		
 	}
 	
-	private void drawAccounts(JPanel host) {
+	private void drawAccounts(JPanel host, Inventory type) {
 		//awaiting implementation
 	}
 	
-	private void drawOrders(JPanel host) {
+	private void drawOrders(JPanel host, Inventory type) {
 		//awaiting implementation
 	}
 	
-	private void drawSizes(JPanel host) {
-		//awaiting implementation
-	}
-	
-	private void drawSauces(JPanel host) {
-		//awaiting implementation
-	}
-	
-	private void drawShopItems(JPanel host) {
+	private void drawShopItems(JPanel host, Inventory type) {
 		//awaiting implementation
 	}
 	
 	
-	private void drawToppings(JPanel host) {
+	private void drawItems(JPanel host, HashMap<String, Item> type, String typename) {
 		
 		Font text = new Font("Tahoma", Font.PLAIN, 11);
 				
-		/**
-		 * Topping Customization
-		 */
 		JPanel entry = new JPanel();
 		entry.setLayout(null);
 		entry.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
@@ -246,17 +235,17 @@ public class inventoryDisplay extends JFrame{
 				}
 				
 				try {
-					SerializedInventory.getInstance().getItem(newname);
+					SerializedInventory.getInstance().getInventory().getItem(newname);//If item does not exist, will return an error
 					lblError.setText("Error: Item already exists");
 					return;
 				}
-				catch(IllegalArgumentException e){
-					SerializedInventory.getInstance().getInventory().toppings.put(newname, new Item (newname));
+				catch(IllegalArgumentException e){//This error will be caught, and that way we know we aren't overwriting an old item
+					type.put(newname, new Item (newname));
 					SerializedInventory.getInstance().saveInventory() ;
 				}
 				
 				host.removeAll();
-				drawToppings(host);
+				drawItems(host, type, typename);
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -270,14 +259,14 @@ public class inventoryDisplay extends JFrame{
 					return;
 				}
 				
-				if (SerializedInventory.getInstance().getInventory().toppings.remove(newname) == null) {
+				if (type.remove(newname) == null) {
 					lblError.setText("Error: Item doesn't exist");
 					return;
 				}
 				SerializedInventory.getInstance().saveInventory();
 				
 				host.removeAll();
-				drawToppings(host);
+				drawItems(host, type, typename);
 				setBounds(100, 100, 651, 693); //changing size twice redraws the table
 				setBounds(100, 100, 651, 694);
 			}
@@ -292,7 +281,7 @@ public class inventoryDisplay extends JFrame{
 		host.add(table);
 		
 
-		JLabel lblToppings = new JLabel("Topping");
+		JLabel lblToppings = new JLabel(typename);
 		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
 		lblToppings.setBounds(12, 11, 51, 14);
@@ -322,13 +311,10 @@ public class inventoryDisplay extends JFrame{
 		lblChangeA.setBounds(440, 11, 90, 14);
 		table.add(lblChangeA);
 	
-	
-		HashMap<String, Item> toppingdata = getToppings();
-		
 		//dynamically creates buttons for each entry 1 at a time
 		int tindex = 0;
-		for (String k : toppingdata.keySet()) {
-			toppingLabel(table, toppingdata.get(k), 38 + tindex * 25);
+		for (String k : type.keySet()) {
+			toppingLabel(table, type.get(k), 38 + tindex * 25);
 			tindex++;
 		}
 		
@@ -351,13 +337,7 @@ public class inventoryDisplay extends JFrame{
 		lbl.setFont(text);
 		lbl.setBounds(17, coord + 4, 109, 14);
 		host.add(lbl);
-		
-		/*
-		JButton increase = new JButton("Add");
-		increase.setFont(text);
-		increase.setBounds(230, coord, 71, 23);
-		host.add(increase);
-		*/
+	
 		
 		JButton plus = new JButton("+");
 		plus.setFont(text);
@@ -405,17 +385,7 @@ public class inventoryDisplay extends JFrame{
 		loonie.setBounds(515, coord, 45, 23);
 		loonie.setMargin(margin);
 		host.add(loonie);
-		
-		/*
-		JButton decrease = new JButton("Remove");
-		decrease.setFont(text);
-		decrease.setBounds(306, coord, 71, 23);
-		host.add(decrease);
-		*/
-		
-		
-		
-		
+				
 		
 		
 		JLabel albl = new JLabel("("+amount+")");
@@ -526,14 +496,6 @@ public class inventoryDisplay extends JFrame{
 		item.setTotal(newtotal);
 		label.setText("("+newtotal+")");
 		SerializedInventory.getInstance().saveInventory();
-	}
-	
-	public static HashMap<String, Item> getToppings() {
-		
-		SerializedInventory database = SerializedInventory.getInstance();
-		HashMap<String, Item> result = database.getInventory().toppings;
-		
-		return result;
 	}
 	
 }
