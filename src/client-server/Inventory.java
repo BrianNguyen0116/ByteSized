@@ -7,6 +7,7 @@ public class Inventory implements Serializable{
     HashMap<String, Item> toppings = new HashMap<>();
 	HashMap<String, Item> dough = new HashMap<>();
 	HashMap<String, Item> sauces = new HashMap<>();
+	ArrayList<Pizza> orders = new ArrayList<Pizza>();
 
 	HashMap<String, ArrayList<Item>> toppingInv = new HashMap<>();
 
@@ -66,6 +67,17 @@ public class Inventory implements Serializable{
 		else
 			throw new IllegalArgumentException("Item does not exist.\n");
 	}
+	
+	public ArrayList<Pizza> getOrders() {
+		return orders;
+	}
+	
+	public void putOrder(Pizza order) {
+		orders.add(0, order);
+	}
+	
+	
+	
 	/*public HashMap<String, Integer> getSizePrices() {
 		
 		HashMap<String, Integer> result = new HashMap<String, Integer>();
