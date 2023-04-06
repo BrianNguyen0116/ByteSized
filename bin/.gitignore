@@ -2,5 +2,10 @@
 /IntegrationTest.class
 /InventoryTest.class
 /SerializedInventoryTest.class
+<<<<<<< Updated upstream
 /test/
 /OrderingTest.class
+=======
+/AdminServlet.class
+/InventoryTest.class
+>>>>>>> Stashed changes
