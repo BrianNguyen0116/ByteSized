@@ -109,6 +109,10 @@ DATE : 04/06/2023
 --
 MEET : 02H30M : Discussed further planning of the third iteration and laying down the foundation towards moving foward in the project
 
+DATE : 04/06/2023
+--
+TASK : 03H00M : Implemented persistent storage for the restaurant information : McKinley
+TASK : 01H00M : Added documentation for the new classes : McKinley
 
 DATE : 04/07/2023
 --
