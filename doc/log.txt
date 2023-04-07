@@ -103,9 +103,15 @@ TASK : 01H00M : Create UML for user class and update the wiki to explain the new
 TASK : 01H30M : Update the planning document : Mustafa
 
 
+DATE : 04/06/2023
+--
+MEET : 02H30M : Discussed further planning of the third iteration and laying down the foundation towards moving foward in the project
+
+
 DATE : 04/07/2023
 --
-TASK :        : Implemented discounts on the admin side of the program : Nguyen
+TASK : 05H00M : Implemented discounts on the admin side of the program : Nguyen
+TASK : 05H00M : Refactored the design look of the GUI from both admin and user side : Nguyen
 TASK : 01H00M : Cleaned up the documentation : Moras
 
 
