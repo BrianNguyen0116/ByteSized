@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.io.File;
 //import org.json.simple.JSONObject;
 import java.io.FileWriter;
 //import org
@@ -67,6 +68,8 @@ public class User {
 		// continue if user does not exist
 		jsonObject.add(this.toJsonObject());
 		jsonText = Jsoner.serialize(jsonObject);
+		File myObj = new File("users.json"); 
+		myObj.delete();
 		try{
 			Files.write(Paths.get("users.json"), jsonText.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e){
