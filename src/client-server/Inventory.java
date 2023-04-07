@@ -13,8 +13,6 @@ public class Inventory implements Serializable{
 	
 	HashMap<String, Discount> coupons = new HashMap<>();
 
-	HashMap<String, ArrayList<Item>> toppingInv = new HashMap<>();
-
 
 	protected Inventory() {
 		populateToppings();
