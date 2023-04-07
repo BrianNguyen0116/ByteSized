@@ -102,10 +102,13 @@ TASK : 01H00M : Save Users to json database : Mustafa
 TASK : 01H00M : Create UML for user class and update the wiki to explain the new class and the new unit tests : Mustafa
 TASK : 01H30M : Update the planning document : Mustafa
 
+DATE : 04/06/2023
+TASK : 02H00M : Store Users in json file, read from the json file for login/signup, test for various account registration scenarios and	reanalyze the new project structure : Mustafa
 
 DATE : 04/07/2023
 --
 TASK :        : Implemented discounts on the admin side of the program : Nguyen
 TASK : 01H00M : Cleaned up the documentation : Moras
-
-
+TASK : 04H00M : Store Users in json file, read from the json file for login/signup, test for various account registration scenarios and	reanalyze the new project structure : Mustafa
+TASK : 02H00M : Clean up code, Collaborate with Brian on Hooking up the backend to the frontend, and setup functionality for displaying regiestered accounts on the admin Side : Mustafa
+TASK : 02H00M : Wiki documentation and Big/User stories work : Mustafa
