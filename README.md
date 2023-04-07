@@ -2,8 +2,11 @@
 A program to help to aid customers with ordering pizza easily from their local pizza joints. Similar to the ordering sites of larger pizza chains, the system will allow for item customization as well as add-ons made available by the store owners.﻿
 
 [Team's Miro Boad (Architecture)](https://miro.com/app/board/uXjVPvnCMpw=/)  
-[Byte-Sized Planning Document](https://docs.google.com/document/d/1NvjnRS6mLI4ADugpxcDyfG9nM1XRT__3grf4OTydRmg/edit?usp=sharing) 
+
+[Byte-Sized Planning Document](https://docs.google.com/document/d/1NvjnRS6mLI4ADugpxcDyfG9nM1XRT__3grf4OTydRmg/edit?usp=sharing)
+
 [Byte-Sized Wiki Documentation](https://docs.google.com/document/d/1_b1s1Ft5pXBrBe-rSGcGHKPQVBaOUsoT0Am2QnS1rNY/edit?usp=sharing)
+
 [Byte-Sized Vision and Stories](https://docs.google.com/document/d/1W-oEt4t9W90aqsoFA27ACIkP6P_MuQZQGx5c72udcR0/edit?usp=sharing)
 
 
