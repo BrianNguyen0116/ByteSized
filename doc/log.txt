@@ -1,9 +1,15 @@
 ﻿# Byte-Sized[a]
 EECS3311 Section M .:. Team 14 .:.
 
+
 DATE : 01/30/2023 
 --
-MEET : 00H30M : Asynchronous Meeting(General Discussion and Task Organization)
+MEET : 12H30M : In-person meeting and discussion for Itr0 : Mckinley and Moras
+
+
+DATE : 01/30/2023 
+--
+MEET : 00H30M : Asynchronous Meeting (General Discussion and Task Organization)
 TASK : 03H30M : GitHub Preparation and File Allocation : Nguyen
 
 
@@ -44,9 +50,9 @@ TASK : 05H00M : Add implementation that categorizes items into toppings, crust &
 
 DATE : 02/10/2023
 --
-TASK : 00H45M : Worked with Bren to fix path naming error that prevented the program from compiling on anything beside's bren's computer : Ivan
-TASK : 03H00M : Reafactored the GUI code to significantly reduce code-duplication and make it so the list of toppings is no longer hardcoded, for future database : Ivan
-TASK : 03H00M : Made it possible to cancel a topping choice. Made the price calculation factor in the cost of the toppings. The final list of Toppings chosen now prints properly on the receipt : Ivan
+TASK : 00H45M : Worked with Bren to fix path naming error that prevented the program from compiling on anything beside's bren's computer : Korpalo
+TASK : 03H00M : Reafactored the GUI code to significantly reduce code-duplication and make it so the list of toppings is no longer hardcoded, for future database : Korpalo
+TASK : 03H00M : Made it possible to cancel a topping choice. Made the price calculation factor in the cost of the toppings. The final list of Toppings chosen now prints properly on the receipt : Korpalo
 TASK : 01H00M : Add the Item UML and indicate the relation between the Pizza class and the Item class : Mustafa
 TASK : 02H00M : Add documentation to wiki : Mustafa
 TASK : 02H00M : Main class (GUI) documentation to wiki : Nguyen
@@ -55,7 +61,7 @@ TASK : 02H00M : Main class (GUI) documentation to wiki : Nguyen
 DATE : 03/06/2023
 --
 TASK : 02H00M : Vision and Story Document Update (New Stories) : Nguyen
-TASK : 06H00M : Refactor the part of the gui that generates the size selection buttons. Can now retreive from stub database : Ivan
+TASK : 06H00M : Refactor the part of the gui that generates the size selection buttons. Can now retreive from stub database : Korpalo
 	|-> New duration : 3DAYS : Spaghetti is tough to untangle
 
 
@@ -72,9 +78,9 @@ MEET : 00H30M : Team meeting to discuss additional details in distributing tasks
 
 DATE : 03/9/2023
 --
-TASK : 03H00M : Refactor the rest of the gui code along the same principle as the size code : Ivan
+TASK : 03H00M : Refactor the rest of the gui code along the same principle as the size code : Korpalo
 TASK : 12H00M : Implemented new inventory architechture : McKinley
-TASK : 01H00M: Make stub database methods in gui query the actual database : Ivan
+TASK : 01H00M: Make stub database methods in gui query the actual database : Korpalo
 	|-> New duration : 02H30M: Had to collaborate with DB creator to fix previously unknown major bug
 TASK : DURATION : Implemented testing for inventory classes : McKinley
 TASK : 14H00M : GUI overhaul (Log in and registration display) : Nguyen
@@ -83,7 +89,7 @@ TASK : 02H00M : Create user signup and login : Mustafa
 
 DATE : 03/10/2023
 --
-TASK : 02H00M : Implemented unit tests for Main (now renamed to Ordering), and the integration test : Ivan
+TASK : 02H00M : Implemented unit tests for Main (now renamed to Ordering), and the integration test : Korpalo
 TASK : 01H05M : Implemented administration access; different from user access : Moras
 TASK : 06H00M : Log in and registration methods : Nguyen
 TASK : 02H00M : Create test cases for Pizza and User classes : Mustafa
@@ -96,5 +102,10 @@ TASK : 01H00M : Save Users to json database : Mustafa
 TASK : 01H00M : Create UML for user class and update the wiki to explain the new class and the new unit tests : Mustafa
 TASK : 01H30M : Update the planning document : Mustafa
 
+
+DATE : 04/07/2023
+--
+TASK :        : Implemented discounts on the admin side of the program : Nguyen
+TASK : 01H00M : Cleaned up the documentation : Moras
 
 
