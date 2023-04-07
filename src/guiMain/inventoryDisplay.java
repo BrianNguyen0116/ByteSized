@@ -1,26 +1,17 @@
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.border.BevelBorder;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-
 import java.awt.Font;
 import java.awt.Insets;
 
@@ -41,7 +32,7 @@ public class inventoryDisplay extends JFrame{
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 651, 694);
+		setBounds(100, 100, 714, 558);
 	
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -56,7 +47,7 @@ public class inventoryDisplay extends JFrame{
 		JPanel contents = new JPanel();
 		contents.setLayout(null);
 		contents.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		contents.setBounds(25, 53, 580, 450);
+		contents.setBounds(25, 53, 651, 450);
 		contentPane.add(contents);
 		
 		/**
@@ -85,8 +76,8 @@ public class inventoryDisplay extends JFrame{
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
 				drawAccounts(contents, null);
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
@@ -99,8 +90,8 @@ public class inventoryDisplay extends JFrame{
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
 				drawOrders(contents, SerializedInventory.getInstance().getInventory().getOrders(), "Order");
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
@@ -113,8 +104,8 @@ public class inventoryDisplay extends JFrame{
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
 				drawItems(contents, SerializedInventory.getInstance().getInventory().toppings , "Topping");
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
@@ -128,8 +119,8 @@ public class inventoryDisplay extends JFrame{
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
 				drawItems(contents, SerializedInventory.getInstance().getInventory().dough , "Dough");
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
@@ -143,8 +134,8 @@ public class inventoryDisplay extends JFrame{
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
 				drawItems(contents, SerializedInventory.getInstance().getInventory().sauces , "Sauce");
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
@@ -157,12 +148,24 @@ public class inventoryDisplay extends JFrame{
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
 				drawItems(contents, SerializedInventory.getInstance().getInventory().drinks , "Shop Items");
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
-	
+		JButton discounttab = new JButton("Discounts");
+		discounttab.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		discounttab.setBounds(529, 2, 112, 23);
+		tabs.add(discounttab);
+		
+		discounttab.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				contents.removeAll();
+				drawDiscounts(contents, SerializedInventory.getInstance().getInventory().coupons , "Coupons");
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
+			}
+		});
 		
 	}
 	
@@ -182,7 +185,7 @@ public class inventoryDisplay extends JFrame{
 		JPanel entry = new JPanel();
 		entry.setLayout(null);
 		entry.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		entry.setBounds(0, 0, 580, 40);
+		entry.setBounds(0, 0, 651, 40);
 		host.add(entry);
 		
 		JLabel lblName = new JLabel("Name:");
@@ -232,8 +235,8 @@ public class inventoryDisplay extends JFrame{
 				
 				host.removeAll();
 				drawItems(host, type, typename);
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
@@ -253,8 +256,8 @@ public class inventoryDisplay extends JFrame{
 				
 				host.removeAll();
 				drawItems(host, type, typename);
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
@@ -263,7 +266,7 @@ public class inventoryDisplay extends JFrame{
 		JPanel table = new JPanel();
 		table.setLayout(null);
 		table.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		table.setBounds(0, 40, 580, 410);
+		table.setBounds(0, 40, 651, 410);
 		host.add(table);
 		
 
@@ -470,7 +473,7 @@ public class inventoryDisplay extends JFrame{
 		JPanel table = new JPanel();
 		table.setLayout(null);
 		table.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		table.setBounds(0, 40, 580, 410);
+		table.setBounds(0, 40, 651, 410);
 		host.add(table);
 		
 		JLabel lblToppings = new JLabel(typename);
@@ -657,8 +660,8 @@ public class inventoryDisplay extends JFrame{
 				//refresh screen
 				superhost.removeAll();
 				drawOrders(superhost, SerializedInventory.getInstance().getInventory().getOrders(), "Order");
-				setBounds(100, 100, 651, 693); //changing size twice redraws the table
-				setBounds(100, 100, 651, 694);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
 			}
 		});
 		
@@ -687,4 +690,220 @@ public class inventoryDisplay extends JFrame{
 		SerializedInventory.getInstance().saveInventory();
 	}
 	
+	private void drawDiscounts(JPanel host, HashMap<String, Discount> type, String typename) {
+	//awaiting implementation
+	
+		Font text = new Font("Tahoma", Font.PLAIN, 11);
+		
+		JPanel entry = new JPanel();
+		entry.setLayout(null);
+		entry.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		entry.setBounds(0, 0, 651, 40);
+		host.add(entry);
+		
+		JLabel lblName = new JLabel("Name:");
+		lblName.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblName.setHorizontalAlignment(SwingConstants.LEFT);
+		lblName.setBounds(12, 12, 51, 14);
+		entry.add(lblName);
+		
+		JTextArea inputname = new JTextArea();
+		inputname.setBounds(60, 12, 109, 15);
+		entry.add(inputname);
+		inputname.setFont(text);
+		
+		JButton add = new JButton("Add Entry");
+		add.setFont(text);
+		add.setBounds(180, 8, 100, 23);
+		entry.add(add);
+		
+		JButton delete = new JButton("Delete Entry");
+		delete.setFont(text);
+		delete.setBounds(284, 8, 100, 23);
+		entry.add(delete);
+		
+		JLabel lblError = new JLabel("");
+		lblError.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblError.setHorizontalAlignment(SwingConstants.LEFT);
+		lblError.setBounds(400, 12, 200, 14);
+		entry.add(lblError);
+		
+		add.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				String newname = inputname.getText();
+				if (newname.equals("")) {
+					lblError.setText("Error: No name entered");
+					return;
+				}
+				
+				try {
+					SerializedInventory.getInstance().getInventory().getCoupon(newname);//If item does not exist, will return an error
+					lblError.setText("Error: Item already exists");
+					return;
+				}
+				catch(IllegalArgumentException e){//This error will be caught, and that way we know we aren't overwriting an old item
+					type.put(newname, new Discount (newname));
+					SerializedInventory.getInstance().saveInventory() ;
+				}
+				
+				host.removeAll();
+				drawDiscounts(host, type, typename);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
+			}
+		});
+		
+		delete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				String newname = inputname.getText();
+				if (newname.equals("")) {
+					lblError.setText("Error: No name entered");
+					return;
+				}
+				
+				if (type.remove(newname) == null) {
+					lblError.setText("Error: Item doesn't exist");
+					return;
+				}
+				SerializedInventory.getInstance().saveInventory();
+				
+				host.removeAll();
+				drawDiscounts(host, type, typename);
+				setBounds(100, 100, 714, 557); //changing size twice redraws the table
+				setBounds(100, 100, 714, 558);
+			}
+		});
+	
+	JPanel table = new JPanel();
+	table.setLayout(null);
+	table.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+	table.setBounds(0, 40, 651, 410);
+	host.add(table);
+	
+	JLabel lblDiscounts = new JLabel(typename);
+	lblDiscounts.setFont(new Font("Tahoma", Font.BOLD, 11));
+	lblDiscounts.setHorizontalAlignment(SwingConstants.LEFT);
+	lblDiscounts.setBounds(12, 11, 51, 14);
+	table.add(lblDiscounts);
+	
+	JLabel lblAmount = new JLabel("Status");
+	lblAmount.setFont(new Font("Tahoma", Font.BOLD, 11));
+	lblAmount.setHorizontalAlignment(SwingConstants.LEFT);
+	lblAmount.setBounds(120, 11, 51, 14);
+	table.add(lblAmount);
+	
+	JLabel lblDiscount = new JLabel("Discount");
+	lblDiscount.setFont(new Font("Tahoma", Font.BOLD, 11));
+	lblDiscount.setHorizontalAlignment(SwingConstants.LEFT);
+	lblDiscount.setBounds(190, 11, 51, 14);
+	table.add(lblDiscount);
+	
+	int tindex = 0;
+	for (String k : type.keySet()) {
+		discountLabel(table, type.get(k), 38 + tindex * 25);
+		tindex++;
+		}
+	}
+	
+	
+	private void discountLabel(JPanel host, Discount item, int coord) {
+		String name = item.getName();
+		String state = "";
+		int percent = item.getDiscount();
+		boolean expire = item.getExpirationState();
+		
+		if (expire == true) { 
+			state  = "Unavailable";
+		} else if (expire == false){ 
+			state = "Available";
+		}
+		
+		Insets margin = new Insets(1, 1, 1, 1);
+		
+		Font text = new Font("Tahoma", Font.PLAIN, 11);
+		
+		JButton avail = new JButton("On");
+		avail.setFont(text);
+		avail.setBounds(240, coord, 60, 23);
+		avail.setMargin(margin);
+		host.add(avail);
+		
+		JButton expired = new JButton("Off");
+		expired.setFont(text);
+		expired.setBounds(305, coord, 60, 23);
+		expired.setMargin(margin);
+		host.add(expired);
+		
+		JButton set = new JButton("Set");
+		set.setFont(text);
+		set.setBounds(400, coord, 60, 23);
+		set.setMargin(margin);
+		host.add(set);
+		
+		JTextField discount = new JTextField();
+		discount.setFont(text);
+		discount.setBounds(465, coord, 60, 23);
+		discount.setMargin(margin);
+		host.add(discount);
+		
+		
+		//buttons 
+		JButton view = new JButton("View");
+		view.setFont(text);
+		view.setBounds(550, coord, 45, 23);
+		view.setMargin(margin);
+		host.add(view);
+		
+		JLabel lbl = new JLabel(name);
+		
+		lbl.setFont(text);
+		lbl.setBounds(17, coord + 4, 109, 14);
+		host.add(lbl);
+		
+		JLabel elbl = new JLabel(state);
+		elbl.setHorizontalAlignment(SwingConstants.CENTER);
+		elbl.setBounds(100, coord + 4, 80, 16);
+		host.add(elbl);
+		
+		
+		JLabel plbl = new JLabel(String.valueOf(percent));
+		plbl.setHorizontalAlignment(SwingConstants.CENTER);
+		plbl.setBounds(180, coord + 4, 46, 16);
+		host.add(plbl);
+		
+		avail.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				item.setExpirationState(false);
+				elbl.setText("Available");
+				SerializedInventory.getInstance().saveInventory();
+			}
+		});
+		
+		expired.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				item.setExpirationState(true);
+				elbl.setText("Unavailable");
+				SerializedInventory.getInstance().saveInventory();
+			}
+		});
+		
+		set.addActionListener (new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				int change = Integer.parseInt(discount.getText());
+				changeDiscount(item, change, plbl);
+			}
+		});
+		
+	}
+	
+	private void changeDiscount(Discount item, int amount, JLabel label) {
+		if (item == null) return;
+		
+		item.setDiscount(amount);
+		int newpercent = item.getDiscount();
+		
+		item.setDiscount(newpercent);
+		label.setText("("+newpercent+"%)");
+		SerializedInventory.getInstance().saveInventory();
+	}
 }

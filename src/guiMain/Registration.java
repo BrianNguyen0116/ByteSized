@@ -16,6 +16,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
 class Registration extends JFrame {
+	
 	private JPanel contentPane;
 	private JTextField txtRegister;
 	private JTextField textUsername;

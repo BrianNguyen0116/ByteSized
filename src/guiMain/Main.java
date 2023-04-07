@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 
 
 public class Main extends JFrame {
+	
 	private JPanel contentPane;
 	private JTextField txtLogIn;
 	private JTextField textUsername;
