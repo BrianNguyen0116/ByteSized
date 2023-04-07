@@ -16,10 +16,10 @@ public class User {
 	private String role;
 	private boolean loggedin;
 	
-	public User(String username, String password) {
+	public User(String username, String password, String role) {
 		this.username = username;
 		this.password = password;
-		this.role = "user";
+		this.role = role;
 		this.loggedin = false;
 	}
 
@@ -165,6 +165,11 @@ public class User {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String setRole(String role) {
+		this.role = role;
+		return role;
 	}
 	
 	
