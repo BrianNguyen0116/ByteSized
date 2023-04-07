@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -49,9 +51,35 @@ public class inventoryDisplay extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblcurrUsername = new JLabel((String) Main.currUsername);
+		lblcurrUsername.setHorizontalAlignment(SwingConstants.LEFT);
+		lblcurrUsername.setForeground(new Color(243, 244, 245));
+		lblcurrUsername.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblcurrUsername.setBounds(24, -2, 193, 21);
+		contentPane.add(lblcurrUsername);
+		
+		JLabel lblLogOut = new JLabel("L O G   O U T");
+		lblLogOut.setForeground(new Color(221, 221, 221));
+		lblLogOut.setFont(new Font("Tahoma", Font.BOLD, 9));
+		lblLogOut.setBounds(24, 14, 64, 11);
+		contentPane.add(lblLogOut);
+		
+		lblLogOut.addMouseListener(new MouseAdapter()  
+		{  
+		    public void mouseClicked(MouseEvent e)  
+		    {  
+		       // you can open a new frame here as
+		       // i have assumed you have declared "frame" as instance variable
+		    	Main frame = new Main();
+		       frame.setVisible(true);
+		       dispose();
+		    }  
+		}); 
+		
 		/**
 		 * Initializing contents panel which will host the displayed database info
 		 */
+		
 		
 		JPanel contents = new JPanel();
 		contents.setBackground(new Color(36, 32, 36));

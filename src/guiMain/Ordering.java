@@ -96,8 +96,10 @@ public class Ordering extends JFrame {
 		
 		btnCheckout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
+				btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 11));
 				if (pizzaOrder.getSize() == null) {
-					btnCheckout.setText("Submit Pizza First!");
+					btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 9));
+					btnCheckout.setText("Missing Pizza!");
 					return;
 				}
 				
@@ -485,16 +487,7 @@ public class Ordering extends JFrame {
 		
 		// Coupon Feature
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel_3.setBounds(10, 556, 107, 23);
-		pizza.add(panel_3);
-				
-		textCoupon = new HintText("Enter Code");
-		textCoupon.setBounds(1, 1, 105, 21);
-		panel_3.add(textCoupon);
-		textCoupon.setColumns(10);
+
 				
 		JButton btnCoupon = new JButton("Apply");
 		btnCoupon.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -523,15 +516,26 @@ public class Ordering extends JFrame {
 		lblByte.setBounds(0, 0, 59, 19);
 		panel_5.add(lblByte);
 		lblByte.setHorizontalAlignment(SwingConstants.CENTER);
-		lblByte.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblByte.setFont(new Font("Arial Narrow", Font.PLAIN, 18));
 		lblByte.setForeground(new Color(243, 244, 245));
 		
 		JLabel lblSized = new JLabel("SIZED");
-		lblSized.setBounds(55, 0, 59, 19);
+		lblSized.setBounds(49, 1, 59, 19);
 		panel_5.add(lblSized);
 		lblSized.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSized.setForeground(new Color(227, 2, 32));
-		lblSized.setFont(new Font("Arial", Font.BOLD, 18));
+		lblSized.setFont(new Font("Arial", Font.BOLD, 19));
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_3.setBounds(10, 556, 107, 23);
+		pizza.add(panel_3);
+				
+		textCoupon = new HintText("Enter Code");
+		textCoupon.setBounds(1, 1, 105, 21);
+		panel_3.add(textCoupon);
+		textCoupon.setColumns(10);
 				
 		btnCoupon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -546,12 +550,25 @@ public class Ordering extends JFrame {
 					return;
 				}
 				
-				discount = SerializedInventory.getInstance().getCoupon(input).getDiscount();
-				System.out.println(discount);
-				discount = Math.abs(discount - 100); 
-				System.out.println(discount);
-				discount /= 100;
-				System.out.println(discount);
+				boolean expiration = SerializedInventory.getInstance().getCoupon(input).getExpirationState();
+				
+				if (expiration == false) {
+					discount = SerializedInventory.getInstance().getCoupon(input).getDiscount();
+					discount = Math.abs(discount - 100); 
+					discount /= 100;
+				
+					total = (priceSize + priceCrust + priceSauce + priceTopping);
+				
+					if (discount != 0) { total *= discount; }
+				
+				} else if (expiration == true) {
+					lblError.setForeground(Color.red);
+					lblError.setFont(new Font("Arial", Font.BOLD, 9));
+					lblError.setText("The code you entered has expired.");
+					return;
+				}
+				
+				lblTotal.setText("Total: " + intTo$(total));
 
 				lblError.setForeground(Color.green);
 				lblError.setText("Coupon successful!");

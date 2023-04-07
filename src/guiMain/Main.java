@@ -33,8 +33,8 @@ public class Main extends JFrame {
 	
 	public static String currUsername;
 	private JPanel panel_1;
-	private JLabel lblByte;
 	private JLabel lblSized;
+	private JLabel lblByte;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -143,19 +143,19 @@ public class Main extends JFrame {
 		panel_1.setBounds(140, 22, 233, 62);
 		panel.add(panel_1);
 		
-		lblByte = new JLabel("BYTE");
-		lblByte.setHorizontalAlignment(SwingConstants.CENTER);
-		lblByte.setForeground(new Color(243, 244, 245));
-		lblByte.setFont(new Font("Arial", Font.PLAIN, 30));
-		lblByte.setBounds(10, 11, 110, 45);
-		panel_1.add(lblByte);
-		
 		lblSized = new JLabel("SIZED");
 		lblSized.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSized.setForeground(new Color(227, 2, 32));
 		lblSized.setFont(new Font("Arial", Font.BOLD, 30));
-		lblSized.setBounds(101, 11, 110, 45);
+		lblSized.setBounds(91, 11, 110, 45);
 		panel_1.add(lblSized);
+		
+		lblByte = new JLabel("BYTE");
+		lblByte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblByte.setForeground(new Color(243, 244, 245));
+		lblByte.setFont(new Font("Arial Narrow", Font.PLAIN, 26));
+		lblByte.setBounds(40, 22, 59, 19);
+		panel_1.add(lblByte);
 		
 				
 		btnLogIn.addActionListener(new ActionListener() {
