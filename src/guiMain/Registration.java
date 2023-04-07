@@ -17,7 +17,6 @@ import javax.swing.border.EmptyBorder;
 
 class Registration extends JFrame {
 	
-	RestaurantServer server = new RestaurantServer();
 	private JPanel contentPane;
 	private JTextField txtRegister;
 	private JTextField textUsername;

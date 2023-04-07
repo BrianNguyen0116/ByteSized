@@ -10,15 +10,18 @@ public class Inventory implements Serializable{
 	
 	ArrayList<Pizza> orders = new ArrayList<Pizza>();
 	HashMap<String, Item> drinks = new HashMap<>();
+	
+	HashMap<String, Discount> coupons = new HashMap<>();
 
 	HashMap<String, ArrayList<Item>> toppingInv = new HashMap<>();
+
 
 	protected Inventory() {
 		populateToppings();
 		populateDough();
 		populateSauces();
 		populateDrinks();
-
+		populateCoupons();
 	}
 
 	private void populateToppings() {
@@ -55,6 +58,10 @@ public class Inventory implements Serializable{
 		drinks.put("Ginger ale", new Item("Ginger ale", 300, 100));
 		drinks.put("Tea", new Item("Tea", 300, 100));
 	}
+	
+	private void populateCoupons() {
+		coupons.put("GRANDOPENING", new Discount("GRANDOPENING", 10, false));
+	}
 
 
 	public Item getItem(String item) {
@@ -67,6 +74,13 @@ public class Inventory implements Serializable{
 			return sauces.get(item);
 		else
 			throw new IllegalArgumentException("Item does not exist.\n");
+	}
+	
+	public Discount getCoupon(String item) {
+		if(coupons.containsKey(item))
+			return coupons.get(item);
+		else
+			throw new IllegalArgumentException("Coupon does not exist. \n");
 	}
 	
 	public ArrayList<Pizza> getOrders() {

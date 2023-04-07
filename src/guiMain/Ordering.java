@@ -20,10 +20,9 @@ import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
+import javax.swing.JTextField;
 
 public class Ordering extends JFrame {
-	
-	RestaurantServer server = new RestaurantServer();
 	
 	Pizza pizzaOrder = new Pizza();
 	JLabel lblTotal = new JLabel();
@@ -32,9 +31,11 @@ public class Ordering extends JFrame {
 	
 	HashMap<String, Integer> topmap= new HashMap<String, Integer>();
 	
-	int tcount = 0;
+	int tcount = 0; int total = 0, priceSize = 0, priceCrust = 0, priceSauce = 0, priceTopping = 0;
+	float discount = 0;
 	
 	private JPanel contentPane;
+	private JTextField textCoupon;
 
 	 public Ordering() {
 		
@@ -67,17 +68,13 @@ public class Ordering extends JFrame {
 		
 		JPanel cart = new JPanel();
 		cart.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		cart.setBounds(10, 29, 200, 510);
+		cart.setBounds(10, 29, 200, 482);
 		pizza.add(cart);
 		cart.setLayout(new BoxLayout(cart, BoxLayout.X_AXIS));
 		receipt.setWrapStyleWord(true);
 		receipt.setLineWrap(true);
 		
-		receipt.setText("Size:\n" + 
-				"\n\nCrust:\n" + 
-				"\n\nSauce:\n" + 
-				"\n\nToppings:\n" + 
-				"\n\nInstructions"
+		receipt.setText("Size:\r\n\r\n\r\nCrust:\r\n\r\n\r\nSauce:\r\n\r\n\r\nToppings:\r\n\r\n\r\nInstructions:"
 				); 
 				
 		receipt.setEditable(false);
@@ -86,7 +83,7 @@ public class Ordering extends JFrame {
 		
 		// Checkout
 		JButton btnCheckout = new JButton("Checkout");
-		btnCheckout.setBounds(46, 578, 127, 23);
+		btnCheckout.setBounds(123, 522, 87, 23);
 		pizza.add(btnCheckout);
 		btnCheckout.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
@@ -109,16 +106,15 @@ public class Ordering extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		panel.setBounds(10, 546, 200, 23);
+		panel.setBounds(10, 522, 107, 23);
 		pizza.add(panel);
 		panel.setLayout(null);
 		
 		//lblTotal.setText(test);
 		lblTotal.setText("Total: $");
-		lblTotal.setBounds(10, 4, 110, 14);
+		lblTotal.setBounds(10, 4, 84, 14);
 		lblTotal.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel.add(lblTotal);
-		
 		
 		
 		JPanel size = new JPanel();
@@ -350,9 +346,11 @@ public class Ordering extends JFrame {
 						sauces.add(lblinvSauce);
 						}
 		
+						
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				int total = 0, priceSize = 0, priceCrust = 0, priceSauce = 0, priceTopping = 0;
+				total = 0; priceSize = 0; priceCrust = 0; priceSauce = 0; priceTopping = 0;
+				
 				if (rbtnSize.getSelection() == null ) {
 					btnSubmit.setText("Need Size!");
 					return;
@@ -411,7 +409,18 @@ public class Ordering extends JFrame {
 				pizzaOrder.setToppings(temp);
 				
 				// Construct
-				total = priceSize + priceCrust + priceSauce + priceTopping;
+				total = (priceSize + priceCrust + priceSauce + priceTopping);
+				
+				if (discount != 0) {
+					total *= discount;
+				}
+				
+				System.out.println(priceSize);
+				System.out.println(priceSauce);
+				System.out.println(priceCrust);
+				System.out.println(priceTopping);
+				System.out.println(discount);
+
 				
 				if (pizzaOrder.getCrust() == null) {
 					pizzaOrder.setCrust("none");
@@ -438,9 +447,55 @@ public class Ordering extends JFrame {
 			
 		});
 		
+		// Coupon Feature
 		
-	}
-	
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(null);
+		panel_3.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_3.setBounds(10, 556, 107, 23);
+		pizza.add(panel_3);
+				
+		textCoupon = new HintText("Enter Code");
+		textCoupon.setBounds(1, 1, 105, 21);
+		panel_3.add(textCoupon);
+		textCoupon.setColumns(10);
+				
+		JButton btnCoupon = new JButton("Apply");
+		btnCoupon.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnCoupon.setBounds(123, 556, 87, 23);
+		pizza.add(btnCoupon);
+		
+		JLabel lblError = new JLabel("");
+		btnCoupon.setFont(new Font("Tahoma", Font.BOLD, 9));
+		lblError.setBackground(new Color(255, 255, 255));
+		lblError.setBounds(20, 587, 177, 14);
+		pizza.add(lblError);
+				
+		btnCoupon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				String input = textCoupon.getText();
+				
+				try {
+				SerializedInventory.getInstance().getCoupon(input);
+				} catch (Exception e) {
+					lblError.setForeground(Color.red);
+					lblError.setText("The code you entered is not recognized.");
+					return;
+				}
+				
+				discount = SerializedInventory.getInstance().getCoupon(input).getDiscount();
+				System.out.println(discount);
+				discount = Math.abs(discount - 100); 
+				System.out.println(discount);
+				discount /= 100;
+				System.out.println(discount);
+
+				lblError.setForeground(Color.black);
+				lblError.setText("Coupon successful!");
+					
+				}
+			});
+	 }
 	 
 
 	private void toppingLabel(JPanel host, String name, int coord, int price) {

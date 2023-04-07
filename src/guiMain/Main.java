@@ -21,7 +21,6 @@ import javax.swing.JTextField;
 
 public class Main extends JFrame {
 	
-	RestaurantServer server = new RestaurantServer();
 	private JPanel contentPane;
 	private JTextField txtLogIn;
 	private JTextField textUsername;
