@@ -18,5 +18,23 @@
     {
         "password": "SDM",
         "username": "MDS"
+    },
+    {
+        "password": "new password",
+        "username": "user signup"
+    },
+    {
+        "password": "client password",
+        "username": "client test"
+    },
+    {
+        "password": "user with a password",
+        "role": "user",
+        "username": "user with a role"
+    },
+    {
+        "password": "nimda",
+        "role": "admin",
+        "username": "admin"
     }
 ]

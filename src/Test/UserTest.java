@@ -71,10 +71,12 @@ class UserTest {
 	
 	@Test	
 	void test10() {
-		User test_user = new User("user4", "password4");
+		User test_user = new User("asd", "asd");
 		User logged_user = test_user.Login();
-		assertEquals("user4", logged_user.getUserName());
+		assertEquals("asd", logged_user.getUserName());
 	}
+	
+	// test signing up with the same username
 	
 	@Test	
 	void test11() {
@@ -83,7 +85,6 @@ class UserTest {
 		assertEquals("again user signup", logged_user.getUserName());
 	}
 	
-	// test signing up with the same username
 	@Test	
 	void test12() {
 		User test_user = new User("user signup", "new password");

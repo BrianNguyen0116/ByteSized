@@ -1,22 +1,14 @@
 import java.util.Objects;
 import java.io.File;
-//import org.json.simple.JSONObject;
-import java.io.FileWriter;
-//import org
 import java.io.IOException;
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 import com.github.cliftonlabs.json_simple.JsonArray;
 import com.github.cliftonlabs.json_simple.JsonException;
-import com.github.cliftonlabs.json_simple.JsonKey;
 import com.github.cliftonlabs.json_simple.JsonObject;
-import com.github.cliftonlabs.json_simple.Jsonable;
 import com.github.cliftonlabs.json_simple.Jsoner;
-
-import org.json.*;
 
 public class User {
 	private String username;
@@ -72,15 +64,10 @@ public class User {
 		// continue if user does not exist
 		jsonObject.add(this.toJsonObject());
 		jsonText = Jsoner.serialize(jsonObject);
-<<<<<<< HEAD
-		File myObj = new File("users.json"); 
-		myObj.delete();
-=======
 		
 		File myObj = new File("users.json"); 
 		myObj.delete();
 		
->>>>>>> 02e1ff81edf64c4d418ad68c04ea353bf39c7722
 		try{
 			Files.write(Paths.get("users.json"), jsonText.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e){
@@ -88,6 +75,9 @@ public class User {
 		}
 
 		System.out.println("successfully added the user to the db - returning user");
+
+		// set user to loggedin before returning it
+		this.loggedin = true;
 		return this;
 		
 	
@@ -125,12 +115,13 @@ public class User {
 
 			 if (jo.get("username").equals(this.username) && jo.get("password").equals(this.password)) {
 				 // user found, fill it in a user class and return class
-				 System.out.println("it got here");
+				 System.out.println("User successfully logged in");
+				 this.loggedin = true;
 				 return this;
 			 }
 		 }
-		 System.out.println("iterated");
 		 // if code reaches here, then user is not found
+		 System.out.println("user not in the db - returning null");
 		 return null;
 
 	}
@@ -140,6 +131,7 @@ public class User {
 		JsonObject jo = new JsonObject();
 		jo.put("username", this.username);
 		jo.put("password", this.password);
+		jo.put("role", this.role);
 		return jo;
 	}
 	
