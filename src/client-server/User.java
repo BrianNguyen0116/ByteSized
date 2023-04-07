@@ -23,9 +23,6 @@ public class User {
 		this.loggedin = false;
 	}
 
-	public User() {
-	}
-
 	public User Signup(){
 		String jsonText = null;
 		JsonArray jsonObject = null;

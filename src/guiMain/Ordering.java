@@ -345,8 +345,7 @@ public class Ordering extends JFrame {
 		    {  
 		       // you can open a new frame here as
 		       // i have assumed you have declared "frame" as instance variable
-		    
-		       Main frame = new Main();
+		    	Main frame = new Main();
 		       frame.setVisible(true);
 		       dispose();
 		    }  
