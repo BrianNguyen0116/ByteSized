@@ -502,9 +502,9 @@ public class Ordering extends JFrame {
 		pizza.add(btnCoupon);
 		
 		JLabel lblError = new JLabel("");
-		btnCoupon.setFont(new Font("Tahoma", Font.BOLD, 9));
+		lblError.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblError.setBackground(new Color(255, 255, 255));
-		lblError.setBounds(20, 587, 177, 14);
+		lblError.setBounds(20, 587, 190, 14);
 		pizza.add(lblError);
 		
 		JPanel panel_4 = new JPanel();
@@ -541,6 +541,7 @@ public class Ordering extends JFrame {
 				SerializedInventory.getInstance().getCoupon(input);
 				} catch (Exception e) {
 					lblError.setForeground(Color.red);
+					lblError.setFont(new Font("Arial", Font.BOLD, 9));
 					lblError.setText("The code you entered is not recognized.");
 					return;
 				}
@@ -552,7 +553,7 @@ public class Ordering extends JFrame {
 				discount /= 100;
 				System.out.println(discount);
 
-				lblError.setForeground(Color.black);
+				lblError.setForeground(Color.green);
 				lblError.setText("Coupon successful!");
 					
 				}
