@@ -18,16 +18,19 @@ import javax.swing.border.EmptyBorder;
 class Registration extends JFrame {
 	
 	private JPanel contentPane;
-	private JTextField txtRegister;
 	private JTextField textUsername;
 	private JTextField textPassword;
 	private JButton btnCreate;
 	private JLabel lblReturn;
 	private JLabel lblDetails;
 	private JLabel lblAccountError;
+	private JPanel panel_1;
+	private JLabel lblByte;
+	private JLabel lblSized;
 	
 	public Registration() {
 		setTitle("Byte Sized");
+		getContentPane().setBackground(new Color(39, 35, 39));
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,23 +41,11 @@ class Registration extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(36, 32, 36));
 		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		panel.setBounds(10, 10, 498, 287);
 		getContentPane().add(panel);
 		panel.setLayout(null);
-		
-		// Register
-		txtRegister = new JTextField();
-		txtRegister.setBounds(139, 30, 220, 30);
-		txtRegister.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(txtRegister);
-		txtRegister.setEditable(false);
-		txtRegister.setHighlighter(null);
-		txtRegister.setText("Register");
-		txtRegister.setOpaque(false);
-		txtRegister.setBorder(BorderFactory.createEmptyBorder());
-		txtRegister.setFont(new Font("Arial", Font.BOLD, 25));
-		txtRegister.setColumns(10);
 		
 		// Text Labels and Fields 
 		textUsername = new HintText("Username");
@@ -114,6 +105,28 @@ class Registration extends JFrame {
 		btnCreate.setBounds(257, 199, 89, 23);
 		panel.add(btnCreate);
 		
+		panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setForeground(new Color(36, 32, 36));
+		panel_1.setBorder(null);
+		panel_1.setBackground(new Color(36, 32, 36));
+		panel_1.setBounds(132, 27, 233, 62);
+		panel.add(panel_1);
+		
+		lblByte = new JLabel("BYTE");
+		lblByte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblByte.setForeground(new Color(243, 244, 245));
+		lblByte.setFont(new Font("Arial", Font.PLAIN, 30));
+		lblByte.setBounds(10, 11, 110, 45);
+		panel_1.add(lblByte);
+		
+		lblSized = new JLabel("SIZED");
+		lblSized.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSized.setForeground(new Color(227, 2, 32));
+		lblSized.setFont(new Font("Arial", Font.BOLD, 30));
+		lblSized.setBounds(101, 11, 110, 45);
+		panel_1.add(lblSized);
+		
 
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -133,18 +146,18 @@ class Registration extends JFrame {
 					pasFlag = 1;
 				}
 				
-				if (usrFlag == 0 && pasFlag == 0) {
-					if (textUsername.getText().equals("test") && textPassword.getText().equals("test")) {
-						exist = 0;
-					} else {
-						lblAccountError.setText("Account already exists.");
-					} 
-				}
 				
-				if (exist == 0) {
-					Main frame = new Main();
-					frame.setVisible(true);
-					dispose();
+				if (usrFlag == 0 && pasFlag == 0) {
+					User user = new User(textUsername.getText(), textPassword.getText());
+					User loged = user.Signup();
+					
+					if (loged == null) {
+						lblAccountError.setText("Account already exists.");
+					} else {
+						Main frame = new Main();
+						frame.setVisible(true);
+						dispose();
+					} 
 				}
 			}	
 		});

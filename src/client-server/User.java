@@ -3,6 +3,7 @@ import java.util.Objects;
 import java.io.FileWriter;
 //import org
 import java.io.IOException;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -27,6 +28,9 @@ public class User {
 		this.password = password;
 		this.role = "user";
 		this.loggedin = false;
+	}
+
+	public User() {
 	}
 
 	public User Signup(){
@@ -67,6 +71,10 @@ public class User {
 		// continue if user does not exist
 		jsonObject.add(this.toJsonObject());
 		jsonText = Jsoner.serialize(jsonObject);
+		
+		File myObj = new File("users.json"); 
+		myObj.delete();
+		
 		try{
 			Files.write(Paths.get("users.json"), jsonText.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e){
