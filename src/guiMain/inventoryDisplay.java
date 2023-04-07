@@ -10,6 +10,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import com.github.cliftonlabs.json_simple.JsonArray;
+import com.github.cliftonlabs.json_simple.JsonException;
+import com.github.cliftonlabs.json_simple.JsonObject;
+import com.github.cliftonlabs.json_simple.Jsoner;
 
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
@@ -70,6 +78,9 @@ public class inventoryDisplay extends JFrame{
 
 		Font text = new Font("Tahoma", Font.PLAIN, 11);
 		
+		 int count = 0;
+
+		
 		JButton accounttab = new JButton("Accounts");
 		accounttab.setForeground(new Color(221, 221, 221));
 		accounttab.setBackground(new Color(36, 32, 36));
@@ -80,7 +91,22 @@ public class inventoryDisplay extends JFrame{
 		accounttab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
-				drawAccounts(contents, null);
+				String jsonText = null;
+				JsonArray jsonObject = null;
+				
+				try {
+					jsonText = new String(Files.readAllBytes(Paths.get("users.json")));
+				}catch(IOException e) {
+					throw new RuntimeException();
+				}
+				
+				try {
+					jsonObject = (JsonArray)Jsoner.deserialize(jsonText);
+				}catch(JsonException e) {
+					throw new RuntimeException();
+				}
+				
+				drawAccounts(contents, jsonObject, "Accounts");
 				setBounds(100, 100, 714, 557); //changing size twice redraws the table
 				setBounds(100, 100, 714, 558);
 			}
@@ -208,8 +234,53 @@ public class inventoryDisplay extends JFrame{
 		
 	}
 	
-	private void drawAccounts(JPanel host, Inventory type) {
-		//awaiting implementation
+	private void drawAccounts(JPanel host, JsonArray type, String typename) {
+	
+		
+		JPanel table = new JPanel();
+		table.setLayout(null);
+		table.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		table.setBounds(0, 40, 651, 410);
+		host.add(table);
+		
+		JLabel lblUsername = new JLabel("Username");
+		lblUsername.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblUsername.setHorizontalAlignment(SwingConstants.LEFT);
+		lblUsername.setBounds(12, 11, 70, 14);
+		table.add(lblUsername);
+		
+		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblPassword.setHorizontalAlignment(SwingConstants.LEFT);
+		lblPassword.setBounds(120, 11, 70, 14);
+		table.add(lblPassword);
+		
+		User data = new User("one", "two", "three");
+		ArrayList<User> loggedUsers = data.getUsers();
+		
+		int i = 0;
+		for (User user : loggedUsers){
+			String username =  user.getUserName();
+			String password =  user.getPassword();
+			accountLabel(table, username, password, 38 + i * 25);
+			i++;
+		}
+	
+	}
+
+
+	private void accountLabel(JPanel host, String name, String pass, int coord) {
+		
+		JLabel ulbl = new JLabel(name);
+		ulbl.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		ulbl.setBounds(17, coord + 4, 109, 14);
+		host.add(ulbl);
+
+		
+		JLabel plbl = new JLabel(pass);
+		plbl.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		plbl.setBounds(120, coord + 4, 109, 14);
+		host.add(plbl);
 	}
 	
 	private void drawShopItems(JPanel host, Inventory type) {
