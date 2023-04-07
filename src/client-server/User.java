@@ -117,6 +117,7 @@ public class User {
 				 // user found, fill it in a user class and return class
 				 System.out.println("User successfully logged in");
 				 this.loggedin = true;
+				 this.role = jo.get("role").toString();
 				 return this;
 			 }
 		 }

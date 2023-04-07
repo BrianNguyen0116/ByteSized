@@ -176,7 +176,7 @@ public class Main extends JFrame {
 				
 				
 				if (usrFlag == 0 && pasFlag == 0) {
-					User user = new User(textUsername.getText(), textPassword.getText());
+					User user = new User(textUsername.getText(), textPassword.getText(), "user");
 					User loged = user.Login();
 
 					if (loged == null) {

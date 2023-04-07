@@ -1,26 +1,32 @@
 [
     {
         "password": "password1",
+        "role": "user",
         "username": "user1"
     },
     {
         "password": "password2",
+        "role": "user",
         "username": "user2"
     },
     {
         "password": "password3",
+        "role": "user",
         "username": "user3"
     },
     {
         "password": "asd",
+        "role": "user",
         "username": "asd"
     },
     {
         "password": "SDM",
+        "role": "user",
         "username": "MDS"
     },
     {
         "password": "new password",
+        "role": "user",
         "username": "user signup"
     },
     {
