@@ -155,7 +155,7 @@ public class Ordering extends JFrame {
 		
 		for (int y = 0, i = 0; i < sortedsize.size() && (y < sizeheight); y++) {
 			for (int x = 0; x < width && i < sortedsize.size(); x++) {
-				sizes[i] = radioLabel(size, sortedsize.get(i).getName(), x *230 , y * 33, sizeprice.get(sortedsize.get(i).getName()));
+				sizes[i] = radioLabel(size, sortedsize.get(i).getName(), x *230 , y * 23, sizeprice.get(sortedsize.get(i).getName()));
 				i++;
 			}
 		}
@@ -192,7 +192,7 @@ public class Ordering extends JFrame {
 		
 		for (int y = 0, i = 0; i < sorteddough.size() && (y < doughheight); y++) {
 			for (int x = 0; x < width && i < sorteddough.size(); x++) {
-				doughs[i] = radioLabel(crescent, sorteddough.get(i).getName(), x *230 , y * 33, doughprice.get(sorteddough.get(i).getName()));
+				doughs[i] = radioLabel(crescent, sorteddough.get(i).getName(), x *230 , y * 23, doughprice.get(sorteddough.get(i).getName()));
 				i++;
 			}
 		}
@@ -227,7 +227,7 @@ public class Ordering extends JFrame {
 		
 		for (int y = 0, i = 0; i < sortedsauce.size() && (y < sauceheight); y++) {
 			for (int x = 0; x < width && i < sortedsauce.size(); x++) {
-				saucebuts[i] = radioLabel(sauces, sortedsauce.get(i).getName(), x *230 , y * 33, sauceprice.get(sortedsauce.get(i).getName()));
+				saucebuts[i] = radioLabel(sauces, sortedsauce.get(i).getName(), x *230 , y * 23, sauceprice.get(sortedsauce.get(i).getName()));
 				i++;
 			}
 		}
@@ -333,13 +333,6 @@ public class Ordering extends JFrame {
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
-		JLabel lblcurrUsername = new JLabel(Main.currUsername);
-		lblcurrUsername.setForeground(new Color(243, 244, 245));
-		lblcurrUsername.setBounds(17, 0, 193, 21);
-		lblcurrUsername.setHorizontalAlignment(SwingConstants.LEFT);
-		lblcurrUsername.setFont(new Font("Tahoma", Font.BOLD, 14));
-		panel_2.add(lblcurrUsername);
-		
 		JLabel lblLogOut = new JLabel("L O G   O U T");
 		lblLogOut.setForeground(new Color(221, 221, 221));
 		lblLogOut.setFont(new Font("Tahoma", Font.BOLD, 9));
@@ -358,6 +351,13 @@ public class Ordering extends JFrame {
 		       dispose();
 		    }  
 		}); 
+		
+		JLabel lblcurrUsername = new JLabel(Main.currUsername);
+		lblcurrUsername.setForeground(new Color(243, 244, 245));
+		lblcurrUsername.setBounds(10, 11, 193, 21);
+		lblcurrUsername.setHorizontalAlignment(SwingConstants.LEFT);
+		lblcurrUsername.setFont(new Font("Tahoma", Font.BOLD, 14));
+		panel_2.add(lblcurrUsername);
 		
 		// Admin 
 
@@ -563,24 +563,33 @@ public class Ordering extends JFrame {
 
 	private void toppingLabel(JPanel host, String name, int coord, int price) {
 		JLabel lbl = new JLabel(name);
-		Font text = new Font("Tahoma", Font.PLAIN, 11);
+		Font text = new Font("Arial", Font.PLAIN, 11);
+
 		lbl.setFont(text);
 		lbl.setBounds(12, coord + 4, 109, 14);
+		lbl.setForeground(new Color(221, 221, 221));
+		lbl.setBackground(new Color(36, 32, 36));
 		host.add(lbl);
 		
 		JButton btnl = new JButton("Add");
 		btnl.setFont(text);
-		btnl.setBounds(121, coord, 71, 23);
+		btnl.setBounds(121, coord, 90, 23);
+		btnl.setForeground(new Color(221, 221, 221));
+		btnl.setBackground(new Color(36, 32, 36));
 		host.add(btnl);
 		
 		JButton btnr = new JButton("Remove");
 		btnr.setFont(text);
-		btnr.setBounds(197, coord, 71, 23);
+		btnr.setBounds(227, coord, 90, 23);
+		btnr.setForeground(new Color(221, 221, 221));
+		btnr.setBackground(new Color(36, 32, 36));
 		host.add(btnr);
 		
 		JLabel plbl = new JLabel(intTo$(price));
 		plbl.setHorizontalAlignment(SwingConstants.CENTER);
-		plbl.setBounds(288, coord + 4, 46, 14);
+		plbl.setBounds(343, coord + 4, 46, 14);
+		plbl.setForeground(new Color(221, 221, 221));
+		plbl.setBackground(new Color(36, 32, 36));
 		host.add(plbl);
 		
 		btnl.addActionListener(new ActionListener() {
@@ -608,12 +617,17 @@ public class Ordering extends JFrame {
 	
 	private JRadioButton radioLabel(JPanel host, String name, int xcoord, int ycoord, int price) {
 		JLabel lblprice = new JLabel(intTo$(price));
-		lblprice.setBounds(121 + xcoord, 28 + ycoord, 46, 14);
+		lblprice.setBounds(121 + xcoord, 41 + ycoord, 46, 14);
+		lblprice.setForeground(new Color(221, 221, 221));
+		lblprice.setBackground(new Color(36, 32, 36));
+		lblprice.setFont(new Font("Arial", Font.PLAIN, 11));
 		host.add(lblprice);
 		
 		JRadioButton rdbtn = new JRadioButton(name);
-		rdbtn.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		rdbtn.setBounds(10 + xcoord, 24 + ycoord, 102, 23);
+		rdbtn.setForeground(new Color(221, 221, 221));
+		rdbtn.setBackground(new Color(36, 32, 36));
+		rdbtn.setFont(new Font("Arial", Font.PLAIN, 11));
+		rdbtn.setBounds(10 + xcoord, 35 + ycoord, 102, 23);
 		rdbtn.setActionCommand(name);
 		host.add(rdbtn);
 		
