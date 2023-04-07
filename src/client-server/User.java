@@ -226,4 +226,9 @@ public class User {
 		 }
 		 return users_list;
 	}
+
+	public String get(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

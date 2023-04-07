@@ -255,35 +255,30 @@ public class inventoryDisplay extends JFrame{
 		lblPassword.setBounds(120, 11, 70, 14);
 		table.add(lblPassword);
 		
+		User data = new User("one", "two", "three");
+		ArrayList<User> loggedUsers = data.getUsers();
 		
-			for (Object obj : type) {
-				accountLabel(host, (JsonObject)obj, 38 + 25);
-			}
+		int i = 0;
+		for (User user : loggedUsers){
+			String username =  user.getUserName();
+			String password =  user.getPassword();
+			accountLabel(table, username, password, 38 + i * 25);
+			i++;
+		}
 	
 	}
-	
-	private void accountLabel(JPanel host, JsonObject obj, int coord) {
 
-		String username = (String) obj.get("username");
-		String password = (String) obj.get("password");
+
+	private void accountLabel(JPanel host, String name, String pass, int coord) {
 		
-		JPanel table = new JPanel();
-		table.setLayout(null);
-		table.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		table.setBounds(0, 40, 651, 410);
-		host.add(table);
-		
-		JLabel ulbl = new JLabel(username);
-		ulbl.setFont(new Font("Tahoma", Font.BOLD, 11));
+		JLabel ulbl = new JLabel(name);
+		ulbl.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		ulbl.setBounds(17, coord + 4, 109, 14);
 		host.add(ulbl);
-		
-		System.out.println(username);
-		System.out.println(password);
 
 		
-		JLabel plbl = new JLabel(password);
-		plbl.setFont(new Font("Tahoma", Font.BOLD, 11));
+		JLabel plbl = new JLabel(pass);
+		plbl.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		plbl.setBounds(120, coord + 4, 109, 14);
 		host.add(plbl);
 	}
