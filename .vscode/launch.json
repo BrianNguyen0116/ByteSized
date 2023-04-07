@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "EECS3311SM-T15"
+        },
+        {
+            "type": "java",
             "name": "SerializedInfo",
             "request": "launch",
             "mainClass": "SerializedInfo",

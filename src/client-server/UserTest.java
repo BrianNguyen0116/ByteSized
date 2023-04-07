@@ -62,4 +62,32 @@ class UserTest {
 		assertEquals("user", test_user.getRole());
 	}
 
+	@Test
+	void test9() {
+		User test_user = new User("user2", "password2");
+		User logged_user = test_user.Login();
+		assertEquals("user2", logged_user.getUserName());
+	}
+	
+	@Test	
+	void test10() {
+		User test_user = new User("user4", "password4");
+		User logged_user = test_user.Login();
+		assertEquals("user4", logged_user.getUserName());
+	}
+	
+	@Test	
+	void test11() {
+		User test_user = new User("user signup", "new password");
+		User logged_user = test_user.Signup();
+		assertEquals("again user signup", logged_user.getUserName());
+	}
+	
+	// test signing up with the same username
+	@Test	
+	void test12() {
+		User test_user = new User("user signup", "new password");
+		User logged_user = test_user.Signup();
+		assertEquals("again user signup", logged_user.getUserName());
+	}
 }
