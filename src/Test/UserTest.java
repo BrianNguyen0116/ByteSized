@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 class UserTest {
@@ -90,5 +92,15 @@ class UserTest {
 		User test_user = new User("user signup", "new password", "user");
 		User logged_user = test_user.Signup();
 		assertEquals("again user signup", logged_user.getUserName());
+	}
+
+	@Test	
+	void test13() {
+		User test_user = new User("asd", "asd", "user");
+		ArrayList<User> logged_user = test_user.getUsers();
+		for (User usr : logged_user){
+			System.out.println(usr.getUserName());
+		}
+		assertEquals(9, logged_user.size());
 	}
 }

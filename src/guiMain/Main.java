@@ -183,13 +183,15 @@ public class Main extends JFrame {
 					if (loged == null) {
 						lblAccountError.setText("The username or password you entered is incorrect.");
 					} else {
-						if (user.getRole() == "user") {
+						if (user.getRole().equals("user")) {
+							System.out.println("Succes 1");
 							user.setLoggedIn(true);
 							currUsername = textUsername.getText();
 							Ordering frame = new Ordering();
 							frame.setVisible(true);
 							dispose();						
-						} else if (loged.getRole() == "admin") {
+						} else if (loged.getRole().equals("admin")) {
+							System.out.println("Succes 2");
 							loged.setLoggedIn(true);
 							currUsername = textUsername.getText();
 							inventoryDisplay frame = new inventoryDisplay("hello");
@@ -202,8 +204,6 @@ public class Main extends JFrame {
 			});
 		}
 	}
-
-	
 
 
 

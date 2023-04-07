@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Objects;
 import java.io.File;
 import java.io.IOException;
@@ -48,6 +49,7 @@ public class User {
 		// check that object does not already exist in the db
 		for (Object obj : jsonObject) {
 			JsonObject jo = (JsonObject)obj;
+			
 			System.out.println("\nusername is: " + jo.get("username") + "and passowrd is: " + jo.get("password"));
 			System.out.println("\n====== compared to new user ======\n");
 			System.out.println("username is: " + this.username + " and password is: " + this.password);
@@ -75,6 +77,7 @@ public class User {
 
 		// set user to loggedin before returning it
 		this.loggedin = true;
+
 		return this;
 		
 	
@@ -106,6 +109,7 @@ public class User {
 		 // iterate over the database of users
 		 for (Object obj : jsonObject) {
 			 JsonObject jo = (JsonObject)obj;
+			
 			 System.out.println("username is: " + jo.get("username") + "and passowrd is: " + jo.get("password"));
 			 
 			 System.out.println("condition one is: " + jo.get("username").equals(this.username));
@@ -115,6 +119,7 @@ public class User {
 				 System.out.println("User successfully logged in");
 				 this.loggedin = true;
 				 this.role = jo.get("role").toString();
+
 				 return this;
 			 }
 		 }
@@ -188,4 +193,37 @@ public class User {
                 ", loggedIn=" + loggedin +
                 '}';
     }
+
+
+	// === FETCH ALL USERS ===
+	public ArrayList<User> getUsers(){
+		// arraylist to store users
+		ArrayList<User> users_list = new ArrayList<User>();
+		User curr_user = null;
+
+		String jsonText = null;
+		JsonArray jsonObject = null;
+
+		try {
+			jsonText = new String(Files.readAllBytes(Paths.get("users.json")));
+		}catch(IOException e) {
+			throw new RuntimeException();
+		}
+		 try {
+			 jsonObject = (JsonArray)Jsoner.deserialize(jsonText);
+		 }	catch(JsonException e) {
+			 throw new RuntimeException();
+			 
+		 }	 
+			
+		 for (Object obj : jsonObject) {
+			 JsonObject jo = (JsonObject)obj;
+			 String usern = jo.get("username").toString();
+			 String passw = jo.get("password").toString();
+			 String role = jo.get("role").toString();			 
+			 curr_user = new User(usern, passw, role);
+			 users_list.add(curr_user);
+		 }
+		 return users_list;
+	}
 }
