@@ -532,6 +532,7 @@ public class Ordering extends JFrame {
 		panel_3.setBounds(10, 556, 107, 23);
 		pizza.add(panel_3);
 				
+		
 		textCoupon = new HintText("Enter Code");
 		textCoupon.setBounds(1, 1, 105, 21);
 		panel_3.add(textCoupon);
@@ -550,7 +551,9 @@ public class Ordering extends JFrame {
 					return;
 				}
 				
+				
 				boolean expiration = SerializedInventory.getInstance().getCoupon(input).getExpirationState();
+				System.out.println(expiration);
 				
 				if (expiration == false) {
 					discount = SerializedInventory.getInstance().getCoupon(input).getDiscount();
@@ -729,6 +732,16 @@ public class Ordering extends JFrame {
 		
 		return result;
 	}
+	
+	public static HashMap<String, Integer> getDiscounts() {
+		
+		SerializedInventory database = SerializedInventory.getInstance();
+		HashMap<String, Integer> result = database.getInventory().getdiscounts("coupons");
+		
+		return result;
+	}
+	
+	
 	
 	public static ArrayList<Item> sortedBy(HashMap<String,Integer> pricemap, Boolean byprice){
 		if (pricemap == null) return null;

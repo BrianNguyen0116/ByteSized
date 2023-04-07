@@ -58,7 +58,9 @@ public class Inventory implements Serializable{
 	}
 	
 	private void populateCoupons() {
-		coupons.put("GRANDOPENING", new Discount("GRANDOPENING", 10, false));
+		coupons.put("GRANDOPENING", new Discount("GRANDOPENING", 10, true));
+		coupons.put("GRANDOPENING", new Discount("ANNIVERSARY", 20, false));
+
 	}
 
 
@@ -102,6 +104,20 @@ public class Inventory implements Serializable{
 		for (String i:target.keySet()) {
 			System.out.println(this.getItem("Tomato Sauce").getPrice());
 			result.put(i, target.get(i).getPrice());
+		}
+		
+		return result;
+	}
+	
+	public HashMap<String, Integer> getdiscounts(String choice){
+		
+		HashMap<String, Discount> target = null;
+		if(choice == "coupons") target = this.coupons;
+		
+		HashMap<String, Integer> result = new HashMap<String, Integer>();
+
+		for (String i:target.keySet()) {
+			result.put(i, target.get(i).getDiscount());
 		}
 		
 		return result;

@@ -1004,7 +1004,7 @@ public class inventoryDisplay extends JFrame{
 		host.add(elbl);
 		
 		
-		JLabel plbl = new JLabel(String.valueOf(percent));
+		JLabel plbl = new JLabel("%"+String.valueOf(percent));
 		plbl.setHorizontalAlignment(SwingConstants.CENTER);
 		plbl.setBounds(180, coord + 4, 46, 16);
 		host.add(plbl);
@@ -1012,6 +1012,7 @@ public class inventoryDisplay extends JFrame{
 		avail.addActionListener (new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				item.setExpirationState(false);
+				System.out.println(item.getExpirationState());
 				elbl.setText("Available");
 				SerializedInventory.getInstance().saveInventory();
 			}
@@ -1020,6 +1021,7 @@ public class inventoryDisplay extends JFrame{
 		expired.addActionListener (new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				item.setExpirationState(true);
+				System.out.println(item.getExpirationState());
 				elbl.setText("Unavailable");
 				SerializedInventory.getInstance().saveInventory();
 			}

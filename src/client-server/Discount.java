@@ -1,3 +1,4 @@
+import java.io.Serializable;
 
 public class Discount implements Serializable{
 	
