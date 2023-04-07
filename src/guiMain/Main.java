@@ -158,6 +158,7 @@ public class Main extends JFrame {
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				
+				
 				int usrFlag = 0, pasFlag = 0;
 				
 				if (usrFlag == 0) {textUsername.setBorder(BorderFactory.createLineBorder(Color.gray));}
@@ -183,11 +184,13 @@ public class Main extends JFrame {
 						lblAccountError.setText("The username or password you entered is incorrect.");
 					} else {
 						if (user.getRole() == "user") {
+							user.setLoggedIn(true);
 							currUsername = textUsername.getText();
 							Ordering frame = new Ordering();
 							frame.setVisible(true);
 							dispose();						
-						} else if (user.getRole() == "admin") {
+						} else if (loged.getRole() == "admin") {
+							loged.setLoggedIn(true);
 							currUsername = textUsername.getText();
 							inventoryDisplay frame = new inventoryDisplay("hello");
 							frame.setVisible(true);

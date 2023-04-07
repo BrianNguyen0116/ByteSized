@@ -49,12 +49,14 @@ class Registration extends JFrame {
 		
 		// Text Labels and Fields 
 		textUsername = new HintText("Username");
-		textUsername.setBounds(193, 116, 293, 20);
+		textUsername.setBounds(205, 114, 192, 20);
 		panel.add(textUsername);
 		textUsername.setColumns(10);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(38, 119, 62, 14);
+		lblUsername.setForeground(new Color(221, 221, 221));
+		lblUsername.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblUsername.setBounds(107, 117, 62, 14);
 		panel.add(lblUsername);
 		
 		textPassword = new HintText("Password");
@@ -63,20 +65,22 @@ class Registration extends JFrame {
 		panel.add(textPassword);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(38, 154, 62, 14);
+		textPassword.setBounds(205, 145, 192, 20);
 		panel.add(lblPassword);
 		
 		lblAccountError = new JLabel("");
-		lblAccountError.setForeground(Color.RED);
-		lblAccountError.setBounds(193, 175, 293, 14);
-		lblAccountError.setFont(new Font("Sans Serif", Font.PLAIN, 11));
+		lblPassword.setForeground(new Color(221, 221, 221));
+		lblPassword.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblPassword.setBounds(107, 148, 62, 14);
 		panel.add(lblAccountError);
 
 		
 		// Go Back
 	
 		lblReturn = new JLabel("Go Back");
-		lblReturn.setBounds(38, 203, 123, 14);
+		lblReturn.setForeground(new Color(221, 221, 221));
+		lblReturn.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblReturn.setBounds(107, 201, 123, 14);
 		panel.add(lblReturn);
 		
 		lblReturn.addMouseListener(new MouseAdapter()  
@@ -101,16 +105,16 @@ class Registration extends JFrame {
 		
 		// Submit Button
 		
-		btnCreate = new JButton("Submit");
-		btnCreate.setBounds(257, 199, 89, 23);
+		btnCreate = new JButton("Create");
+		btnCreate.setBounds(308, 197, 89, 23);
 		panel.add(btnCreate);
 		
 		panel_1 = new JPanel();
+		panel_1.setBorder(null);
 		panel_1.setLayout(null);
 		panel_1.setForeground(new Color(36, 32, 36));
-		panel_1.setBorder(null);
 		panel_1.setBackground(new Color(36, 32, 36));
-		panel_1.setBounds(132, 27, 233, 62);
+		panel_1.setBounds(140, 22, 233, 62);
 		panel.add(panel_1);
 		
 		lblByte = new JLabel("BYTE");
