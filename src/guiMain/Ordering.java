@@ -21,10 +21,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
 
-public class Ordering extends JFrame {
-	
-	RestaurantServer server = new RestaurantServer();
-	
+public class Ordering extends JFrame {	
 	Pizza pizzaOrder = new Pizza();
 	JLabel lblTotal = new JLabel();
 	JTextArea receipt = new JTextArea();
