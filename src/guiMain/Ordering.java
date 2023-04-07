@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -21,6 +23,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
 import javax.swing.JTextField;
+import java.awt.SystemColor;
 
 public class Ordering extends JFrame {	
 	Pizza pizzaOrder = new Pizza();
@@ -42,10 +45,12 @@ public class Ordering extends JFrame {
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 651, 694);
+		setBounds(100, 100, 651, 735);
 	
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBackground(new Color(36, 32, 36));
+		contentPane.setForeground(new Color(36, 32, 36));
+		contentPane.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -54,12 +59,14 @@ public class Ordering extends JFrame {
 		 * JPanel (Content)
 		 */
 		JPanel pizza = new JPanel();
+		pizza.setBackground(new Color(36, 32, 36));
 		pizza.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		pizza.setBounds(-1, 43, 220, 612);
 		contentPane.add(pizza);
 		pizza.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Pizza");
+		JLabel lblNewLabel = new JLabel("P i z z a");
+		lblNewLabel.setForeground(new Color(221, 221, 221));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBounds(10, 7, 130, 14);
@@ -70,6 +77,7 @@ public class Ordering extends JFrame {
 		cart.setBounds(10, 29, 200, 482);
 		pizza.add(cart);
 		cart.setLayout(new BoxLayout(cart, BoxLayout.X_AXIS));
+		receipt.setFont(new Font("Arial", Font.PLAIN, 13));
 		receipt.setWrapStyleWord(true);
 		receipt.setLineWrap(true);
 		
@@ -117,6 +125,7 @@ public class Ordering extends JFrame {
 		
 		
 		JPanel size = new JPanel();
+		size.setBackground(new Color(36, 32, 36));
 		size.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		size.setBounds(220, 0, 415, 87);
 		contentPane.add(size);
@@ -126,9 +135,10 @@ public class Ordering extends JFrame {
 		 * Size Customization
 		 */
 		
-		JLabel lblNewLabel_2 = new JLabel("Size");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(10, 7, 33, 14);
+		JLabel lblNewLabel_2 = new JLabel("S i z e");
+		lblNewLabel_2.setForeground(new Color(221, 221, 221));
+		lblNewLabel_2.setFont(new Font("Arial", Font.BOLD, 18));
+		lblNewLabel_2.setBounds(10, 7, 395, 22);
 		size.add(lblNewLabel_2);
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
 		
@@ -154,6 +164,7 @@ public class Ordering extends JFrame {
 		
 		 
 		JPanel crescent = new JPanel();
+		crescent.setBackground(new Color(36, 32, 36));
 		crescent.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		crescent.setBounds(220, 85, 415, 87);
 		contentPane.add(crescent);
@@ -163,9 +174,10 @@ public class Ordering extends JFrame {
 		/**
 		 * Crescent Customization
 		 */
-		JLabel lblDough = new JLabel("Dough");
-		lblDough.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblDough.setBounds(10, 9, 49, 14);
+		JLabel lblDough = new JLabel("D o u g h");
+		lblDough.setForeground(new Color(221, 221, 221));
+		lblDough.setFont(new Font("Arial", Font.BOLD, 18));
+		lblDough.setBounds(10, 9, 395, 22);
 		crescent.add(lblDough);
 		lblDough.setHorizontalAlignment(SwingConstants.LEFT);
 		
@@ -188,6 +200,7 @@ public class Ordering extends JFrame {
 		ButtonGroup rbtnCrescent = toBtnGroup(doughs);
 		
 		JPanel sauces = new JPanel();
+		sauces.setBackground(new Color(36, 32, 36));
 		sauces.setLayout(null);
 		sauces.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		sauces.setBounds(220, 172, 415, 87);
@@ -197,10 +210,11 @@ public class Ordering extends JFrame {
 		 * Sauce Customization
 		 */
 		
-		JLabel lblSauce = new JLabel("Sauce");
-		lblSauce.setFont(new Font("Tahoma", Font.BOLD, 11));
+		JLabel lblSauce = new JLabel("S a u c e");
+		lblSauce.setForeground(new Color(221, 221, 221));
+		lblSauce.setFont(new Font("Arial", Font.BOLD, 18));
 		lblSauce.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSauce.setBounds(10, 10, 44, 14);
+		lblSauce.setBounds(10, 10, 395, 22);
 		sauces.add(lblSauce);
 		
 		
@@ -219,6 +233,7 @@ public class Ordering extends JFrame {
 		}
 		
 		JPanel toppings = new JPanel();
+		toppings.setBackground(new Color(36, 32, 36));
 		toppings.setLayout(null);
 		toppings.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		toppings.setBounds(220, 259, 415, 274);
@@ -228,10 +243,11 @@ public class Ordering extends JFrame {
 		 * Topping Customization
 		 */
 
-		JLabel lblToppings = new JLabel("Topping");
-		lblToppings.setFont(new Font("Tahoma", Font.BOLD, 11));
+		JLabel lblToppings = new JLabel("T o p p i n g s");
+		lblToppings.setForeground(new Color(221, 221, 221));
+		lblToppings.setFont(new Font("Arial", Font.BOLD, 18));
 		lblToppings.setHorizontalAlignment(SwingConstants.LEFT);
-		lblToppings.setBounds(12, 11, 51, 14);
+		lblToppings.setBounds(12, 11, 393, 22);
 		toppings.add(lblToppings);
 	
 	
@@ -248,14 +264,16 @@ public class Ordering extends JFrame {
 		 */
 		
 		JPanel sauces_1 = new JPanel();
+		sauces_1.setBackground(new Color(36, 32, 36));
 		sauces_1.setLayout(null);
 		sauces_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		sauces_1.setBounds(220, 532, 415, 80);
 		contentPane.add(sauces_1);
 		
-		JLabel lblSpecialInstructions = new JLabel("Special Instructions");
+		JLabel lblSpecialInstructions = new JLabel("S p e c i a l    I n s t r u c t i o n s");
+		lblSpecialInstructions.setForeground(new Color(221, 221, 221));
 		lblSpecialInstructions.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSpecialInstructions.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblSpecialInstructions.setFont(new Font("Arial Black", Font.BOLD, 11));
 		lblSpecialInstructions.setBounds(10, 5, 268, 14);
 		sauces_1.add(lblSpecialInstructions);
 		
@@ -270,6 +288,8 @@ public class Ordering extends JFrame {
 		textInstructions.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(36, 32, 36));
+		panel_1.setForeground(new Color(36, 32, 36));
 		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		panel_1.setBounds(220, 612, 415, 43);
 		contentPane.add(panel_1);
@@ -278,6 +298,7 @@ public class Ordering extends JFrame {
 
 		
 		JButton btnClear = new JButton("Clear");
+		btnClear.setBackground(new Color(255, 255, 255));
 		btnClear.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		panel_1.add(btnClear);
 		
@@ -300,26 +321,43 @@ public class Ordering extends JFrame {
 		 */
 		
 		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBackground(new Color(255, 255, 255));
 		panel_1.add(btnSubmit);
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(36, 32, 36));
+		panel_2.setForeground(new Color(1, 10, 19));
 		panel_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		panel_2.setBounds(-1, 0, 220, 43);
 		contentPane.add(panel_2);
 		panel_2.setLayout(null);
 		
-		JLabel lblWelcome = new JLabel("Welcome Back");
-		lblWelcome.setBounds(69, 9, 82, 14);
-		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
-		lblWelcome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		panel_2.add(lblWelcome);
-		
 		JLabel lblcurrUsername = new JLabel(Main.currUsername);
-		lblcurrUsername.setBounds(10, 22, 200, 14);
-		lblcurrUsername.setHorizontalAlignment(SwingConstants.CENTER);
-		lblcurrUsername.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblcurrUsername.setForeground(new Color(243, 244, 245));
+		lblcurrUsername.setBounds(17, 0, 193, 21);
+		lblcurrUsername.setHorizontalAlignment(SwingConstants.LEFT);
+		lblcurrUsername.setFont(new Font("Tahoma", Font.BOLD, 14));
 		panel_2.add(lblcurrUsername);
+		
+		JLabel lblLogOut = new JLabel("L O G   O U T");
+		lblLogOut.setForeground(new Color(221, 221, 221));
+		lblLogOut.setFont(new Font("Tahoma", Font.BOLD, 9));
+		lblLogOut.setBounds(10, 29, 64, 11);
+		panel_2.add(lblLogOut);
+		
+		lblLogOut.addMouseListener(new MouseAdapter()  
+		{  
+		    public void mouseClicked(MouseEvent e)  
+		    {  
+		       // you can open a new frame here as
+		       // i have assumed you have declared "frame" as instance variable
+		    
+		       Main frame = new Main();
+		       frame.setVisible(true);
+		       dispose();
+		    }  
+		}); 
 		
 		// Admin 
 
@@ -469,6 +507,32 @@ public class Ordering extends JFrame {
 		lblError.setBackground(new Color(255, 255, 255));
 		lblError.setBounds(20, 587, 177, 14);
 		pizza.add(lblError);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_4.setBounds(0, 612, 635, 42);
+		pizza.add(panel_4);
+		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(36, 32, 36));
+		panel_5.setForeground(new Color(36, 32, 36));
+		panel_5.setBounds(260, 666, 114, 19);
+		contentPane.add(panel_5);
+		panel_5.setLayout(null);
+		
+		JLabel lblByte = new JLabel("BYTE");
+		lblByte.setBounds(0, 0, 59, 19);
+		panel_5.add(lblByte);
+		lblByte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblByte.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblByte.setForeground(new Color(243, 244, 245));
+		
+		JLabel lblSized = new JLabel("SIZED");
+		lblSized.setBounds(55, 0, 59, 19);
+		panel_5.add(lblSized);
+		lblSized.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSized.setForeground(new Color(227, 2, 32));
+		lblSized.setFont(new Font("Arial", Font.BOLD, 18));
 				
 		btnCoupon.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {

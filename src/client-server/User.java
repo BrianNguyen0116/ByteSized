@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 //import org
 import java.io.IOException;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -28,6 +29,9 @@ public class User {
 		this.password = password;
 		this.role = "user";
 		this.loggedin = false;
+	}
+
+	public User() {
 	}
 
 	public User Signup(){
@@ -68,8 +72,15 @@ public class User {
 		// continue if user does not exist
 		jsonObject.add(this.toJsonObject());
 		jsonText = Jsoner.serialize(jsonObject);
+<<<<<<< HEAD
 		File myObj = new File("users.json"); 
 		myObj.delete();
+=======
+		
+		File myObj = new File("users.json"); 
+		myObj.delete();
+		
+>>>>>>> 02e1ff81edf64c4d418ad68c04ea353bf39c7722
 		try{
 			Files.write(Paths.get("users.json"), jsonText.getBytes(), StandardOpenOption.CREATE);
 		} catch (IOException e){

@@ -22,7 +22,6 @@ import javax.swing.JTextField;
 public class Main extends JFrame {
 	
 	private JPanel contentPane;
-	private JTextField txtLogIn;
 	private JTextField textUsername;
 	private JTextField textPassword;
 	private JButton btnLogIn;
@@ -33,6 +32,9 @@ public class Main extends JFrame {
 	private JLabel lblAccountError;
 	
 	public static String currUsername;
+	private JPanel panel_1;
+	private JLabel lblByte;
+	private JLabel lblSized;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -49,6 +51,7 @@ public class Main extends JFrame {
 	
 	public Main() {
 		setTitle("Byte Sized");
+		getContentPane().setBackground(new Color(39, 35, 39));
 		setForeground(new Color(238, 238, 238));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,41 +62,34 @@ public class Main extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(36, 32, 36));
+		panel.setForeground(new Color(36, 32, 36));
 		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		panel.setBounds(10, 10, 498, 287);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		// Log In
-		txtLogIn = new JTextField();
-		txtLogIn.setBounds(139, 30, 220, 30);
-		txtLogIn.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(txtLogIn);
-		txtLogIn.setEditable(false);
-		txtLogIn.setHighlighter(null);
-		txtLogIn.setText("Log In");
-		txtLogIn.setOpaque(false);
-		txtLogIn.setBorder(BorderFactory.createEmptyBorder());
-		txtLogIn.setFont(new Font("Arial", Font.BOLD, 25));
-		txtLogIn.setColumns(10);
-		
 		// Text Labels and Fields
 		textUsername = new HintText("Username");
-		textUsername.setBounds(193, 116, 293, 20);
+		textUsername.setBounds(205, 114, 192, 20);
 		panel.add(textUsername);
 		textUsername.setColumns(10);
 		
 		lblUsername = new JLabel("Username");
-		lblUsername.setBounds(38, 119, 62, 14);
+		lblUsername.setForeground(new Color(221, 221, 221));
+		lblUsername.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblUsername.setBounds(107, 117, 62, 14);
 		panel.add(lblUsername);
 		
 		textPassword = new HintText("Password");;
 		textPassword.setColumns(10);
-		textPassword.setBounds(193, 147, 293, 20);
+		textPassword.setBounds(205, 145, 192, 20);
 		panel.add(textPassword);
 		
 		lblPassword = new JLabel("Password");
-		lblPassword.setBounds(38, 150, 62, 14);
+		lblPassword.setForeground(new Color(221, 221, 221));
+		lblPassword.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblPassword.setBounds(107, 148, 62, 14);
 		panel.add(lblPassword);
 		
 		lblAccountError = new JLabel("");
@@ -107,7 +103,9 @@ public class Main extends JFrame {
 		// Registration
 	
 		lblRegister = new JLabel("Create an Account");
-		lblRegister.setBounds(38, 203, 123, 14);
+		lblRegister.setForeground(new Color(221, 221, 221));
+		lblRegister.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblRegister.setBounds(107, 201, 123, 14);
 		panel.add(lblRegister);
 		
 		lblRegister.addMouseListener(new MouseAdapter()  
@@ -130,14 +128,37 @@ public class Main extends JFrame {
 		
 		// Submit Button
 		
-		btnLogIn = new JButton("Submit");
-		btnLogIn.setBounds(257, 199, 89, 23);
+		btnLogIn = new JButton("Log In");
+		btnLogIn.setBounds(308, 197, 89, 23);
 		panel.add(btnLogIn);
 		
+		panel_1 = new JPanel();
+		panel_1.setBorder(null);
+		panel_1.setLayout(null);
+		panel_1.setForeground(new Color(36, 32, 36));
+		panel_1.setBackground(new Color(36, 32, 36));
+		panel_1.setBounds(140, 22, 233, 62);
+		panel.add(panel_1);
+		
+		lblByte = new JLabel("BYTE");
+		lblByte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblByte.setForeground(new Color(243, 244, 245));
+		lblByte.setFont(new Font("Arial", Font.PLAIN, 30));
+		lblByte.setBounds(10, 11, 110, 45);
+		panel_1.add(lblByte);
+		
+		lblSized = new JLabel("SIZED");
+		lblSized.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSized.setForeground(new Color(227, 2, 32));
+		lblSized.setFont(new Font("Arial", Font.BOLD, 30));
+		lblSized.setBounds(101, 11, 110, 45);
+		panel_1.add(lblSized);
+		
+				
 		btnLogIn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
 				
-				int usrFlag = 0, pasFlag = 0, exist = 0;
+				int usrFlag = 0, pasFlag = 0;
 				
 				if (usrFlag == 0) {textUsername.setBorder(BorderFactory.createLineBorder(Color.gray));}
 				if (pasFlag == 0) {textPassword.setBorder(BorderFactory.createLineBorder(Color.gray));}
@@ -152,41 +173,32 @@ public class Main extends JFrame {
 					pasFlag = 1;
 				}
 				
-				if (usrFlag == 0 && pasFlag == 0) {
-				// Code needed to cross check with account DB (exist boolean)
-					if (textUsername.getText().equals("test") && textPassword.getText().equals("test")) {
-						currUsername = textUsername.getText();
-						//exist = 1;
-						
-						///*
-						Ordering frame = new Ordering();
-						frame.setVisible(true);
-						dispose();						
-						//*/
-					} else if (textUsername.getText().equals("admin") && textPassword.getText().equals("nimda")) {
-						currUsername = textUsername.getText();
-						//exist = 1;
-						///*
-						inventoryDisplay frame = new inventoryDisplay("hello");
-						frame.setVisible(true);
-						dispose();
-						//*/
-					} else {
-						lblAccountError.setText("The username or password you entered is incorrect.");
-					}
-				} 
 				
-				/*
-				if (exist == 1) {
-					Ordering frame = new Ordering();
-					frame.setVisible(true);
-					dispose();
-				}*/
-			}	
-		});
-		
+				
+				if (usrFlag == 0 && pasFlag == 0) {
+					User user = new User(textUsername.getText(), textPassword.getText());
+					User loged = user.Login();
+
+					if (loged == null) {
+						lblAccountError.setText("The username or password you entered is incorrect.");
+					} else {
+						if (user.getRole() == "user") {
+							currUsername = textUsername.getText();
+							Ordering frame = new Ordering();
+							frame.setVisible(true);
+							dispose();						
+						} else if (user.getRole() == "admin") {
+							currUsername = textUsername.getText();
+							inventoryDisplay frame = new inventoryDisplay("hello");
+							frame.setVisible(true);
+							dispose();
+							}
+						} 
+					}	
+				}
+			});
+		}
 	}
-}
 
 	
 
