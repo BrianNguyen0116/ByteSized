@@ -175,6 +175,28 @@ public class inventoryDisplay extends JFrame{
 		discounttab.setBounds(534, 3, 112, 23);
 		tabs.add(discounttab);
 		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_5.setLayout(null);
+		panel_5.setForeground(new Color(36, 32, 36));
+		panel_5.setBackground(new Color(36, 32, 36));
+		panel_5.setBounds(292, 5, 114, 19);
+		contentPane.add(panel_5);
+		
+		JLabel lblByte = new JLabel("BYTE");
+		lblByte.setHorizontalAlignment(SwingConstants.CENTER);
+		lblByte.setForeground(new Color(243, 244, 245));
+		lblByte.setFont(new Font("Arial", Font.PLAIN, 18));
+		lblByte.setBounds(0, 0, 59, 19);
+		panel_5.add(lblByte);
+		
+		JLabel lblSized = new JLabel("SIZED");
+		lblSized.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSized.setForeground(new Color(227, 2, 32));
+		lblSized.setFont(new Font("Arial", Font.BOLD, 18));
+		lblSized.setBounds(55, 0, 59, 19);
+		panel_5.add(lblSized);
+		
 		discounttab.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				contents.removeAll();
