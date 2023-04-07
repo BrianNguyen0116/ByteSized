@@ -1,5 +1,5 @@
 
-public class Discount {
+public class Discount implements Serializable{
 	
 	String name;
 	int percent;
