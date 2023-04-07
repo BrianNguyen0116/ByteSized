@@ -35,6 +35,7 @@ public class inventoryDisplay extends JFrame{
 		setBounds(100, 100, 714, 558);
 	
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(62, 55, 62));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -45,6 +46,7 @@ public class inventoryDisplay extends JFrame{
 		 */
 		
 		JPanel contents = new JPanel();
+		contents.setBackground(new Color(36, 32, 36));
 		contents.setLayout(null);
 		contents.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		contents.setBounds(25, 53, 651, 450);
@@ -55,6 +57,7 @@ public class inventoryDisplay extends JFrame{
 		 */
 		
 		JPanel tabs = new JPanel();
+		tabs.setBackground(new Color(36, 32, 36));
 		tabs.setLayout(null);
 		tabs.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
 		tabs.setBounds(25, 25, 651, 27);
@@ -68,8 +71,10 @@ public class inventoryDisplay extends JFrame{
 		Font text = new Font("Tahoma", Font.PLAIN, 11);
 		
 		JButton accounttab = new JButton("Accounts");
+		accounttab.setForeground(new Color(221, 221, 221));
+		accounttab.setBackground(new Color(36, 32, 36));
 		accounttab.setFont(text);
-		accounttab.setBounds(0, 2, 80, 23);
+		accounttab.setBounds(5, 3, 80, 23);
 		tabs.add(accounttab);
 		
 		accounttab.addActionListener(new ActionListener() {
@@ -82,8 +87,10 @@ public class inventoryDisplay extends JFrame{
 		});
 		
 		JButton ordertab = new JButton("Orders");
+		ordertab.setForeground(new Color(221, 221, 221));
+		ordertab.setBackground(new Color(36, 32, 36));
 		ordertab.setFont(text);
-		ordertab.setBounds(85, 2, 80, 23);
+		ordertab.setBounds(90, 3, 80, 23);
 		tabs.add(ordertab);
 		
 		ordertab.addActionListener(new ActionListener() {
@@ -96,8 +103,10 @@ public class inventoryDisplay extends JFrame{
 		});
 		
 		JButton toppingtab = new JButton("Toppings");
+		toppingtab.setForeground(new Color(221, 221, 221));
+		toppingtab.setBackground(new Color(36, 32, 36));
 		toppingtab.setFont(text);
-		toppingtab.setBounds(170, 2, 80, 23);
+		toppingtab.setBounds(175, 3, 80, 23);
 		tabs.add(toppingtab);
 		
 		toppingtab.addActionListener(new ActionListener() {
@@ -111,8 +120,10 @@ public class inventoryDisplay extends JFrame{
 		
 		
 		JButton doughtab = new JButton("Doughs");
+		doughtab.setForeground(new Color(221, 221, 221));
+		doughtab.setBackground(new Color(36, 32, 36));
 		doughtab.setFont(text);
-		doughtab.setBounds(255, 2, 80, 23);
+		doughtab.setBounds(260, 3, 80, 23);
 		tabs.add(doughtab);
 		
 		doughtab.addActionListener(new ActionListener() {
@@ -126,8 +137,10 @@ public class inventoryDisplay extends JFrame{
 		
 		
 		JButton saucetab = new JButton("Sauces");
+		saucetab.setForeground(new Color(221, 221, 221));
+		saucetab.setBackground(new Color(36, 32, 36));
 		saucetab.setFont(text);
-		saucetab.setBounds(340, 2, 80, 23);
+		saucetab.setBounds(345, 3, 80, 23);
 		tabs.add(saucetab);
 		
 		saucetab.addActionListener(new ActionListener() {
@@ -140,8 +153,10 @@ public class inventoryDisplay extends JFrame{
 		});
 		
 		JButton itemtab = new JButton("Shop Items");
+		itemtab.setForeground(new Color(221, 221, 221));
+		itemtab.setBackground(new Color(36, 32, 36));
 		itemtab.setFont(text);
-		itemtab.setBounds(425, 2, 100, 23);
+		itemtab.setBounds(430, 3, 100, 23);
 		tabs.add(itemtab);
 		
 		itemtab.addActionListener(new ActionListener() {
@@ -154,8 +169,10 @@ public class inventoryDisplay extends JFrame{
 		});
 		
 		JButton discounttab = new JButton("Discounts");
+		discounttab.setForeground(new Color(221, 221, 221));
+		discounttab.setBackground(new Color(36, 32, 36));
 		discounttab.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		discounttab.setBounds(529, 2, 112, 23);
+		discounttab.setBounds(534, 3, 112, 23);
 		tabs.add(discounttab);
 		
 		discounttab.addActionListener(new ActionListener() {

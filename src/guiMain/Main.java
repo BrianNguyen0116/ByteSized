@@ -129,6 +129,9 @@ public class Main extends JFrame {
 		// Submit Button
 		
 		btnLogIn = new JButton("Log In");
+		btnLogIn.setFont(new Font("Arial", Font.PLAIN, 11));
+		btnLogIn.setForeground(new Color(221, 221, 221));
+		btnLogIn.setBackground(new Color(36, 32, 36));
 		btnLogIn.setBounds(308, 197, 89, 23);
 		panel.add(btnLogIn);
 		

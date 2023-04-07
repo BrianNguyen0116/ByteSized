@@ -106,6 +106,9 @@ class Registration extends JFrame {
 		// Submit Button
 		
 		btnCreate = new JButton("Create");
+		btnCreate.setFont(new Font("Arial", Font.PLAIN, 11));
+		btnCreate.setForeground(new Color(221, 221, 221));
+		btnCreate.setBackground(new Color(36, 32, 36));
 		btnCreate.setBounds(308, 197, 89, 23);
 		panel.add(btnCreate);
 		
