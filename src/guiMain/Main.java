@@ -118,13 +118,6 @@ public class Main extends JFrame {
 		    }  
 		}); 
 		
-		// Course Detailing
-		
-		lblDetails = new JLabel("EECS3311 T14 @ 2023");
-		lblDetails.setForeground(Color.GRAY);
-		lblDetails.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDetails.setBounds(181, 260, 136, 14);
-		panel.add(lblDetails);
 		
 		// Submit Button
 		
