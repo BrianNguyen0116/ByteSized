@@ -1,15 +1,6 @@
 # Byte-Sized (Pizza)
 A program to help to aid customers with ordering pizza easily from their local pizza joints. Similar to the ordering sites of larger pizza chains, the system will allow for item customization as well as add-ons made available by the store owners.﻿
 
-[Team's Miro Boad (Architecture)](https://miro.com/app/board/uXjVPvnCMpw=/)  
-
-[Byte-Sized Planning Document](https://docs.google.com/document/d/1NvjnRS6mLI4ADugpxcDyfG9nM1XRT__3grf4OTydRmg/edit?usp=sharing)
-
-[Byte-Sized Wiki Documentation](https://docs.google.com/document/d/1_b1s1Ft5pXBrBe-rSGcGHKPQVBaOUsoT0Am2QnS1rNY/edit?usp=sharing)
-
-[Byte-Sized Vision and Stories](https://docs.google.com/document/d/1W-oEt4t9W90aqsoFA27ACIkP6P_MuQZQGx5c72udcR0/edit?usp=sharing)
-
-
 ### Instructions:
 If you're using an IDE, you are able to run the main class that is src/guiMain/Main.java. The dependencies are all covered by the project so there should be no error compiling.
 
@@ -18,6 +9,3 @@ When launching the program, the two examples of accounts available are: [Usernam
 When using coupons, the ones available to test and try are GRANDOPENING and ANNIVERSARY. These coupons have different discount percentages as well as expiration dates to showcase its function.
 
 Using these accounts will allow the user to interact with the ordering GUI.
-
-###### Authors
-Alston Moras, Riley McKinley, Ivan Korpalo, Mustafa Kharnoub, Brian Nguyen
